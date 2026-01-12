@@ -39,7 +39,7 @@ Attaching mmWave sensor (~50mA):
 note: the connection of TX to RX pins. Also, this sensor alone will mean running on batteries is impractical. 
 
 
-Attaching Bosch's BME688 sensor over I2C (requires ~15mA):
+Attaching Bosch's BME690 sensor over I2C (requires ~3.1 mA):
   1. Attach bme688 via Qw/ST(Qwiic/STEMMA QT) connector,
   2. attach pin SDA (pin 4) on Pico to SDA pin on bme688,
   3. attach pin SCL (pin 5) on Pico to SCL pin on bme688,
