@@ -28,7 +28,6 @@ reference: https://www.bosch-sensortec.com/products/environmental-sensors/gas-se
 Runs the sensor for a burn-in period, then uses a
 combination of relative humidity and gas resistance
 to estimate indoor air quality as a percentage.
-
 """
 import time
 from machine import Pin, ADC, UART, Timer, unique_id
@@ -164,9 +163,6 @@ i2c = PimoroniI2C(**PINS_BREAKOUT_GARDEN)
 #devices = i2c.scan()
 #print(devices) 
 # set up BME688 sensor
-#bme = BreakoutBME68X(i2c, address=BME_I2C_ADR) # in case of trouble connecting breakout.
-bme = BreakoutBME69X(i2c)
-bme.configure(FILTER_COEFF_3, STANDBY_TIME_1000_MS, OVERSAMPLING_16X, OVERSAMPLING_2X, OVERSAMPLING_1X)
 
 def mqtt_subscriber(topic, msg):
     print(topic, msg)
@@ -212,9 +208,9 @@ def check_sensors(timer):
         
         if scan_count == 1: # do additional scans, must update
             # read it a few times to allow heater to warm up. some recommends 30 secs. ref. see bosch website.
-            while time.ticks_ms() - start_time < BME_SCAN_DURATION : 
+            while heater=="Unstable" and time.ticks_ms() - start_time < BME_SCAN_DURATION : 
                 # read BME690
-                #temperature, pressure, humidity, voc, status, _, _ = bme.read()
+                #temperature, pressure, humidity, gas_resistance, status, _, _ = bme.read()
                 temperature, pressure, humidity, gas_resistance, status, gas_index, meas_index = bme.read(heater_temp=250, heater_duration=50)
                 #temperature, pressure, humidity, gas_resistance, status, gas_index, meas_index = bme.read()
                 heater = "Stable" if status & STATUS_HEATER_STABLE else "Unstable"
@@ -258,11 +254,15 @@ def check_sensors(timer):
             machine.reset()        
     
 try:
+    #bme = BreakoutBME68X(i2c, address=BME_I2C_ADR) # in case of trouble connecting breakout.
+    bme = BreakoutBME69X(i2c)
+    #bme.configure(FILTER_COEFF_3, STANDBY_TIME_1000_MS, OVERSAMPLING_16X, OVERSAMPLING_2X, OVERSAMPLING_1X)
+
     # set up wifi
     network_manager = NetworkManager(WIFI_REGION, status_handler=status_handler)
     # connect to wifi
     uasyncio.get_event_loop().run_until_complete(network_manager.client(WIFI_SID, WIFI_PSK))
-    
+
     # Initialize Timer 0
     timer = machine.Timer()
     # Set the timer to periodic mode with a period of nx1000 milliseconds and attach the callback function
@@ -276,6 +276,7 @@ except Exception as e:
     sos(10)
     time.sleep(3)
     machine.reset()
+    
 except KeyboardInterrupt:
     timer.deinit()
     print("Timer stopped.")
