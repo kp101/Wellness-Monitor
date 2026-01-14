@@ -21,17 +21,13 @@ Hardware dependencies:
 
     Adafruit ESP32 Feather v2 HUZZAH32/8 MB Flash and 2 MB PSRAM/STEMMA QT,
     HMMD mmWave Sensor refer:https://www.waveshare.com/wiki/HMMD_mmWave_Sensor,
-    BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: [https://shop.pimoroni.com/products/bme690-breakout?variant=55129358467451]
+    BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779,
     a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
 
 Software dependencies:
 
-    Pimoroni Pico Plus 2W compiled by Pimoroni with added libraries. refer: https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1
-    umqtt.simple (a tested and modified copy provided for convenience and consistency),
-    network_manager (a tested copy provided for convenience and consistency),
-    yaml (a tested copy provided for convenience and consistency),
-    robust (a tested copy provided for convenience and consistency),
-
+    Arduino IDE
+    
 Attaching mmWave sensor (~50mA):
 
     TX pin 26 on Pico is attached to RX pin on mmWave sensor,
