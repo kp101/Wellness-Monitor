@@ -1,10 +1,11 @@
 The goal of this project is to implement a collection of IoT devices around the house for remote monitoring of seniors aging in place or children returning from school. This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts.
 
 The strategy here is the use of MQTT as a central broker for reporting. We are reporting:
-  1. the occupants' movement from room to room (we assume a senior moving from room to room is okay),
-  2. the temperature, pressure, humidity of each room,
-  3. alerting the hearing impaired with blinking led if the doorbell message is receive,
-  4. more to come...
+  1. the occupants' movement from room to room (we assume a senior moving from room to room is doing okay),
+  2. the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements),
+  3. additional mods can publish temperature, pressure, humidity and voc to separate feeds and generate graphs in the cloud in order to monitor trends and comfort level, 
+  4. alerting the hearing impaired with blinking led if the doorbell message is receive,
+  5. more to come...
 
 Minimal requirements: 
   1. Adafruit IO account (not neccesary but sufficient. You can use other MQTT brokers),
