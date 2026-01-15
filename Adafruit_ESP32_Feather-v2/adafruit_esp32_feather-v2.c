@@ -555,8 +555,10 @@ void loop() {
   // Get the current time
   time(&start_time);
   do {
-    // this is our 'wait for incoming subscription packets and callback em' busy subloop
-    // try to spend your time here:
+    // in between getting sensor data,...
+    // wait for incoming subscription packets and trigger callback subloop.
+    // testing found 10,000ms or 20,000 to be reliably return, larger values have unpredictable wait times.
+    // this is a blocking wait.
     Serial.println("processing packets...");
     mqtt.processPackets(20000);
     Serial.println("dones...");
@@ -579,7 +581,9 @@ void loop() {
   delay(500);
   if (reboot_countdown <= 0)
     ESP.restart();
-  /*
+  
+  // not using deep/light sleep in this app.
+  /* 
   else {
     deepSleep();
   //lightSleep();
