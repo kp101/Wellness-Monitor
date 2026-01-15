@@ -414,6 +414,7 @@ void enableInternalPower() {
 #endif
 }
 
+// disabling power affects the bme690 sensor even if it was turned back on subsequently.
 void disableInternalPower() {
 #if defined(NEOPIXEL_POWER)
   pinMode(NEOPIXEL_POWER, OUTPUT);
