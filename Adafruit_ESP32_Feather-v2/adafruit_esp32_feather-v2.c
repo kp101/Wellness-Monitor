@@ -233,6 +233,7 @@ void initmmWave(void) {
   sendHexData(hex_to_send);
 }
 
+/* flashes the the buildin led in mose code as visual indicator fault was detected. */
 void sos(int repeat) {
   int i=0, j=0;
 
@@ -388,7 +389,7 @@ float check_battery() {
 // Neopixel 
 void LEDon() {
 #if defined(PIN_NEOPIXEL)
-  //pixel.begin(); // INITIALIZE NeoPixel
+  //pixel.begin(); // INITIALIZE NeoPixel should be done in setup, failed to work here in testing.
   //pixel.setBrightness(20); // not so bright
   //pixel.setPixelColor(0, 0xFF0000); // red
   //pixel.setPixelColor(0, pixel.Color(0,255,0)); // green
