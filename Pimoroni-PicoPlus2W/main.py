@@ -223,7 +223,7 @@ def check_sensors(timer):
                     payload["value"]["temp"] = corrected_temperature
                     payload["value"]["pres"] = pressure / 1000          
                     payload["value"]["humd"] = corrected_humidity
-                    payload["value"]["voc"]  = gas_resistance / 100 
+                    payload["value"]["voc"]  = gas_resistance 
                 else:
                     print("waiting for bme69x to stablize...") # heater element 
                 time.sleep(1.0)
