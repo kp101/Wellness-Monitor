@@ -1,0 +1,146 @@
+[
+    {
+        "id": "c1df9bbd1c6845fe",
+        "type": "tab",
+        "label": "remote IoT status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9ef30e7932c40cc3",
+        "type": "debug",
+        "z": "c1df9bbd1c6845fe",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a33967abb5305821",
+        "type": "catch",
+        "z": "c1df9bbd1c6845fe",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "9ef30e7932c40cc3"
+            ]
+        ]
+    },
+    {
+        "id": "c6e377dc78e30de6",
+        "type": "http in",
+        "z": "c1df9bbd1c6845fe",
+        "name": "iot log",
+        "url": "/iot",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 70,
+        "y": 80,
+        "wires": [
+            [
+                "cea37aaead7209ec",
+                "6675b3bfa70167b2"
+            ]
+        ]
+    },
+    {
+        "id": "cea37aaead7209ec",
+        "type": "http response",
+        "z": "c1df9bbd1c6845fe",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 220,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6675b3bfa70167b2",
+        "type": "function",
+        "z": "c1df9bbd1c6845fe",
+        "name": "map",
+        "func": "let d = new Date();\nlet rec = {\n    fields: {\n        temperature: 0.0,\n        throttled: 0.0,\n        voltage: 0.0,\n        memfree: 0.0,\n        cacheuse: 0.0,\n        memuse: 0.0,\n        diskspace: 0.0,\n        diskused: 0.0,\n        diskavail: 0.0,\n        bootspace: 0.0,\n        bootused: 0.0,\n        bootavail: 0.0,\n        timestamp: d.valueOf(),\n    },\n    tags: {\n        station: \"\",\n        device: \"\",\n    }\n};\n// hardware status\nif (Object.keys(msg.payload).includes('temp')) \n    rec.fields.temperature = parseFloat(msg.payload.temp.replace(\"'C\", \"\"));\nif (Object.keys(msg.payload).includes('throttled'))\n    rec.fields.throttled = parseInt(msg.payload.throttled);\nif (Object.keys(msg.payload).includes('volt'))\n    rec.fields.voltage = parseFloat(msg.payload.volt.replace(\"V\",\"\"));\n// memory\nif (Object.keys(msg.payload).includes('memfree'))\n    rec.fields.memfree = parseFloat(msg.payload.memfree.replace(\"M\", \"\"));\nif (Object.keys(msg.payload).includes('memuse'))\n    rec.fields.memuse = parseFloat(msg.payload.memuse.replace(\"M\", \"\"));\nif (Object.keys(msg.payload).includes('cacheuse'))\n    rec.fields.cacheuse = parseFloat(msg.payload.cacheuse.replace(\"M\", \"\"));\n// disk space\nif (Object.keys(msg.payload).includes('diskspace'))\n    rec.fields.diskspace = parseFloat(msg.payload.diskspace.replace(\"G\", \"\"));\nif (Object.keys(msg.payload).includes('diskused'))\n    rec.fields.diskused = parseFloat(msg.payload.diskused.replace(\"G\", \"\"));\nif (Object.keys(msg.payload).includes('diskavail'))\n    rec.fields.diskavail = parseFloat(msg.payload.diskavail.replace(\"G\", \"\"));\n// boot space\nif (Object.keys(msg.payload).includes('bootspace'))\n    rec.fields.bootspace = parseFloat(msg.payload.bootspace.replace(\"G\", \"\"));\nif (Object.keys(msg.payload).includes('bootused'))\n    rec.fields.bootused = parseFloat(msg.payload.bootused.replace(\"G\", \"\"));\nif (Object.keys(msg.payload).includes('bootavail'))\n    rec.fields.bootavail = parseFloat(msg.payload.bootavail.replace(\"G\", \"\"));\n// identification\nif (Object.keys(msg.payload).includes('device'))\n    rec.tags.device = msg.payload.device;\nif (Object.keys(msg.payload).includes('station'))\n    rec.tags.station = msg.payload.station;\n\nmsg.payload = rec;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "f732263eb1711a22"
+            ]
+        ]
+    },
+    {
+        "id": "f732263eb1711a22",
+        "type": "delay",
+        "z": "c1df9bbd1c6845fe",
+        "name": "delay",
+        "pauseType": "random",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "3",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "5f79221f4e011db1"
+            ]
+        ]
+    },
+    {
+        "id": "5f79221f4e011db1",
+        "type": "influxdb3-write",
+        "z": "c1df9bbd1c6845fe",
+        "influxdb": "eee6a922846b7690",
+        "name": "",
+        "measurement": "sensors",
+        "database": "",
+        "x": 520,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eee6a922846b7690",
+        "type": "influxdb3-config",
+        "name": "influxdb-homedb",
+        "host": "http://192.168.7.17:8181",
+        "database": "homedb"
+    },
+    {
+        "id": "4c4485cb022b3762",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb3": "1.0.3"
+        }
+    }
+]
