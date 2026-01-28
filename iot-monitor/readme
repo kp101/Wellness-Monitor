@@ -8,5 +8,5 @@ The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should wor
 On the server side, the server stack is the node-red/influxdb3/grafana.  The iot-flows.json the flow in node-red for receiving the client data. 
 It will make map it into the sensors table with fields/tags, change this to your own preference.
 
-![alt text](http://url/to/img.png)
+![alt text](iot-monitor/images/grafana-kitchenpi_2026-01-28_14-26-17.png)
 
