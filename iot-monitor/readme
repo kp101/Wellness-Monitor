@@ -2,7 +2,7 @@ This is a set of routines (client/server) to collect iot status as data point fo
 
 The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should work but not tested. 
   - The client shell script is in BASH syntax and can be place anywhere in user home directory. 
-  - It should be scheduled via crontab -e on a periodic basis for execution. No root privileages are required.
+  - It should be scheduled via crontab -e on a periodic basis for execution. No root privileages are required. Be sure to enter the final location of your script.
   - The script will gather data points and do a 'http get' to report on the server of your choice. Please edit the script to replace the server address.
 
 On the server side, the server stack is the node-red/influxdb3/grafana.  The iot-flows.json the flow in node-red for receiving the client data. 
