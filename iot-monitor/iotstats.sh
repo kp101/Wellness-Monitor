@@ -31,6 +31,8 @@ bootspace="bootspace=$(df -H | awk -F' ' '/dev\/mmcblk0p1/ {print $2}')"
 bootused="bootused=$(df -H | awk -F' ' '/dev\/mmcblk0p1/ {print $3}')"
 bootavail="bootavail=$(df -H | awk -F' ' '/dev\/mmcblk0p1/ {print $4}')"
 ##
+## more can be added below using awk to extract data points.
+##
 ## The following echos are for debugging purposes and can be removed.
 echo "$temp"
 echo "$throttled"
