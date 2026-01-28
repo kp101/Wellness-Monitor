@@ -1,0 +1,1 @@
+This is a set of routines (client/server) to allow for collection of iot status. The IoT clients are Raspberry Pi 2B/3B+/4B/Zero 2W, etc. On the server side, the server app stack is the node-red/influxdb3/grafana. 
