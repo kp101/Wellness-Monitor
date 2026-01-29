@@ -5,14 +5,17 @@ The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should wor
   - It should be scheduled via crontab -e on a periodic basis for execution. No root privileages are required. Be sure to enter the final location of your script.
   - The script will gather data points and do a 'http get' to report on the server of your choice. Please edit the script to replace the server address.
 
-On the server side, the server stack is the node-red/influxdb3/grafana.  The iot-flows.json the flow in node-red for receiving the client data. 
-It will make map it into the sensors table with fields/tags, change this to your own preference.
+On the server side, the server stack is node-red/influxdb3/grafana.  Import iot-flows.json into node-red for receiving the client data. You will have to supply the influxdb3 config.
+It will map it into the sensors table with fields/tags. Change this to your own preference.
 
 In Node-Red, it should look like the following:
 ![grafana dashboard](https://github.com/kp101/Wellness-Monitor/tree/main/iot-monitor/images/nodered-iot_2026-01-28_15-38-30.png)
 
 In Grafana, the dashboard should look like the following.
 ![grafana dashboard](https://github.com/kp101/Wellness-Monitor/tree/main/iot-monitor/images/grafana-kitchenpi_2026-01-28_14-26-17.png)
+
+Import the following Grafana dashboard to generate the graphics above:
+
 
 The memory and throttled history as presented along time so that maintainers can go back in time to see if there are major memory leaks/issues or intermittant throttled due to insufficient voltages.
 
