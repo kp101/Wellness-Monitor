@@ -14,3 +14,5 @@ In Node-Red, it should look like the following:
 In Grafana, the dashboard should look like the following.
 ![grafana dashboard](https://github.com/kp101/Wellness-Monitor/tree/main/iot-monitor/images/grafana-kitchenpi_2026-01-28_14-26-17.png)
 
+The memory and throttled history as presented along time so that maintainers can go back in time to see if there are major memory leaks/issues or intermittant throttled due to insufficient voltages.
+
