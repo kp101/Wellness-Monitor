@@ -21,7 +21,7 @@ memuse="memuse=$(free --mega -L |  awk -F' ' '{print $6}')"
 cacheuse="cacheuse=$(free --mega -L |  awk -F' ' '{print $4}')"
 memfree="memfree=$(free --mega -L |  awk -F' ' '{print $8}')"
 ##
-## find /dev/mmcblk0p1 (boot drive) and /dev/mmcblk0p2 (system drive)
+## sd card /dev/mmcblk0p1 (boot drive) and /dev/mmcblk0p2 (system drive)
 ## alternatively, /dev/sda1 (boot drive) and /dev/sda2 (system drive)
 ##
 diskspace="diskspace=$(df -H | awk -F' ' '/dev\/mmcblk0p2/ {print $2}')"
@@ -30,6 +30,19 @@ diskavail="diskavail=$(df -H | awk -F' ' '/dev\/mmcblk0p2/ {print $4}')"
 bootspace="bootspace=$(df -H | awk -F' ' '/dev\/mmcblk0p1/ {print $2}')"
 bootused="bootused=$(df -H | awk -F' ' '/dev\/mmcblk0p1/ {print $3}')"
 bootavail="bootavail=$(df -H | awk -F' ' '/dev\/mmcblk0p1/ {print $4}')"
+##
+## use mpstat -P ALL to get general stats on cpu
+##
+cpuusr="cpuusr=$(mpstat -P ALL | awk -F' ' '/all/ {print $3}')"
+cpunice="cpunice=$(mpstat -P ALL | awk -F' ' '/all/ {print $4}')"
+cpusys="cpusys=$(mpstat -P ALL | awk -F' ' '/all/ {print $5}')"
+cpuiowait="cpuiowait=$(mpstat -P ALL | awk -F' ' '/all/ {print $6}')"
+cpuirq="cpuirq=$(mpstat -P ALL | awk -F' ' '/all/ {print $7}')"
+cpusoft="cpusoft=$(mpstat -P ALL | awk -F' ' '/all/ {print $8}')"
+cpusteal="cpusteal=$(mpstat -P ALL | awk -F' ' '/all/ {print $9}')"
+cpuguest="cpuguest=$(mpstat -P ALL | awk -F' ' '/all/ {print $10}')"
+cpugnice="cpugnice=$(mpstat -P ALL | awk -F' ' '/all/ {print $11}')"
+cpuidle="cpuidle=$(mpstat -P ALL | awk -F' ' '/all/ {print $12}')"
 ##
 ## more can be added below using awk to extract data points.
 ##
@@ -46,7 +59,16 @@ echo "$diskavail"
 echo "$bootspace"
 echo "$bootused"
 echo "$bootavail"
+echo "$cpuusr"
+echo "$cpunice"
+echo "$cpusys"
+echo "$cpuiowait"
+echo "$cpuirq"
+echo "$cpusoft"
+echo "$cpusteal"
+echo "$cpugnice"
+echo "$cpuidle"
 ## 
 ## substitute your server ip address or domain name for data point collected.
 ##
-curl -X GET "http://192.168.1.11:1880/iot?$temp&$throttled&$volts&$memuse&$cacheuse&$memfree&$diskspace&$diskused&$diskavail&$bootspace&$bootused&$bootavail&$dev&$station"
+curl -X GET "http://192.168.1.11:1880/iot?$temp&$throttled&$volts&$memuse&$cacheuse&$memfree&$diskspace&$diskused&$diskavail&$bootspace&$bootused&$bootavail&$cpuusr&$cpunice&$cpusys&$cpuiowait&$cpuirq&$cpusoft&$cpusteal&$cpugnice&$cpuidle&$dev&$station"
