@@ -17,5 +17,5 @@ In Grafana, the dashboard should look like the following.
 Import the following Grafana dashboard to generate the graphics above:
   iot-dashboard.json
 
-The memory and throttled history as presented along time so that maintainers can go back in time to see if there are major memory leaks/issues or intermittant throttled due to insufficient voltages.
+The memory and throttled history were presented along a timeline so that maintainers can go back to see if there are major memory leaks/issues or intermittant throttled due to insufficient voltages.
 
