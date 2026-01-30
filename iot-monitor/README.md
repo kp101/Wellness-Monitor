@@ -13,8 +13,16 @@ It will map into the sensors table with fields/tags. Change this to your own pre
 In Node-Red, it should look like the following:
 ![node-red flow](images/nodered-iot_2026-01-28_15-38-30.png)
 
-In Grafana, the individual panels in the dashboard should look like the following.
-![grafana dashboard](images/grafana-memory_2026-01-30_11-09-14.png)
+In Grafana, the individual panels in the dashboard should look like the following:
+Memory usage over time.
+![grafana memory](images/grafana-memory_2026-01-30_11-09-14.png)
+
+CPU status snapshot 
+![grafana cpu](images/grafana-cpu_2026-01-30_11-07-09.png)
+
+Diskusage snapshot 
+![grafana cpu](images/grafana-diskusage_2026-01-30_11-07-48.png)
+
 
 Import the following Grafana dashboard to generate the graphics above:
   iot-dashboard.json
