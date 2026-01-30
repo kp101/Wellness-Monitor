@@ -11,7 +11,7 @@ On the server side, the server stack is node-red/influxdb3/grafana.  Import iot-
 It will map into the sensors table with fields/tags. Change this to your own preference.
 
 In Node-Red, it should look like the following:
-![node-red flow](https://github.com/kp101/Wellness-Monitor/tree/main/iot-monitor/images/nodered-iot_2026-01-28_15-38-30.png)
+![node-red flow](images/nodered-iot_2026-01-28_15-38-30.png)
 
 In Grafana, the dashboard should look like the following.
 ![grafana dashboard](https://github.com/kp101/Wellness-Monitor/tree/main/iot-monitor/images/grafana-kitchenpi_2026-01-28_14-26-17.png)
