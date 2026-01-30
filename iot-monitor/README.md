@@ -13,8 +13,8 @@ It will map into the sensors table with fields/tags. Change this to your own pre
 In Node-Red, it should look like the following:
 ![node-red flow](images/nodered-iot_2026-01-28_15-38-30.png)
 
-In Grafana, the dashboard should look like the following.
-![grafana dashboard](https://github.com/kp101/Wellness-Monitor/tree/main/iot-monitor/images/grafana-kitchenpi_2026-01-28_14-26-17.png)
+In Grafana, the individual panels in the dashboard should look like the following.
+![grafana dashboard](images/grafana-memory_2026-01-30_11-09-14.png)
 
 Import the following Grafana dashboard to generate the graphics above:
   iot-dashboard.json
