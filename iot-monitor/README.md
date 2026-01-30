@@ -16,6 +16,7 @@ In Node-Red, it should look like the following:
 In Grafana, the exported json is iot-dashboard, the individual panels in the dashboard are shown in the following:
 
 Memory usage over time. 
+
 ![grafana memory](images/grafana-memory_2026-01-30_11-09-14.png)
 
 CPU status snapshot. 
