@@ -15,19 +15,19 @@ In Node-Red, it should look like the following:
 
 In Grafana, the exported json is iot-dashboard, the individual panels in the dashboard are shown in the following:
 
-Memory usage over time. 
+Memory usage over time. It shows the memory used, free and taken by system cache.
 
 ![grafana memory](images/grafana-memory_2026-01-30_11-09-14.png)
 
-CPU status snapshot. 
+CPU status snapshot. These data points are from mpstat.
 
 ![grafana cpu](images/grafana-cpu_2026-01-30_11-07-09.png)
 
-Diskusage snapshot. 
+Diskusage snapshot. This is the used and free diskspace in percentage.
 
 ![grafana cpu](images/grafana-diskusage_2026-01-30_11-07-48.png)
 
-CPU throttling over time.
+CPU throttling over time. 
 
 ![grafana thorttled](images/grafana-throttled_2026-01-30_11-10-48.png)
 
@@ -42,6 +42,6 @@ CPU Voltage over time.
 Import the following Grafana dashboard to generate the graphics above:
   iot-dashboard.json
 
-The memory and throttled history were presented along a timeline so that maintainers can go back to see if there are major memory leaks/issues or intermittant throttled due to insufficient voltages.
-The memory partition is what's used, free and occupied by cache.
+note: The memory and throttled history were presented along a timeline so that maintainers can go back in time to check for memory leaks/issues or intermittant throttled due to insufficient voltages.
+
 
