@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 7,
   "links": [],
   "panels": [
     {
@@ -159,7 +159,7 @@
           "dataset": "iox",
           "editorMode": "builder",
           "format": "table",
-          "rawSql": "SELECT \"memuse\", \"memfree\", \"time\", \"cacheuse\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'kitchenpi' ",
+          "rawSql": "SELECT \"memuse\", \"memfree\", \"time\", \"cacheuse\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'humblepi' ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -217,7 +217,7 @@
                     "fieldSrc": "field",
                     "operator": "equal",
                     "value": [
-                      "kitchenpi"
+                      "humblepi"
                     ],
                     "valueError": [
                       null
@@ -235,7 +235,7 @@
               "id": "9a8a9bab-0123-4456-b89a-b19c055911bf",
               "type": "group"
             },
-            "whereString": "station = 'kitchenpi'"
+            "whereString": "station = 'humblepi'"
           },
           "table": "sensors"
         }
@@ -310,7 +310,7 @@
         "x": 12,
         "y": 0
       },
-      "id": 2,
+      "id": 3,
       "options": {
         "legend": {
           "calcs": [],
@@ -330,7 +330,7 @@
           "dataset": "iox",
           "editorMode": "builder",
           "format": "table",
-          "rawSql": "SELECT \"throttled\", \"time\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'kitchenpi' ",
+          "rawSql": "SELECT \"throttled\", \"time\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'humblepi' ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -364,13 +364,13 @@
             "whereJsonTree": {
               "children1": [
                 {
-                  "id": "abb8babb-4567-489a-bcde-f19bf5dd6f78",
+                  "id": "ab9a8ba9-0123-4456-b89a-b19becc1d993",
                   "properties": {
                     "field": "station",
                     "fieldSrc": "field",
                     "operator": "equal",
                     "value": [
-                      "kitchenpi"
+                      "humblepi"
                     ],
                     "valueError": [
                       null
@@ -385,15 +385,486 @@
                   "type": "rule"
                 }
               ],
-              "id": "b9bb89aa-0123-4456-b89a-b19bf5d96bca",
+              "id": "ba998baa-0123-4456-b89a-b19becb8a0d7",
               "type": "group"
             },
-            "whereString": "station = 'kitchenpi'"
+            "whereString": "station = 'humblepi'"
           },
           "table": "sensors"
         }
       ],
       "title": "cpu throttled",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "df9ewp6gf53i8f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "time"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "usr"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "nice"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "iowait"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "irq"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "soft"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "steal"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "gnice"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "idle"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-RdYlGr"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 7,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "dataset": "iox",
+          "editorMode": "builder",
+          "format": "table",
+          "rawSql": "SELECT \"time\", \"cpuusr\" AS \"usr\", \"cpunice\" AS \"nice\", \"cpusys\" AS \"sys\", \"cpuiowait\" AS \"iowait\", \"cpuirq\" AS \"irq\", \"cpusoft\" AS \"soft\", \"cpusteal\" AS \"steal\", \"cpugnice\" AS \"gnice\", \"cpuidle\" AS \"idle\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND (cpusys > 0 AND \"station\" = 'humblepi') ",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "time",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"usr\"",
+                "parameters": [
+                  {
+                    "name": "cpuusr",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"nice\"",
+                "parameters": [
+                  {
+                    "name": "cpunice",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"sys\"",
+                "parameters": [
+                  {
+                    "name": "cpusys",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"iowait\"",
+                "parameters": [
+                  {
+                    "name": "cpuiowait",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"irq\"",
+                "parameters": [
+                  {
+                    "name": "cpuirq",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"soft\"",
+                "parameters": [
+                  {
+                    "name": "cpusoft",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"steal\"",
+                "parameters": [
+                  {
+                    "name": "cpusteal",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"gnice\"",
+                "parameters": [
+                  {
+                    "name": "cpugnice",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "alias": "\"idle\"",
+                "parameters": [
+                  {
+                    "name": "cpuidle",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "whereJsonTree": {
+              "children1": [
+                {
+                  "id": "98b9a988-0123-4456-b89a-b19c0bbdc32d",
+                  "properties": {
+                    "field": "cpusys",
+                    "fieldSrc": "field",
+                    "operator": "greater",
+                    "value": [
+                      0
+                    ],
+                    "valueError": [
+                      null
+                    ],
+                    "valueSrc": [
+                      "value"
+                    ],
+                    "valueType": [
+                      "number"
+                    ]
+                  },
+                  "type": "rule"
+                },
+                {
+                  "id": "ba999b98-0123-4456-b89a-b19c0cff4bae",
+                  "properties": {
+                    "field": "station",
+                    "fieldSrc": "field",
+                    "operator": "equal",
+                    "value": [
+                      "humblepi"
+                    ],
+                    "valueError": [
+                      null
+                    ],
+                    "valueSrc": [
+                      "value"
+                    ],
+                    "valueType": [
+                      "text"
+                    ]
+                  },
+                  "type": "rule"
+                }
+              ],
+              "id": "b988aab9-0123-4456-b89a-b19c0b2eb6ed",
+              "type": "group"
+            },
+            "whereString": "(cpusys > 0 AND station = 'humblepi')"
+          },
+          "table": "sensors"
+        }
+      ],
+      "title": "cpu",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "df9ewp6gf53i8f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "timestamp"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "dateTimeAsIsoNoDateIfToday"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "dataset": "iox",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "df9ewp6gf53i8f"
+          },
+          "editorMode": "builder",
+          "format": "table",
+          "rawSql": "SELECT \"temperature\", \"time\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'humblepi' ",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "temperature",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "time",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "whereJsonTree": {
+              "children1": [
+                {
+                  "id": "a89aaa99-cdef-4012-b456-719becb9c5eb",
+                  "properties": {
+                    "field": "station",
+                    "fieldSrc": "field",
+                    "operator": "equal",
+                    "value": [
+                      "humblepi"
+                    ],
+                    "valueError": [
+                      null
+                    ],
+                    "valueSrc": [
+                      "value"
+                    ],
+                    "valueType": [
+                      "text"
+                    ]
+                  },
+                  "type": "rule"
+                }
+              ],
+              "id": "ba998baa-0123-4456-b89a-b19becb8a0d7",
+              "type": "group"
+            },
+            "whereString": "station = 'humblepi'"
+          },
+          "table": "sensors"
+        }
+      ],
+      "title": "cpu temperature",
       "type": "timeseries"
     },
     {
@@ -463,7 +934,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 16
       },
       "id": 4,
       "options": {
@@ -497,7 +968,7 @@
           "dataset": "iox",
           "editorMode": "builder",
           "format": "table",
-          "rawSql": "SELECT \"diskavail\", \"diskused\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'kitchenpi' ",
+          "rawSql": "SELECT \"diskavail\", \"diskused\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'humblepi' ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -537,7 +1008,7 @@
                     "fieldSrc": "field",
                     "operator": "equal",
                     "value": [
-                      "kitchenpi"
+                      "humblepi"
                     ],
                     "valueError": [
                       null
@@ -555,7 +1026,7 @@
               "id": "989ba88b-0123-4456-b89a-b19bfd7f34d6",
               "type": "group"
             },
-            "whereString": "station = 'kitchenpi'"
+            "whereString": "station = 'humblepi'"
           },
           "table": "sensors"
         }
@@ -628,166 +1099,9 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 8
-      },
-      "id": 1,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.3.1",
-      "targets": [
-        {
-          "dataset": "iox",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "df9ewp6gf53i8f"
-          },
-          "editorMode": "builder",
-          "format": "table",
-          "rawSql": "SELECT \"temperature\", \"time\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'kitchenpi' ",
-          "refId": "A",
-          "sql": {
-            "columns": [
-              {
-                "parameters": [
-                  {
-                    "name": "temperature",
-                    "type": "functionParameter"
-                  }
-                ],
-                "type": "function"
-              },
-              {
-                "parameters": [
-                  {
-                    "name": "time",
-                    "type": "functionParameter"
-                  }
-                ],
-                "type": "function"
-              }
-            ],
-            "groupBy": [
-              {
-                "property": {
-                  "type": "string"
-                },
-                "type": "groupBy"
-              }
-            ],
-            "whereJsonTree": {
-              "children1": [
-                {
-                  "id": "b88b8b89-0123-4456-b89a-b19bf3500b24",
-                  "properties": {
-                    "field": "station",
-                    "fieldSrc": "field",
-                    "operator": "equal",
-                    "value": [
-                      "kitchenpi"
-                    ],
-                    "valueError": [
-                      null
-                    ],
-                    "valueSrc": [
-                      "value"
-                    ],
-                    "valueType": [
-                      "text"
-                    ]
-                  },
-                  "type": "rule"
-                }
-              ],
-              "id": "bbab8b8b-0123-4456-b89a-b19bf34f8457",
-              "type": "group"
-            },
-            "whereString": "station = 'kitchenpi'"
-          },
-          "table": "sensors"
-        }
-      ],
-      "title": "cpu temperature",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "df9ewp6gf53i8f"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
         "y": 16
       },
-      "id": 3,
+      "id": 2,
       "options": {
         "legend": {
           "calcs": [],
@@ -807,7 +1121,7 @@
           "dataset": "iox",
           "editorMode": "builder",
           "format": "table",
-          "rawSql": "SELECT \"voltage\", \"time\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'kitchenpi' ",
+          "rawSql": "SELECT \"voltage\", \"time\" FROM \"sensors\" WHERE \"time\" >= $__timeFrom AND \"time\" <= $__timeTo AND \"station\" = 'humblepi' ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -841,13 +1155,13 @@
             "whereJsonTree": {
               "children1": [
                 {
-                  "id": "babbaab8-4567-489a-bcde-f19bf5deac18",
+                  "id": "88889ba9-0123-4456-b89a-b19becbfd69a",
                   "properties": {
                     "field": "station",
                     "fieldSrc": "field",
                     "operator": "equal",
                     "value": [
-                      "kitchenpi"
+                      "humblepi"
                     ],
                     "valueError": [
                       null
@@ -862,10 +1176,10 @@
                   "type": "rule"
                 }
               ],
-              "id": "b9bb89aa-0123-4456-b89a-b19bf5d96bca",
+              "id": "ba998baa-0123-4456-b89a-b19becb8a0d7",
               "type": "group"
             },
-            "whereString": "station = 'kitchenpi'"
+            "whereString": "station = 'humblepi'"
           },
           "table": "sensors"
         }
@@ -886,7 +1200,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "kitchenpi",
-  "uid": "ad6hg7n",
-  "version": 17
+  "title": "humblepi",
+  "uid": "adn5zvr",
+  "version": 39
 }
