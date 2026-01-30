@@ -17,10 +17,10 @@ In Grafana, the individual panels in the dashboard should look like the followin
 Memory usage over time.
 ![grafana memory](images/grafana-memory_2026-01-30_11-09-14.png)
 
-CPU status snapshot 
+CPU status snapshot.
 ![grafana cpu](images/grafana-cpu_2026-01-30_11-07-09.png)
 
-Diskusage snapshot 
+Diskusage snapshot.
 ![grafana cpu](images/grafana-diskusage_2026-01-30_11-07-48.png)
 
 
