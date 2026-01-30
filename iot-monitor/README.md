@@ -1,4 +1,4 @@
-This is a set of routines (client/server) to collect iot status as data point for monitoring over time. 
+This is a set of routines (client/server) to collect iot status as data point for monitoring over time. Skill level required is intermediate. Examination and modification of script is necessary to fit local configuration.
 
 The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should work but not tested. Note:
   - dependencies: sudo apt install sysstat to get mpstat. awk, df, free should be already installed;
