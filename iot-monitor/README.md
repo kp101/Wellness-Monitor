@@ -1,5 +1,7 @@
 This is a set of routines (client/server) to collect iot status as data point for monitoring over time. Skill level required is intermediate. Examination and modification of script is necessary to fit local configuration. This set of routine assume a functioning central server with the node-red/influxdb3/grafana stack and one or more Raspbian OS clients. 
 
+Everything here is released under MIT license. 
+
 The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should work but not tested. Note:
   - dependencies: sudo apt install sysstat to get mpstat. awk, df, free should be already installed;
   - permission/privileages: the client shell script runs in user mode, is in BASH syntax and can be place anywhere in user home directory (modify location required);
