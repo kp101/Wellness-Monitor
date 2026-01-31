@@ -2,7 +2,7 @@ The goal of this project is to implement a collection of IoT devices around the 
 
 The strategy here is the use of MQTT as a central broker for reporting. We are reporting:
   1. the occupants' movement from room to room (we assume a senior moving from room to room is doing okay),
-     ![motus](http://url/to/img.png)
+     ![motus](images/adafruitio-motus_2026-01-31_13-34-32.png)
   3. the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements),
   4. additional mods can publish temperature, pressure, humidity and voc to dedicated feeds and generate graphs in the cloud in order to monitor trends and comfort level remotely, 
   5. alerting the hearing impaired with blinking led if the doorbell message is received,
