@@ -3,11 +3,12 @@ The goal of this project is to implement a collection of IoT devices around the 
 The strategy here is the use of MQTT as a central broker for reporting. We are monitoring:
   1. the occupants' movements (we assume a senior moving from room to room is doing okay), the report below shows more than one person's movements:
      ![motus](images/adafruitio-motus_2026-01-31_13-34-32.png)
-  3. the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements):
+  3. the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements) the following is a Grafana reporting compiled from adafruitio:
      ![temperature](images/adafruitio-temp_2026-01-31_13-28-28.png)
-  5. additional mods can publish temperature, pressure, humidity and voc to dedicated feeds and generate graphs in the cloud in order to monitor trends and comfort level remotely, 
-  6. alerting the hearing impaired with blinking led if the doorbell message is received,
-  7. more to come...
+  5. additional mods needed to publish temperature, pressure, humidity and voc to dedicated feeds and generate graphs in the cloud in order to monitor trends and comfort level remotely, e.g.
+     ![temperature](images/adafruitio-temp_2026-01-31_13-28-28.png)
+  7. alerting the hearing impaired with blinking led if the doorbell message is received,
+  8. more to come...
 
 Minimal requirements: 
   1. Adafruit IO account (not neccesary but sufficient. You can use other MQTT brokers),
