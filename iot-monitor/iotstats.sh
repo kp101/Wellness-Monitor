@@ -14,6 +14,7 @@ volts=$(vcgencmd measure_volts)
 ## set the device name url encoded. e.g. %20 is space.
 dev="device=RaspberryPi%203B%2B"
 station="station=kitchen"
+kernel="kernel=$(uname -r)"
 ##
 ## get memory used/free/cache
 ##
@@ -68,6 +69,7 @@ echo "$cpusoft"
 echo "$cpusteal"
 echo "$cpugnice"
 echo "$cpuidle"
+echo "$kernel"
 ## 
 ## substitute your server ip address or domain name for data point collected.
 ##
