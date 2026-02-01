@@ -2,7 +2,7 @@ This is a set of routines (client/server) to collect iot status as data point fo
 
 Everything here is released under MIT license. 
 
-iotstats.sh
+<b>iotstats.sh</b>
 
 The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should work but not tested. Note:
   - dependencies: sudo apt install sysstat to get mpstat. awk, df, free should be already installed;
