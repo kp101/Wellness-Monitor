@@ -11,7 +11,7 @@ The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should wor
   - scheduling: crontab -e on a periodic basis for execution. No root privileages are required. Be sure to enter the final location of your script;
   - The script will gather data points and do a 'http get' to report on the server of your choice. Please edit the script to replace the server domain name/ip/port address;
 
-iot-flows.json
+<b>iot-flows.json</b>
 
 On the server side, the server stack is node-red/influxdb3/grafana.  Import iot-flows.json into node-red for receiving the client data. You will have to supply the influxdb3 config.
 It will map into the sensors table with fields/tags. Change this to your own preference.
@@ -19,7 +19,7 @@ It will map into the sensors table with fields/tags. Change this to your own pre
 In Node-Red, it should look like the following:
 ![node-red flow](images/nodered-iot_2026-01-28_15-38-30.png)
 
-iot-dashboard.json
+<b>iot-dashboard.json</b>
 
 In Grafana, the exported json is iot-dashboard, the individual panels in the dashboard are shown in the following:
 
