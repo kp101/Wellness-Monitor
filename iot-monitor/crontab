@@ -1,5 +1,6 @@
 ##
 ## two daily routine, reboot raspberry pi, notify mqtt broker, one weekly apt update/upgrade to make sure security patches up-to-date.
+## sudo crontab -e is necessary to activate the following in privileaged mode.
 ##
 @reboot sleep 60 && /bin/curl -F "value=kitchen is awake" -H "X-AIO-Key: <ADAFRUIT_AIO_KEY>" https://io.adafruit.com/api/v2/<ADAFRUIT_AIO_USERNAME>/feeds/<KEY>/data
 # m h  dom mon dow   command
