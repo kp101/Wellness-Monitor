@@ -10,7 +10,9 @@ Everything here is released under MIT license.
 
 <b>iotstats.sh</b>
 
-The IoT clients are tested for Raspberry Pi 2B/3B+/4B/Zero 2W. Others should work but not tested. Note:
+This IoT client script was tested on Raspberry Pi 2B/3B+/4B/Zero 2W. Others should work but not tested. 
+
+Note:
   - dependencies: sudo apt install sysstat to get mpstat. awk, df, free should be already installed;
   - permission/privileages: the client shell script runs in user mode, is in BASH syntax and can be place anywhere in user home directory (modify location required);
   - this script assumes a boot and system partition as created by the RaspberryPi Foundation Partition Application. For other setup such as usb drive or ssd memory, modifications are required;
