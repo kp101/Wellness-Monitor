@@ -50,6 +50,9 @@ CPU Voltage over time.
 Import the following Grafana dashboard to generate the graphics above:
   iot-dashboard.json
 
+<b>crontab</b>
+The extra crontab documents the daily and weekly system maintenance under privileage mode. This is in addition to the user crontab for hourly update of cpu/memory/diskspace/cpu throttled/cpu temperature/cpu voltage, etc.
+
 note: The memory and throttled history were presented along a timeline so that maintainers can go back in time to check for memory leaks/issues or intermittant throttled due to insufficient voltages.
 
 
