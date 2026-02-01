@@ -1,0 +1,7 @@
+##
+## two daily routine, reboot raspberry pi, notify mqtt broker, one weekly apt update/upgrade to make sure security patches up-to-date.
+##
+@reboot sleep 60 && /bin/curl -F "value=kitchen is awake" -H "X-AIO-Key: <ADAFRUIT_AIO_KEY>" https://io.adafruit.com/api/v2/<ADAFRUIT_AIO_USERNAME>/feeds/<KEY>/data
+# m h  dom mon dow   command
+47 3 * * 1 /bin/apt update && /bin/apt upgrade -y
+5 4 * * * /sbin/shutdown -r
