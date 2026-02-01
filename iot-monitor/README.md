@@ -2,7 +2,7 @@
 
 From experience, devices neglected will become volunerable to security risks, operationally unreliable and issues untraceable. 
 
-To address the above, this set of routines/configurations (in a client/server setting) is used for collecting iot status. Status will become data point for monitoring over time. 
+To address the above, this set of routines/configurations (in a client/server setting) are used for collecting iot status. Status will become data point for monitoring over time. 
 
 Skill level required is intermediate. Examination and modifications of scripts are necessary to fit local requirements. This set of routine assume a functioning central server with the node-red/influxdb3/grafana stack and one or more Raspbian OS clients. 
 
