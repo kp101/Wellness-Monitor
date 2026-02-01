@@ -73,4 +73,4 @@ echo "$kernel"
 ## 
 ## substitute your server ip address or domain name for data point collected.
 ##
-curl -X GET "http://192.168.1.11:1880/iot?$temp&$throttled&$volts&$memuse&$cacheuse&$memfree&$diskspace&$diskused&$diskavail&$bootspace&$bootused&$bootavail&$cpuusr&$cpunice&$cpusys&$cpuiowait&$cpuirq&$cpusoft&$cpusteal&$cpugnice&$cpuidle&$dev&$station"
+curl -X GET "http://192.168.1.11:1880/iot?$temp&$throttled&$volts&$memuse&$cacheuse&$memfree&$diskspace&$diskused&$diskavail&$bootspace&$bootused&$bootavail&$cpuusr&$cpunice&$cpusys&$cpuiowait&$cpuirq&$cpusoft&$cpusteal&$cpugnice&$cpuidle&$dev&$station&$kernel"
