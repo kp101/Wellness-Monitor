@@ -16,7 +16,7 @@ Note:
   - dependencies: sudo apt install sysstat to get mpstat. awk, df, free should be already installed;
   - permission/privileages: the client shell script runs in user mode, is in BASH syntax and can be place anywhere in user home directory (modify location required);
   - this script assumes a boot and system partition as created by the RaspberryPi Foundation Partition Application. For other setup such as usb drive or ssd memory, modifications are required;
-  - scheduling: crontab -e on a periodic basis for execution. No root privileages are required. Be sure to enter the final location of your script;
+  - scheduling: crontab -e for a periodic execution. No root privileages are required. Be sure to enter the final location of your script;
   - The script will gather data points and do a 'http get' to report on the server of your choice. Please edit the script to replace the server domain name/ip/port address;
 
 <b>iot-flows.json</b>
