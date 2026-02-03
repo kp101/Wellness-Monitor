@@ -14,18 +14,18 @@ Hardware dependencies:
 
 1. Adafruit ESP32-S2 Feather with BME280 Sensor/STEMMA QT/4MB Flash+2MB PSRAM,
 2. optional - HMMD mmWave Sensor refer:https://www.waveshare.com/wiki/HMMD_mmWave_Sensor,
-3. battery pack or a 5v power adaptor (optional if used with mmWave, a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
+3. battery pack or a 5v power adaptor (needed if used with mmWave, a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
 
 Software dependencies:
 
 Arduino IDE
 
-Attaching mmWave sensor (~50mA):
+Attaching mmWave sensor (~50mA) optional:
 
-TX1 pin on esp32 is attached to RX pin on mmWave sensor,
-RX1 pin on esp32 is attached to TX pin on mmWave sensor,
-3.3v pin on Pico is attached to 3.3v pin on mmWave sensor,
-GND pin on Pico is attached to GND pin on mmWave sensor.
+- TX pin 39 on esp32 is attached to RX pin on mmWave sensor,
+- RX pin 38 on esp32 is attached to TX pin on mmWave sensor,
+- 3.3v pin on Pico is attached to 3.3v pin on mmWave sensor,
+- GND pin on Pico is attached to GND pin on mmWave sensor.
 
 note: the connection of TX to RX pins. Also, this sensor alone will mean running on batteries is impractical.
 
