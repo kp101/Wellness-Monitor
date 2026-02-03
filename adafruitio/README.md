@@ -15,4 +15,4 @@ The JSON payload in the 'downstairs" feed looks like this { "range": 233, "stati
 ![sending text](images/adafruitio-selective-redirect_2026-02-02_23-13-46.png)
 
 
-reference: !(https://www.rfc-editor.org/rfc/rfc9535)
+reference: https://www.rfc-editor.org/rfc/rfc9535
