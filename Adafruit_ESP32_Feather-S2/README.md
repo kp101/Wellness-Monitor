@@ -7,11 +7,8 @@ Features:
 1. Adjustable scanning periods,
 2. optional - movement scanning and enviornmental readings,
 3. publishing to a broker only. 
-S.O.S. blinker if errors occurs prior to a soft reset,
-exception handling and reset if necessary,
-daily reboot in case of memory leaks,
-secured MQTT connection using 8883 port,
-Settings can be changed in config.yml.
+4. secured MQTT connection using 8883 port,
+5. Settings can be changed in config.h.
 
 Hardware dependencies:
 
