@@ -1,3 +1,5 @@
+<b>Pimoroni Pico Plus 2W + bme690 + mmWave</b>
+
 The following is a "Micropython" implementation using a Pimoroni Pico Plus 2W with 2 sensors to update Adafruit IO MQTT in the cloud. 
 An account in Adafruit IO is sufficient but not neccessary. Other MQTT broker will work as well. Tested with Eclipse Mosquitto MQTT broker running locally using port 1883. 
 Adafruit IO is nice because in my district, triggers can be created to send email/text messages to my phone.
