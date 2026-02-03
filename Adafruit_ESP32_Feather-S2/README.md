@@ -1,13 +1,12 @@
 The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor and an optional mmWave sensor. This is used to update Adafruit IO MQTT in the cloud. It will also work local mosquitto mqtt. Adafruit IO is nice because in my district, triggers can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on comfort and movements of the inhabitants remotely.
 
-This implementation is similar to the Raspberry Pi Pico 2W's except for the programming language and the subscribing of a topic. But in terms of movement detection and how i2c was connected and bme688 it is the same.
+This implementation is similar to the Raspberry Pi Pico 2W's except for the programming language and the subscribing of a topic. But in terms of movement detection and how i2c was connected and bme688 it is the same. This implementation uses deepsleep in non-mmWave implementation. mmWave sensor draws too much power to be on battery.
 
 Features:
 
-Adjustable scanning periods,
-movement scanning and enviornmental readings,
-publishing and subscribing to a broker. 
-when a "doorbell" substring is found in the subscribing topic, it will blink the NeoPixel alerting the hearing impaired,
+1. Adjustable scanning periods,
+2. optional - movement scanning and enviornmental readings,
+3. publishing to a broker only. 
 S.O.S. blinker if errors occurs prior to a soft reset,
 exception handling and reset if necessary,
 daily reboot in case of memory leaks,
