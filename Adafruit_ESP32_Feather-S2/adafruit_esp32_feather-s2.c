@@ -303,7 +303,7 @@ void loop() {
   MQTT_connect();
   bme280();
 
-  /* get mmWave sensor results.
+  /* get mmWave sensor results. (optional if mmWave was attached. */
   for (int i=1; i <=5; i++ ) {
     readSerialData(buffer);
     if (strcmp(buffer, "ON") == 0) {
@@ -317,16 +317,7 @@ void loop() {
   Serial.println(buffer);
   */
   
-  // Read battery and print data
-  /*
-  if (lc.begin())
-    sprintf( payload, "{\"sensor\": %s, \"temp\": %.2f, \"press\": %.2f, \"humd\": %.2f, \"volt\": %.2f, \"perc\": %.2f, \"temp\": %.2f}", 
-                      SENSOR, temp, pres, humd, lc.cellVoltage(), lc.cellPercent(), lc.getCellTemperature());
-  else
-
-    sprintf( payload, "{\"sensor\": \"%s\", \"temp\": %.2f, \"pres\": %.2f, \"humd\": %.2f, \"dist\": %i}", SENSOR, temp, pres, humd, dist);
-  */
-
+  // print data in JSON format.
   sprintf( payload, "{ \"value\":{\"station\": \"%s\", \"dev\": \"%s\", \"temp\": %.2f, \"pres\": %.2f, \"humd\": %.2f, \"range\": %i, \"vbat\": %.2f}}", 
                                   STATION, DEVICE, temp, pres, humd, dist, volt); 
   sensor.publish(payload); 
@@ -346,9 +337,8 @@ void loop() {
   // pixel.clear();
   //pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
-    //mmWave power pin.
-
-     //digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  //mmWave power pin.
+  //digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
   //delay(20000);  
   deepSleep();
 }
