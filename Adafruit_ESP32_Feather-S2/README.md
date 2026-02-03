@@ -1,1 +1,60 @@
-This is the 
+The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor and an optional mmWave sensor. This is used to update Adafruit IO MQTT in the cloud. It will also work local mosquitto mqtt. Adafruit IO is nice because in my district, triggers can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on comfort and movements of the inhabitants remotely.
+
+This implementation is similar to the Raspberry Pi Pico 2W's except for the programming language and the subscribing of a topic. But in terms of movement detection and how i2c was connected and bme688 it is the same.
+
+Features:
+
+Adjustable scanning periods,
+movement scanning and enviornmental readings,
+publishing and subscribing to a broker. 
+when a "doorbell" substring is found in the subscribing topic, it will blink the NeoPixel alerting the hearing impaired,
+S.O.S. blinker if errors occurs prior to a soft reset,
+exception handling and reset if necessary,
+daily reboot in case of memory leaks,
+secured MQTT connection using 8883 port,
+Settings can be changed in config.yml.
+
+Hardware dependencies:
+
+Adafruit ESP32 Feather v2 HUZZAH32/8 MB Flash and 2 MB PSRAM/STEMMA QT,
+HMMD mmWave Sensor refer:https://www.waveshare.com/wiki/HMMD_mmWave_Sensor,
+BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779,
+a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
+
+Software dependencies:
+
+Arduino IDE
+
+Attaching mmWave sensor (~50mA):
+
+TX1 pin on esp32 is attached to RX pin on mmWave sensor,
+RX1 pin on esp32 is attached to TX pin on mmWave sensor,
+3.3v pin on Pico is attached to 3.3v pin on mmWave sensor,
+GND pin on Pico is attached to GND pin on mmWave sensor.
+
+note: the connection of TX to RX pins. Also, this sensor alone will mean running on batteries is impractical.
+
+Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
+
+Attach bme688 via Qw/ST(Qwiic/STEMMA QT) connector,
+attach pin SDA (pin 4) on Pico to SDA pin on bme688,
+attach pin SCL (pin 5) on Pico to SCL pin on bme688,
+depending on what else is attached to I2C, there is a secondary address for bme688 (see config.yml).
+
+note: This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy.
+
+On communicating with Adafruit IO's MQTT:
+
+The attaching of rootcert is required for secured connection. See code for detail,
+should leave client_id="" to avoid collision on multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
+when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
+alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
+
+Installation Instructions:
+
+hold reset and connect usb to computer, wait for device to show.
+open Arduino IDE,
+change parameters in config.h
+compile, upload and test.
+
+This is part of a larger project designed for a customizable wellness remote monitoring.
