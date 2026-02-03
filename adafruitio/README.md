@@ -13,3 +13,6 @@ When the a json payload is send into the 'downstairs' feed, this Action will exa
 The JSON payload in the 'downstairs" feed looks like this { "range": 233, "station": "kitchen" }.
 
 ![sending text](images/adafruitio-selective-redirect_2026-02-02_23-13-46.png)
+
+
+reference: ![json path query](https://www.rfc-editor.org/rfc/rfc9535)
