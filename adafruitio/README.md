@@ -6,7 +6,7 @@ When the 'alarms' feed received any data, a SMS text message and Email will be s
 
 ![sending text](images/adafruitio-alarms_2026-02-02_23-26-33.png)
 
-<b>Redirecting a json payload</b>
+<b>Redirecting A Json Payload</b>
 
 When the a json payload is send, this Action will examine the range value. if the range is > 0, it then extracts the station name and put it into the 'motus' feed. 
 
