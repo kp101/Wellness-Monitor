@@ -1,3 +1,5 @@
+<b>Adafruit ESP32 Feather S2 w/bme280 + mmWave</b>
+
 The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor and an optional mmWave sensor. Currently is is coded for remote monitoring of outdoor conditions with a battery pack.
 
 This IoT updates Adafruit IO MQTT in the cloud. It will also work with local mosquitto mqtt. Adafruit IO is nice because in my district, triggers can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on outside conditions.
