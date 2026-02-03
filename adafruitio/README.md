@@ -1,8 +1,8 @@
-This part of documentation regards the role and programing of Adafruitio 'Actions'.
+This part of documentation regards the role and programing of AdafruitIO 'Actions'.
 
 <b>Creating SMS Text/Email Notification</b>
 
-When the 'alarms' feed received any data, a SMS text message and Email will be send.
+When the 'alarms' feed received any data, a SMS text message and Email will be send. Remove one of email or text if desired. Customize this according to local requirements.
 
 ![sending text](images/adafruitio-alarms_2026-02-02_23-26-33.png)
 
