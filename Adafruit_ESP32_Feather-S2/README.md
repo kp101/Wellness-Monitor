@@ -1,6 +1,8 @@
-The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor and an optional mmWave sensor. This is used to update Adafruit IO MQTT in the cloud. It will also work local mosquitto mqtt. Adafruit IO is nice because in my district, triggers can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on comfort and movements of the inhabitants remotely.
+The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor and an optional mmWave sensor. Currently is is coded for remote monitoring of outdoor conditions with a battery pack.
 
-This implementation is similar to the Raspberry Pi Pico 2W's except for the programming language and the subscribing of a topic. But in terms of movement detection and how i2c was connected and bme688 it is the same. This implementation uses deepsleep in non-mmWave implementation. mmWave sensor draws too much power to be on battery.
+This IoT updates Adafruit IO MQTT in the cloud. It will also work with local mosquitto mqtt. Adafruit IO is nice because in my district, triggers can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on outside conditions.
+
+This implementation is similar to the Raspberry Pi Pico 2W's except for the programming language and the subscribing of a topic. But in terms of movement detection and how i2c was connected and bme688 it is the same. This implementation uses deepsleep in non-mmWave implementation. This amazing little device will last for months on a charge of battery. optional mmWave sensor draws too much power to be on battery.
 
 Features:
 
