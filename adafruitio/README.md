@@ -2,6 +2,10 @@ This part of documentation regards the role and programing of Adafruitio 'Action
 
 <b>Creating SMS Text/Email Notification</b>
 
-This is for sending an text message or email message when a payload is recieved in a MQTT feed.
+When the 'alarms' feed received any data, a SMS text message and Email will be send.
 
 ![sending text](images/adafruitio-alarms_2026-02-02_23-26-33.png)
+
+When the a json payload is send, this Action will extract the station and put it into the 'motus' feed. 
+
+![sending text](images/adafruitio-selective-redirect_2026-02-02_23-13-46.png)
