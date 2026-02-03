@@ -16,4 +16,5 @@ The JSON payload in the 'downstairs" feed looks like this { "range": 233, "stati
 
 
 To read more about json path query, please read the following...
+
 reference: https://www.rfc-editor.org/rfc/rfc9535
