@@ -72,12 +72,12 @@ async def panic_button():
     start_time = time()
     try:
         while True:
-            #print("panic button:", GPIO.input(BUTTON_PIN))
+            logger.info("panic button:", GPIO.input(BUTTON_PIN))
             logger.debug(f"GPIO.input(BUTTON_PIN): {GPIO.input(BUTTON_PIN)}")
             if GPIO.input(BUTTON_PIN)==GPIO.HIGH: # GPIO pin button pressed.
                 if not triggered:
                     await broadcast(MQTT_TOPIC_ALARM, DISTRESS_SIGNAL)
-                    #print("panic button:alarm broadcast")
+                    logger.info("panic button:alarm broadcast")
                     triggered = True
                     start_time = time()
                     logger.debug(f"panic button triggered")
@@ -85,7 +85,7 @@ async def panic_button():
                     triggered = False
             elif triggered:
                 await broadcast(MQTT_TOPIC_ALARM, CANCEL_SIGNAL)
-                #print("panic button:cancel broadcast")
+                logger.info("panic button:cancel broadcast")
                 triggered = False
 
             await asyncio.sleep(0.1)
