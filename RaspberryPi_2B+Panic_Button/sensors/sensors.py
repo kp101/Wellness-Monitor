@@ -13,7 +13,7 @@ with open('sensors.yml', mode='r') as f:
     config = yaml.safe_load(f)
     MQTT_BROKER = config['mqtt']['broker']
     MQTT_PORT = config['mqtt']['port']
-    MQTT_TOPIC_LIVINGROOM = config['mqtt']['topic1']
+    MQTT_TOPIC_MOVEMENTS = config['mqtt']['topic1']
     MQTT_TOPIC_ALARM = config['mqtt']['topic2']
     DISTRESS_SIGNAL = config['mqtt']['distress_signal']
     CANCEL_SIGNAL = config['mqtt']['cancel_signal']
@@ -39,8 +39,9 @@ tls_params = aiomqtt.TLSParameters(
 
 logger = logging.getLogger(__name__)
 
+# setup panic button trigger pin.
 GPIO.setwarnings(True)
-GPIO.setmode(GPIO.BCM)   #
+GPIO.setmode(GPIO.BCM)   
 GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 logger.info("button setup completed...")
 
@@ -102,7 +103,7 @@ async def mmwave():
             scan_count = (scan_count + 1) % HEARTBEAT_UPDATE
             range = await read_serial_data()
             if range > 0 or scan_count <= 0: 
-                await broadcast(MQTT_TOPIC_LIVINGROOM, json.dumps({"value":
+                await broadcast(MQTT_TOPIC_MOVEMENTS, json.dumps({"value":
                     {"station": STATION, "range": range, "dev": DEVICE }}))
             logger.debug(f"logged : {range}")
             await asyncio.sleep(UPDATE_INTERVAL)
