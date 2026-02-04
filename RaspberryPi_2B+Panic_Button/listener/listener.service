@@ -1,1 +1,13 @@
+    [Unit]
+    Description=listener Service
+    After=network.target
 
+    [Service]
+    Type=simple
+    User=pi
+    WorkingDirectory=/home/pi/listener
+    ExecStart=/home/pi/listener/listener.sh
+    Restart=on-failure
+
+    [Install]
+    WantedBy=multi-user.target
