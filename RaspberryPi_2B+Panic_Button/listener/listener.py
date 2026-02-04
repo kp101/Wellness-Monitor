@@ -30,11 +30,11 @@ with open('listener.yml', mode='r') as f:
     STATION = config['station']
     MQTT_BROKER = config['mqtt']['broker']
     MQTT_PORT = config['mqtt']['port']
-    MQTT_TOPIC_KITCHEN = config['mqtt']['topic1']
+    MQTT_TOPIC_MUSIC = config['mqtt']['topic1']
     MQTT_TOPIC_PERIMETER = config['mqtt']['topic2']
     MQTT_TOPIC_ALARMS = config['mqtt']['topic3']
     MQTT_TOPIC_MOTUS = config['mqtt']['topic4']
-    MQTT_TOPIC_KITCHEN_CAMERA = config['mqtt']['topic5']
+    MQTT_TOPIC_STATION_CAMERA = config['mqtt']['topic5']
     DISTRESS_SIGNAL = config['mqtt']['distress_signal']
     CANCEL_SIGNAL = config['mqtt']['cancel_signal']
     UID = config['mqtt']['uid']
@@ -117,10 +117,10 @@ async def handle_motus(message):
         except Exception as e:
            logging.info(f"An unexpected error : {e}")
 
-@router.subscribe(MQTT_TOPIC_KITCHEN)
+@router.subscribe(MQTT_TOPIC_MUSIC)
 async def handle_kitchen(message):
     msg = message.payload.decode('utf-8')
-    logging.debug(f"{MQTT_TOPIC_KITCHEN}:{msg}.")
+    logging.debug(f"{MQTT_TOPIC_MUSIC}:{msg}.")
     try:
         if msg=="terminate":
             pygame.mixer.quit()
@@ -138,7 +138,7 @@ async def handle_kitchen(message):
             image.save(optim_stream, format='jpeg', optimize=True)
             optim_stream.seek(0)
             value = base64.b64encode(optim_stream.read())
-            await broadcast(MQTT_TOPIC_KITCHEN_CAMERA, value )
+            await broadcast(MQTT_TOPIC_STATION_CAMERA, value )
                 
         else:
             logging.info(f"{STATION}: playing {msg}")
