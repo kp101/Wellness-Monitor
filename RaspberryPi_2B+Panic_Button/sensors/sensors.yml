@@ -1,0 +1,31 @@
+timezone : "America/New_York"
+mmwave:
+   serial_port : '/dev/ttyAMA0'  
+   baud_rate : 115200
+# mmWave attachment pins and notes:
+# serial port requires GPIO pin 8(UART TX), pin 10(UART RX)
+# power 3.3 GPIO pin 1, ground GPIO pin 6. 
+# raspi-config enable uart or enable_uart=1 in /boot/firmware/config.txt
+# make sure power is sufficient.
+# optional:
+# dtoverlay=disable-bt in /boot/firmware/config.txt
+
+# MQTT broker.
+# This is specific to adafruit io, modify to suit your broker. 
+mqtt:
+   broker : "io.adafruit.com"
+   port: 8883
+   topic1: "<IO_USERNAME>/feeds/room"
+   topic2: "<IO_USERNAME>/feeds/alarms"
+   distress_signal: "sos"
+   cancel_signal: "cleared"
+   uid : "<IO_USERNAME>"
+   pwd : "<IO_KEY>"
+   update_interval : 180
+   # heartbeat update is a mandatory update even if scan result is None
+   heartbeat_update : 1800
+   station : "station_name"
+   device : "Raspberry Pi2B"
+button: 23
+# repeat interval in seconds.
+repeat_interval: 900
