@@ -1,0 +1,14 @@
+    [Unit]
+    Description=Sensors Service
+    #report sensor values to mqtt server on defined update interval.
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=pi
+    WorkingDirectory=/home/pi/sensors
+    ExecStart=/home/pi/sensors/sensors.sh
+    Restart=on-failure
+
+    [Install]
+    WantedBy=multi-user.target
