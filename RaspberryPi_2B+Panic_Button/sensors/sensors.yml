@@ -15,8 +15,8 @@ mmwave:
 mqtt:
    broker : "io.adafruit.com"
    port: 8883
-   topic1: "<IO_USERNAME>/feeds/room"
-   topic2: "<IO_USERNAME>/feeds/alarms"
+   topic1: "<IO_USERNAME>/feeds/<room>"
+   topic2: "<IO_USERNAME>/feeds/<alarms>"
    distress_signal: "sos"
    cancel_signal: "cleared"
    uid : "<IO_USERNAME>"
@@ -24,7 +24,7 @@ mqtt:
    update_interval : 180
    # heartbeat update is a mandatory update even if scan result is None
    heartbeat_update : 1800
-   station : "station_name"
+   station : "<station_name>"
    device : "Raspberry Pi2B"
 button: 23
 # repeat interval in seconds.
