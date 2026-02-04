@@ -1,1 +1,21 @@
 
+timezone : "America/New_York"
+station: '<station_name>'
+speaker:
+   volume : 0.75
+mqtt:
+   broker : "io.adafruit.com"
+   port: 8883
+   topic1: "<IO_USERNAME>/feeds/station-slash-sound"
+   topic2: "<IO_USERNAME>/feeds/perimeter"
+   topic3: "<IO_USERNAME>/feeds/alarms"
+   topic4: "<IO_USERNAME>/feeds/motus"
+   topic5: "<IO_USERNAME>/feeds/station-slash-camera"
+   distress_signal: "sos"
+   cancel_signal: "cleared"
+   uid : "<IO_USERNAME>"
+   pwd : "<IO_KEY>"
+# all sound files are under subdirectory 'sounds' in working directory.
+wav:
+   doorbell : 'doorbell.wav'
+   alarms   : 'sos_hydrargyrum.ogg'
