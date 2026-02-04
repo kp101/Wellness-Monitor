@@ -14,7 +14,7 @@ The strategy here is the use of MQTT as a central broker for reporting. We are m
   5. It is also possible to publish temperature, pressure, humidity and voc to dedicated feeds and generate graphs in the cloud in order to monitor trends and comfort level remotely (additional mods needed), e.g.
      ![temperature](images/adafruitio-temp_2026-01-31_13-28-28.png)
      
-  7. The folder with Adafruit ESP32 Feather v2 has a publishing and listening feed. This additional listening feed is for alerting the hearing impaired with blinking led if the doorbell message is received (doorbell with camera and motion detection is in a separate folder to come.),
+  7. The folder with Adafruit ESP32 Feather v2 has a publishing and listening feed. This additional listening feed is for alerting the hearing impaired with blinking led if the doorbell message is received (doorbell with camera and motion detection is in a separate folders to come.),
      
   9. more to come...
 
