@@ -24,13 +24,13 @@ import ssl
 
 logger = logging.getLogger(__name__)
 
-with open('listener.yml', mode='r') as f:
+with open('kitchen.yml', mode='r') as f:
     config = yaml.safe_load(f)
     TZ = ZoneInfo(config['timezone'])
     STATION = config['station']
     MQTT_BROKER = config['mqtt']['broker']
     MQTT_PORT = config['mqtt']['port']
-    MQTT_TOPIC_STATION = config['mqtt']['topic1']
+    MQTT_TOPIC_STATION_MUSIC = config['mqtt']['topic1']
     MQTT_TOPIC_PERIMETER = config['mqtt']['topic2']
     MQTT_TOPIC_ALARMS = config['mqtt']['topic3']
     MQTT_TOPIC_MOTUS = config['mqtt']['topic4']
@@ -94,13 +94,20 @@ async def broadcast(topic, msg):
 async def handle_perimeter(message):
     msg = message.payload.decode('utf-8')
     logging.debug(f"{MQTT_TOPIC_PERIMETER}:{msg}.")
-    jmsg = json.loads(msg)
-    if jmsg['station']=='frontdoor' and jmsg['status']=='doorbell':
-        await play(DOORBELL_WAV)
+    try:
+        jmsg = json.loads(msg)
+        if "station" in jmsg and "status" in jmsg:
+            if jmsg['station']=='frontdoor' and jmsg['status']=='doorbell':
+                await play(DOORBELL_WAV)
+    except json.JSONDecodeError:
+        logging.debug(f"not valid json")
+    except Exception as e:
+        logging.info(f"An unexpected error : {e}")
     
 @router.subscribe(MQTT_TOPIC_MOTUS)
 async def handle_motus(message):
     msg = message.payload.decode('utf-8')
+    # this feed is always non json format.
     logging.debug(f"{MQTT_TOPIC_MOTUS}:{msg}.")
     if msg.lower()=='snapshot': 
         try:
@@ -117,49 +124,42 @@ async def handle_motus(message):
         except Exception as e:
            logging.info(f"An unexpected error : {e}")
 
-@router.subscribe(MQTT_TOPIC_STATION)
+@router.subscribe(MQTT_TOPIC_STATION_MUSIC)
 async def handle_kitchen(message):
     msg = message.payload.decode('utf-8')
-    logging.debug(f"{MQTT_TOPIC_STATION}:{msg}.")
+    # this feed is always non json format.
+    logging.debug(f"{MQTT_TOPIC_STATION_MUSIC}:{msg}.")
     try:
-        if msg=="terminate":
+        if msg.lower()=="terminate":
             pygame.mixer.quit()
             logging.info(f"{STATION}: terminating")
             sys.exit()
-        elif jmsg['action']=="stop":
+        elif msg.lower()=="stop":
             logging.info(f"{STATION}: stopping")
             pygame.mixer.music.stop()
-        elif msg.lower()=="snapshot":
-            logging.info(f"{STATION}: snapshot ")
-
-            picam2.capture_file("test.jpg", format="jpeg")
-            image = Image.open('test.jpg', 'r')
-            optim_stream = io.BytesIO()
-            image.save(optim_stream, format='jpeg', optimize=True)
-            optim_stream.seek(0)
-            value = base64.b64encode(optim_stream.read())
-            await broadcast(MQTT_TOPIC_STATION_CAMERA, value )
-                
-        else:  # play music giving track filename
+        else:
             logging.info(f"{STATION}: playing {msg}")
             await play(msg)
-    except json.JSONDecodeError:
-        logging.debug(f"not valid json")
     except Exception as e:
         logging.info(f"An unexpected error : {e}")
 
 @router.subscribe(MQTT_TOPIC_ALARMS)
 async def handle_alarms(message):
     msg = message.payload.decode('utf-8')
+    # this feed is always non json format.
     logging.debug(f"{MQTT_TOPIC_ALARMS}:{msg}.")
     if msg.lower() == DISTRESS_SIGNAL:
         await play('sos_hydrargyrum.ogg')
-        await asyncio.sleep(2)
-        await play('alarm_detected.wav')
-        await asyncio.sleep(5)
+        await asyncio.sleep(0.5)
         await play('sos_hydrargyrum.ogg')
         await asyncio.sleep(2)
         await play('alarm_detected.wav')
+        await asyncio.sleep(2)
+        await play('alarm_detected.wav')
+        await asyncio.sleep(2)
+        await play('sos_hydrargyrum.ogg')
+        await asyncio.sleep(0.5)
+        await play('sos_hydrargyrum.ogg')
     elif msg.lower() == CANCEL_SIGNAL:
         await play('chimes.mp3')
         await asyncio.sleep(5)
@@ -232,3 +232,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
