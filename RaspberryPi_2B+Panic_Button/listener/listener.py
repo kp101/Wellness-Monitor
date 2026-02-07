@@ -83,35 +83,35 @@ async def broadcast(topic, msg):
                                   tls_params=tls_params) as client:
             # qos -> exactly once, no repeat.
             await client.publish(topic, payload=msg, qos=2)
-            logging.info(f"Proximity {msg}.")
+            logger.info(f"Proximity {msg}.")
 
     except aiomqtt.MqttError:
-        logging.info("MqttError")
+        logger.info("MqttError")
     except Exception as e:
-        logging.info(f"An unexpected error : {e}")
+        logger.info(f"An unexpected error : {e}")
     
 @router.subscribe(MQTT_TOPIC_PERIMETER)
 async def handle_perimeter(message):
     msg = message.payload.decode('utf-8')
-    logging.debug(f"{MQTT_TOPIC_PERIMETER}:{msg}.")
+    logger.debug(f"{MQTT_TOPIC_PERIMETER}:{msg}.")
     try:
         jmsg = json.loads(msg)
         if "station" in jmsg and "status" in jmsg:
             if jmsg['station']=='frontdoor' and jmsg['status']=='doorbell':
                 await play(DOORBELL_WAV)
     except json.JSONDecodeError:
-        logging.debug(f"not valid json")
+        logger.debug(f"not valid json")
     except Exception as e:
-        logging.info(f"An unexpected error : {e}")
+        logger.info(f"An unexpected error : {e}")
     
 @router.subscribe(MQTT_TOPIC_MOTUS)
 async def handle_motus(message):
     msg = message.payload.decode('utf-8')
     # this feed is always non json format.
-    logging.debug(f"{MQTT_TOPIC_MOTUS}:{msg}.")
+    logger.debug(f"{MQTT_TOPIC_MOTUS}:{msg}.")
     if msg.lower()=='snapshot': 
         try:
-            logging.info(f"{STATION}: snapshot ")
+            logger.info(f"{STATION}: snapshot ")
 
             picam2.capture_file("test.jpg", format="jpeg")
             image = Image.open('test.jpg', 'r')
@@ -122,32 +122,32 @@ async def handle_motus(message):
             await broadcast(MQTT_TOPIC_STATION_CAMERA, value )
                 
         except Exception as e:
-           logging.info(f"An unexpected error : {e}")
+           logger.info(f"An unexpected error : {e}")
 
 @router.subscribe(MQTT_TOPIC_STATION_MUSIC)
 async def handle_kitchen(message):
     msg = message.payload.decode('utf-8')
     # this feed is always non json format.
-    logging.debug(f"{MQTT_TOPIC_STATION_MUSIC}:{msg}.")
+    logger.debug(f"{MQTT_TOPIC_STATION_MUSIC}:{msg}.")
     try:
         if msg.lower()=="terminate":
             pygame.mixer.quit()
-            logging.info(f"{STATION}: terminating")
+            logger.info(f"{STATION}: terminating")
             sys.exit()
         elif msg.lower()=="stop":
-            logging.info(f"{STATION}: stopping")
+            logger.info(f"{STATION}: stopping")
             pygame.mixer.music.stop()
         else:
-            logging.info(f"{STATION}: playing {msg}")
+            logger.info(f"{STATION}: playing {msg}")
             await play(msg)
     except Exception as e:
-        logging.info(f"An unexpected error : {e}")
+        logger.info(f"An unexpected error : {e}")
 
 @router.subscribe(MQTT_TOPIC_ALARMS)
 async def handle_alarms(message):
     msg = message.payload.decode('utf-8')
     # this feed is always non json format.
-    logging.debug(f"{MQTT_TOPIC_ALARMS}:{msg}.")
+    logger.debug(f"{MQTT_TOPIC_ALARMS}:{msg}.")
     if msg.lower() == DISTRESS_SIGNAL:
         await play('sos_hydrargyrum.ogg')
         await asyncio.sleep(0.5)
@@ -191,23 +191,23 @@ async def waiter():
     async with aiomqtt.Client(MQTT_BROKER,port=MQTT_PORT, \
                               username=UID, password=PWD, \
                               tls_params=tls_params ) as client:
-        logging.info(f"mqtt connected...")
+        logger.info(f"mqtt connected...")
         while True:
             try:
                 await router(client)
                 await asyncio.sleep(0.5)
 
             except aiomqtt.MqttError:
-                logging.info(f"mqtt error, reconnecting in 2 secs...")
+                logger.info(f"mqtt error, reconnecting in 2 secs...")
                 await asyncio.sleep(2)
             except Exception as e:
-                logging.info(f"An unexpected error : {e}")
+                logger.info(f"An unexpected error : {e}")
 
 async def main():
     """
     Main function to run the asyncio event loop and serial reading.
     """
-    logging.basicConfig(
+    logger.basicConfig(
         #level=logging.INFO,
         level=logging.DEBUG,
         format="%(asctime)s-%(relativeCreated)6d %(threadName)s %(message)s",
@@ -220,12 +220,12 @@ async def main():
                 tg.create_task(waiter())
 
     #except* TerminateTaskGroup:
-        #logging.info( f"task group terminated.")
+        #logger.info( f"task group terminated.")
     except KeyboardInterrupt:
         pygame.mixer.quit()
-        logging.info( f"keyboard interrupt")
+        logger.info( f"keyboard interrupt")
     except Exception as e:
-        logging.debug( f"An unexpected error occurred: {e}")
+        logger.debug( f"An unexpected error occurred: {e}")
     finally:
         pygame.quit()
         picam2.stop()
