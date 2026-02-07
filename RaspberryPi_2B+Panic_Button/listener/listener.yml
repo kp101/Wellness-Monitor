@@ -6,7 +6,7 @@ speaker:
 mqtt:
    broker : "io.adafruit.com"
    port: 8883
-   topic1: "<IO_USERNAME>/feeds/station-slash-sound"
+   topic1: "<IO_USERNAME>/feeds/station-slash-music"
    topic2: "<IO_USERNAME>/feeds/perimeter"
    topic3: "<IO_USERNAME>/feeds/alarms"
    topic4: "<IO_USERNAME>/feeds/motus"
