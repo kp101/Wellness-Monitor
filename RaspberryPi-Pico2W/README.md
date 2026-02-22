@@ -50,10 +50,10 @@ Attaching Bosch's BME688 sensor over I2C (requires ~15mA):
 note: We are treating the bme688 as if it was a LED light, will need to pull this pin (22) HIGH to power it. 
       The Raspberry Pi-Pico 2W does not have a STEMMA QT/QWIIC connector on the controller but the BME688 has it. 
       The pinout on the connector is:
-        1. RED -> 3.3VDC
-        2. BLK -> GND
-        3. BLU -> I2C SDA
-        4. YEL -> I2C SCL
+        1. RED -> 3.3VDC,
+        2. BLK -> GND,
+        3. BLU -> I2C SDA,
+        4. YEL -> I2C SCL.
       This sensor has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy.
 
 
