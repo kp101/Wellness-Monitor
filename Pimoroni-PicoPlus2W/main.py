@@ -213,7 +213,7 @@ def check_sensors(timer):
                 # This part you will need to play with to adjust to local circumstances.
                 #temperature, pressure, humidity, gas_resistance, status, _, _ = bme.read()
                 #temperature, pressure, humidity, gas_resistance, status, gas_index, meas_index = bme.read(heater_temp=250, heater_duration=50)
-                # The following seemed to work pretty well and can be used as a starting point. The floor seemed to be 5869. 
+                # The following can be used as a starting point. The voc floor seemed to be 5869. 
                 temperature, pressure, humidity, gas_resistance, status, gas_index, meas_index = bme.read(heater_temp=180, heater_duration=90)                
                 #temperature, pressure, humidity, gas_resistance, status, gas_index, meas_index = bme.read()
                 heater = "Stable" if status & STATUS_HEATER_STABLE else "Unstable"
