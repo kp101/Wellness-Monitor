@@ -43,11 +43,11 @@ note: the connection of TX to RX pins. Also, this sensor alone will mean running
 
 Attaching Bosch's BME690 sensor over I2C (requires ~3.1 mA):
   1. Attach bme688 via Qw/ST(Qwiic/STEMMA QT) connector,
-  2. attach pin SDA (pin 4) on Pico to SDA pin on bme688,
-  3. attach pin SCL (pin 5) on Pico to SCL pin on bme688,
+  2. attach pin SDA (pin 4) on Pico to SDA pin on bme690,
+  3. attach pin SCL (pin 5) on Pico to SCL pin on bme690,
   4. depending on what else is attached to I2C, there is a secondary address for bme688 (see config.yml).
 
-note: This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy.
+note: This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. 
 
 
 On communicating with Adafruit IO's MQTT:
