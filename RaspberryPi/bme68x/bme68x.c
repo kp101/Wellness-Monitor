@@ -33,6 +33,12 @@
 * @file       bme68x.c
 * @date       2023-02-07
 * @version    v4.4.8
+* 
+* @modified by kp101
+* @date       2026-07-04
+* @version    v4.4.8.1
+* @purpose    To work around the smbus io limit of 32 bytes. Modification
+*             occur in read_all_field_data. bme68x_set_regs syntax replaced.
 *
 */
 
@@ -207,7 +213,7 @@ int8_t bme68x_set_regs(const uint8_t *reg_addr, const uint8_t *reg_data, uint32_
             /* Write the interleaved array */
             if (rslt == BME68X_OK)
             {
-                //dev->intf_rslt = dev->write(tmp_buff[0], &tmp_buff[1], (2 * len) - 1, dev->intf_ptr);
+                //dev->intf_rslt = dev->write(tmp_buff[0], &tmp_buff[1], (2 * len) - 1, dev->intf_ptr);  // just being anal-retentive
                 dev->intf_rslt = dev->write(tmp_buff[0], tmp_buff+1, (2 * len) - 1, dev->intf_ptr);
                 if (dev->intf_rslt != 0)
                 {
@@ -1308,7 +1314,7 @@ static int8_t read_all_field_data(struct bme68x_data * const data[], struct bme6
 
     if (rslt == BME68X_OK)
     {
-        //rslt = bme68x_get_regs(BME68X_REG_FIELD0, buff, (uint32_t) BME68X_LEN_FIELD * 3, dev);
+        //rslt = bme68x_get_regs(BME68X_REG_FIELD0, buff, (uint32_t) BME68X_LEN_FIELD * 3, dev);  // work around smbus limit of 32 bytes in Raspberry Pi.
         reg_addr = ((uint8_t)(BME68X_REG_FIELD0 + (0 * BME68X_LEN_FIELD_OFFSET)));
         rslt = bme68x_get_regs(reg_addr, buff, (uint32_t) BME68X_LEN_FIELD * 1, dev);
         reg_addr = ((uint8_t)(BME68X_REG_FIELD0 + (1 * BME68X_LEN_FIELD_OFFSET)));
