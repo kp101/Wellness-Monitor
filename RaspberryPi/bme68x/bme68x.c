@@ -1,4 +1,3 @@
-
 /**
 * Copyright (c) 2023 Bosch Sensortec GmbH. All rights reserved.
 *
@@ -137,7 +136,6 @@ static int8_t analyze_sensor_data(const struct bme68x_data *data, uint8_t n_meas
 /******************************************************************************************/
 /*                                 Global API definitions                                 */
 /******************************************************************************************/
-
 /* @brief This API reads the chip-id of the sensor which is the first step to
 * verify the sensor and also calibrates the sensor
 * As this API is the entry point, call this API before using other APIs.
@@ -209,12 +207,13 @@ int8_t bme68x_set_regs(const uint8_t *reg_addr, const uint8_t *reg_data, uint32_
             /* Write the interleaved array */
             if (rslt == BME68X_OK)
             {
-                dev->intf_rslt = dev->write(tmp_buff[0], &tmp_buff[1], (2 * len) - 1, dev->intf_ptr);
+                //dev->intf_rslt = dev->write(tmp_buff[0], &tmp_buff[1], (2 * len) - 1, dev->intf_ptr);
+                dev->intf_rslt = dev->write(tmp_buff[0], tmp_buff+1, (2 * len) - 1, dev->intf_ptr);
                 if (dev->intf_rslt != 0)
                 {
                     rslt = BME68X_E_COM_FAIL;
                 }
-            }
+            } 
         }
         else
         {
@@ -553,6 +552,7 @@ int8_t bme68x_get_data(uint8_t op_mode, struct bme68x_data *data, uint8_t *n_dat
     if ((rslt == BME68X_OK) && (data != NULL))
     {
         /* Reading the sensor data in forced mode only */
+        
         if (op_mode == BME68X_FORCED_MODE)
         {
             rslt = read_field_data(0, data, dev);
@@ -1299,6 +1299,7 @@ static int8_t read_all_field_data(struct bme68x_data * const data[], struct bme6
     uint8_t off;
     uint8_t set_val[30] = { 0 }; /* idac, res_heat, gas_wait */
     uint8_t i;
+    uint8_t reg_addr;
 
     if (!data[0] && !data[1] && !data[2])
     {
@@ -1307,7 +1308,13 @@ static int8_t read_all_field_data(struct bme68x_data * const data[], struct bme6
 
     if (rslt == BME68X_OK)
     {
-        rslt = bme68x_get_regs(BME68X_REG_FIELD0, buff, (uint32_t) BME68X_LEN_FIELD * 3, dev);
+        //rslt = bme68x_get_regs(BME68X_REG_FIELD0, buff, (uint32_t) BME68X_LEN_FIELD * 3, dev);
+        reg_addr = ((uint8_t)(BME68X_REG_FIELD0 + (0 * BME68X_LEN_FIELD_OFFSET)));
+        rslt = bme68x_get_regs(reg_addr, buff, (uint32_t) BME68X_LEN_FIELD * 1, dev);
+        reg_addr = ((uint8_t)(BME68X_REG_FIELD0 + (1 * BME68X_LEN_FIELD_OFFSET)));
+        rslt = bme68x_get_regs(reg_addr, buff + (uint8_t)(1*BME68X_LEN_FIELD), (uint32_t) BME68X_LEN_FIELD, dev);
+        reg_addr = ((uint8_t)(BME68X_REG_FIELD0 + (2 * BME68X_LEN_FIELD_OFFSET)));
+        rslt = bme68x_get_regs(reg_addr, buff+ (uint8_t)(2*BME68X_LEN_FIELD), (uint32_t) BME68X_LEN_FIELD, dev);
     }
 
     if (rslt == BME68X_OK)
