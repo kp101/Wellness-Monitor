@@ -5,10 +5,10 @@ Adafruit IO MQTT was chosen and tested with this but it may work with other brok
 
 Features:
 
-    Adjustable scanning periods,
-    publishing environmental data to a broker. 
-    secured MQTT connection using 8883 port,
-    Settings can be changed in mqtt.h and sensor.h headers prior to compiling.
+Adjustable scanning periods,
+publishing environmental data to a broker. 
+secured MQTT connection using 8883 port,
+Settings can be changed in mqtt.h and sensor.h headers prior to compiling.
 
 Hardware dependencies:
 
