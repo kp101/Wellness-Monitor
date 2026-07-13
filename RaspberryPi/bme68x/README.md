@@ -19,8 +19,10 @@ Hardware dependencies:
 
 Software dependencies:
 
-    1. WiringPi, (see install_wiringpi.txt)
-    2. paho-mqtt. (see install_paho.txt)
+    1. WiringPi, (see install_wiringpi.txt),
+    2. paho-mqtt. (see install_paho.txt),
+    3. sudo raspi-config to enable i2c,
+    3. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
     
 Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
 
