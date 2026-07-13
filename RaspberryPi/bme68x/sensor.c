@@ -81,8 +81,8 @@ int main(int argc, char *argv[]) {
         {
             results.temperature -= TEMPERATURE_OFFSET;
             results.pressure /= 1000;
-            //results.humidity = results.humidity;
             results.gas_resistance /= 1000.0;
+            //results.humidity = results.humidity;  // no change.
 
             printf( "temp(C), press(Pa), Humid(%%), voc(ohm), status, nprof, nmeas\n");
             printf("  %.2f,    %.2f,    %.2f, %.2f,  0x%x,  %d,   %d\n",
