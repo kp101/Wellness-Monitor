@@ -19,8 +19,8 @@ Hardware dependencies:
 
 Software dependencies:
 
-    1. WiringPi, (see install_wiringpi.sh)
-    2. paho-mqtt. (see install_paho.sh)
+    1. WiringPi, (see install_wiringpi.txt)
+    2. paho-mqtt. (see install_paho.txt)
     
 Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
 
