@@ -50,6 +50,6 @@ d. Yellow = SCL.
 
 ## Compiling and Installation Instructions:
 
-1. Customize, compile with Makefile, 
+1. Minimum customization should be made to sensor.h, mqtt.h. Then compile with Makefile, 
 2. Once sucessfully compiled, sudo cp the bme68x.service file to /etc/systemd/system directory. sudo systemctl enable bme68x, sudo systemctl start bme68x.
 3. login to your mqtt broker account to verify data are posting. By default it is 30 minutes.
