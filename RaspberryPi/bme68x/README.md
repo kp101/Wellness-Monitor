@@ -24,10 +24,14 @@ Software dependencies:
     
 Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
 
-    1. Attach bme688 via Qw/ST to breakout connector,
+    1. Attach bme688 via Qw/ST to breakout connector. Qwiic I2C connector pinout typically includes four pins arranged as follows: 
+        a. Black = GND, 
+        b. Red = 3.3V, 
+        c. Blue = SDA, 
+        d. Yellow = SCL. 
     2. Connect Pin 17 to power pin on bme688,
-    3. connect pin SDA (pin 4) on Pico to SDA pin on bme688,
-    4. connect pin SCL (pin 5) on Pico to SCL pin on bme688,
+    3. connect pin SDA (i2c 1) on Pico to SDA pin on bme688,
+    4. connect pin SCL (i2c 1) on Pico to SCL pin on bme688,
     note: depending on what else is attached to I2C, there is a secondary address for bme688...0x76
 
 note: This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. see Bosch doc.
