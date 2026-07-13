@@ -1,0 +1,13 @@
+    [Unit]
+    Description=Proximity Detection Service
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=pi
+    WorkingDirectory=/home/pi/bme68x
+    ExecStart=/home/pi/bme68x/sensor
+    Restart=on-failure
+
+    [Install]
+    WantedBy=multi-user.target
