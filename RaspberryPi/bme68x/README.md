@@ -14,14 +14,15 @@ Hardware dependencies:
 
     1. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) 
     refer: https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779,
-    2. a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
-    3. a Raspberry Pi ZeroW  or Pi Zero2W
+    2. a qwiic connect cable to pinout for sensor with qwiic connector,
+    3. a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
+    4. a Raspberry Pi ZeroW  or Pi Zero2W.
 
 Software dependencies:
 
-    1. WiringPi, (see install_wiringpi.txt),
-    2. paho-mqtt. (see install_paho.txt),
-    3. sudo raspi-config to enable i2c,
+    1. WiringPi library, (see install_wiringpi.txt),
+    2. paho-mqtt library. (see install_paho.txt),
+    3. sudo raspi-config to enable i2c && sudo reboot,
     3. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
     
 Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
@@ -36,15 +37,15 @@ Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
     4. connect pin SCL (i2c 1) on Pico to SCL pin on bme688,
     note: depending on what else is attached to I2C, there is a secondary address for bme688...0x76
 
-note: This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. see Bosch doc.
+Notes on bme68x: This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. see Bosch doc.
 
-On communicating with Adafruit IO's MQTT:
+Notes on communicating with Adafruit IO's MQTT:
 
     should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
     when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
     alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
-Compile and Installation Instructions:
+Compiling and Installation Instructions:
 
     1. Customize, compile with Makefile, 
     2. Once sucessfully compiled, sudo cp the bme68x.service file to /etc/systemd/system directory. sudo systemctl enable bme68x, sudo systemctl start bme68x.
