@@ -1,7 +1,16 @@
 /**
+ * This is a derived copy of the original from Bosch Sensortec.
+ * 
+ * Dated: 2026-07-05
+ * 
+ * This was modified to work with the WiringPi i2c routine on Raspberry Pi, 
+ * some work around to address limitations.
+ * 
  * Copyright (C) 2023 Bosch Sensortec GmbH. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
+ * 
+ * 
  */
 
 #ifdef __cplusplus
