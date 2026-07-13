@@ -12,9 +12,10 @@ Features:
 
 Hardware dependencies:
 
-    BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) 
+    1. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) 
     refer: https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779,
-    a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
+    2. a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
+    3. a Raspberry Pi ZeroW  or Pi Zero2W
 
 Software dependencies:
 
