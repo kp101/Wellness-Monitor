@@ -3,27 +3,26 @@
 This is a implementation of a c program to pull temperature/pressure/humidity/voc from a Bosch BME68x sensor via i2c and report it an external mqtt broker.
 Adafruit IO MQTT was chosen and tested with this but it may work with other brokers. Adafruit IO is nice because in my district, triggers, weather forecast (paid) can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on comfort and movements of the inhabitants remotely.
 
-Features:
+<b>Features:</b>
 
-Adjustable scanning periods,
-publishing environmental data to a broker. 
-secured MQTT connection using 8883 port,
-Settings can be changed in mqtt.h and sensor.h headers prior to compiling.
+1. Adjustable scanning periods,
+2. publishing environmental data to a broker. 
+3. secured MQTT connection using 8883 port,
+4. Settings can be changed in mqtt.h and sensor.h headers prior to compiling.
 
-Hardware dependencies:
+<b>Hardware dependencies:</b>
 
-    1. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) 
-    refer: https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779,
-    2. a qwiic connect cable to pinout for sensor with qwiic connector,
-    3. a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
-    4. a Raspberry Pi ZeroW  or Pi Zero2W.
+1. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: https://shop.pimoroni.com/products/bme688-breakout
+2. a qwiic connect cable to pinout for sensor with qwiic connector,
+3. a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
+4. a Raspberry Pi ZeroW  or Pi Zero2W.
 
-Software dependencies:
+<b>Software dependencies:</b>
 
-    1. WiringPi library, (see install_wiringpi.txt),
-    2. paho-mqtt library. (see install_paho.txt),
-    3. sudo raspi-config to enable i2c && sudo reboot,
-    3. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
+1. WiringPi library, (see install_wiringpi.txt),
+2. paho-mqtt library. (see install_paho.txt),
+3. sudo raspi-config to enable i2c && sudo reboot,
+3. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
     
 Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
 
