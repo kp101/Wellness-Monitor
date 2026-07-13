@@ -3,6 +3,8 @@
 This is a implementation of a c program to pull temperature/pressure/humidity/voc from a Bosch BME68x sensor via i2c and report it an external mqtt broker.
 Adafruit IO MQTT was chosen and tested with this but it may work with other brokers. Adafruit IO is nice because in my district, triggers, weather forecast (paid) can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on comfort and movements of the inhabitants remotely.
 
+This is an alternative to the usual python routine, it is more stable...it has less dependencies so less affected by breaking changes. As a bonus, it is much faster and consumes less resources.
+
 ## Features:
 
 1. Adjustable scanning periods,
@@ -35,10 +37,11 @@ d. Yellow = SCL.
 3. connect pin SDA (i2c 1) on Pico to SDA pin on bme688,
 4. connect pin SCL (i2c 1) on Pico to SCL pin on bme688,
   
-### Note: 
+### Notes on bme68x: 
 - depending on what else is attached to I2C, there is a secondary address for bme688...0x76,
 - use i2cdetect to check or trouble shoot.
 - This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. see Bosch doc.
+- 
 ### Notes on communicating with Adafruit IO's MQTT:
 
 - should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
