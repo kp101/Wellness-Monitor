@@ -1,7 +1,8 @@
 # How to create SMS Text/Email Notification based on feed
 
 This is based on AdafruitIO 'Actions'.
-When the 'alarms' feed received any data, a SMS text message and Email will be send. Remove one of email or text if desired. Customize this according to local requirements.
+
+When an 'alarms' feed received any data, a SMS text message and Email will be send. Remove one of email or text if desired. Customize this according to your requirement(s).
 
 ![sending text](images/adafruitio-alarms_2026-02-02_23-26-33.png)
 
