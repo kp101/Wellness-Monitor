@@ -1,10 +1,12 @@
 /**
  * This is a derived copy of the original from Bosch Sensortec.
  * 
- * Dated: 2026-07-05
+ * Modified: 2026-07-05
  * 
+ * This is the module that inteface with WiringPi i2c, abstracting the layer 
+ * that directly talks to the bme68x sensors. 
  * This was modified to work with the WiringPi i2c routine on Raspberry Pi, 
- * some work around to address limitations.
+ * some work around to address limitations. 
  * 
  * Copyright (C) 2023 Bosch Sensortec GmbH. All rights reserved.
  *
