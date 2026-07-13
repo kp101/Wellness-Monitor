@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
             sprintf( payload, msg_template, STATION, DEVICE, 
                      results.temperature, results.pressure, 
                      results.humidity, results.gas_resistance );
-            mqtt_publish( TOPIC, payload);
+            mqtt_publish( TOPIC, payload, strlen(payload));
         }
         bme68x_soft_reset(&bme);
         sleep(UPDATE_INTERVAL);
