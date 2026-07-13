@@ -29,10 +29,10 @@ This is an alternative to the usual python routine, it is more stable...it has l
 ## Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
 
 1. Attach bme688 via Qw/ST to breakout connector. Qwiic I2C connector pinout typically includes four pins arranged as follows: 
-a. Black = GND, 
-b. Red = 3.3V, 
-c. Blue = SDA, 
-d. Yellow = SCL. 
+- Black = GND, 
+- Red = 3.3V, 
+- Blue = SDA, 
+- Yellow = SCL. 
 2. Connect Pin 17 to power pin on bme688,
 3. connect pin SDA (i2c 1) on Pico to SDA pin on bme688,
 4. connect pin SCL (i2c 1) on Pico to SCL pin on bme688,
