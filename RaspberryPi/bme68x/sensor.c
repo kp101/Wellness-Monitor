@@ -14,7 +14,6 @@
 #include <time.h>
 
 #include <wiringPi.h>
-//#include <wiringSerial.h>
 #include "wiringPiI2C.h"
 #include "sensor.h"
 #include "mqtt.h"
@@ -35,7 +34,7 @@ int main(int argc, char *argv[]) {
     int i2c_addr =  BME68X_I2C_ADDR_LOW;  // 0x76 I2C address of the device
 
     wiringPiSetupGpio();
-    /* power for i2c device. */
+    /* power for i2c device. you can put bme68x on non dedicated 3.3v power pin. */
     pinMode(PWR_PIN, OUTPUT);
     digitalWrite(PWR_PIN, HIGH);  // Turn on 
     sleep(1); // wait for sensor to power up.
@@ -47,7 +46,7 @@ int main(int argc, char *argv[]) {
 
     /* Interface preference is updated as a parameter
      * For I2C : BME68X_I2C_INTF
-     * For SPI : BME68X_SPI_INTF
+     * For SPI : BME68X_SPI_INTF  // this project did not do spi. 
      */
 
     do 
@@ -70,10 +69,10 @@ int main(int argc, char *argv[]) {
         */
 
         results.status = 0x80;
+        // choose and uncomment one and only one of the following scan methods.
         for (int j = 0; j < 5 && results.status == 0x80; j++ ) // 0x80 data doesn't seem right.
         { 
-            //bme68x_forced_mode( &bme, &results );
-    
+            //bme68x_forced_mode( &bme, &results );   
             //bme68x_parallel_mode( &bme, &results );
             bme68x_sequential_mode( &bme, &results );
         }
