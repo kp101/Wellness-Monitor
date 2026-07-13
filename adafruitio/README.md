@@ -2,11 +2,11 @@
 
 This is based on AdafruitIO 'Actions'.
 
-When an 'alarms' feed received any data, a SMS text message and Email will be send. Remove one of email or text if desired. Customize this according to your requirement(s).
+When an 'alarms' feed received any data, a SMS text message and Email will be send. Remove email or text as desired. 
 
 ![sending text](images/adafruitio-alarms_2026-02-02_23-26-33.png)
 
-<b>Redirecting A JSON Payload</b>
+# Redirecting A JSON Payload
 
 When the a json payload is send into the 'downstairs' feed, this Action will examine the range value. if the range is > 0, it then extracts the station name and put it into the 'motus' feed. 
 
