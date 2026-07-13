@@ -1,7 +1,7 @@
 /**
  * This is a derived copy of the original from Bosch Sensortec.
  * 
- * Dated: 2026-07-05
+ * Modified: 2026-07-05
  * 
  * This was modified to work with the WiringPi i2c routine on Raspberry Pi, 
  * some work around to address limitations.
