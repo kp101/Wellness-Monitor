@@ -20,6 +20,12 @@ struct bme68x_avg {
     uint8_t meas_index;
 };
 
+/***********************************************************************/
+/*                         functions                                   */
+/*                                                                     */
+/* The following returns an simple average value of sampled data.      */
+/***********************************************************************/
+
 extern int bme68x_forced_mode(struct bme68x_dev *bme, struct bme68x_avg * results); 
 
 extern int bme68x_parallel_mode(struct bme68x_dev *bme, struct bme68x_avg *results); 
