@@ -24,7 +24,10 @@ This is an alternative to the usual python routine, it is more stable...it has l
 1. WiringPi library, (see install_wiringpi.txt),
 2. paho-mqtt library. (see install_paho.txt),
 3. sudo raspi-config to enable i2c && sudo reboot,
-3. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
+4. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
+>[!NOTE]
+> This project depends on codes from [Bosch Sensortec](https://github.com/boschsensortec/BME68x_SensorAPI)
+> Certain portion of codes are reproduced with modification to work around limitations.
     
 ## Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
 
