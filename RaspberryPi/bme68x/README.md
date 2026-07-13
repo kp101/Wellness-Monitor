@@ -12,7 +12,7 @@ Adafruit IO MQTT was chosen and tested with this but it may work with other brok
 
 ##Hardware dependencies:
 
-1. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: https://shop.pimoroni.com/products/bme688-breakout
+1. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) [bme688breakout](refer: https://shop.pimoroni.com/products/bme688-breakout)
 2. a qwiic connect cable to pinout for sensor with qwiic connector,
 3. a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
 4. a Raspberry Pi ZeroW  or Pi Zero2W.
