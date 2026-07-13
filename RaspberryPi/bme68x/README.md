@@ -37,11 +37,11 @@ d. Yellow = SCL.
 3. connect pin SDA (i2c 1) on Pico to SDA pin on bme688,
 4. connect pin SCL (i2c 1) on Pico to SCL pin on bme688,
   
-### Notes on bme68x: 
-- depending on what else is attached to I2C, there is a secondary address for bme688...0x76,
-- use i2cdetect to check or trouble shoot.
-- This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. see Bosch doc.
-- 
+> [!NOTE]Notes on bme68x: 
+>depending on what else is attached to I2C, there is a secondary address for bme688...0x76,
+>use i2cdetect to check or trouble shoot.
+>This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. see Bosch doc.
+ 
 ### Notes on communicating with Adafruit IO's MQTT:
 
 - should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
