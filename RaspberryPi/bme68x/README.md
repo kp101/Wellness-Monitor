@@ -7,10 +7,10 @@ This is an alternative to the usual python routine, it is more stable...it has l
 
 ## Features:
 
-1. Adjustable scanning periods,
-2. publishing environmental data to a broker. 
-3. secured MQTT connection using 8883 port,
-4. Settings can be changed in mqtt.h and sensor.h headers prior to compiling.
+- Adjustable scanning periods,
+- publishing environmental data to a broker. 
+- secured MQTT connection using 8883 port,
+- Settings can be changed in mqtt.h and sensor.h headers prior to compiling.
 
 ## Hardware dependencies:
 
