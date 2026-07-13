@@ -1,7 +1,16 @@
 /**
+ * This is a derived copy of the original from Bosch Sensortec.
+ * 
+ * Dated: 2026-07-05
+ * 
+ * This was modified to work with the WiringPi i2c routine on Raspberry Pi, 
+ * some work around to address limitations.
+ * 
  * Copyright (C) 2023 Bosch Sensortec GmbH. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
+ * 
+ * 
  */
 
 #include <stdint.h>
@@ -16,7 +25,6 @@
 //#include "coines.h"
 #include "common.h"
 #include <wiringPi.h>
-//#include <wiringSerial.h>
 #include "wiringPiI2C.h"
 
 #define COINES_SUCCESS                             0
@@ -193,8 +201,7 @@ void bme68x_deinit(void * intf_ptr)
     int device_addr = *(int*)intf_ptr;
     uint8_t i2c_reset = BME68X_SOFT_RESET_CMD;
     (void)fflush(stdout);
-
-    
+   
     bme68x_i2c_write( 0xE0, &i2c_reset, 1, intf_ptr ); 
     /* Coines interface reset */
     //coines_soft_reset();
