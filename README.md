@@ -9,7 +9,7 @@ The strategy here is the use of MQTT as a central broker for reporting. We are m
      ![motus](images/adafruitio-motus-20260714.png)
      
   3. Optionally, the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements) the following is a Grafana reporting compiled and extracted from adafruitio:
-     ![temperature](images/grafana-environ_2026-01-28_15-36-54.png)
+     ![temperature](images/grafana-environ-20260714.png)
      
   5. It is also possible to publish temperature, pressure, humidity and voc to dedicated feeds and generate graphs in the cloud in order to monitor trends and comfort level remotely (additional mods needed), e.g.
      ![temperature](images/adafruitio-temp_2026-01-31_13-28-28.png)
