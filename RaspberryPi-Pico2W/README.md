@@ -2,7 +2,7 @@
 
 The following is a "Micropython" implementation using a Raspberry Pi Pico 2W with a movement sensor to update Adafruit IO MQTT. 
 
-The one on lower left is the basic version, the one on the right is the advanced version with additional sensors and an oled display.
+The one on left is the basic version, the one on the right is the advanced version with additional environmental sensor and an oled display.
 
 ![RaspberryPi Pico2W](../images/PiPico2W.png) 
 ![RaspberryPi Pico2W Adv](../images/PiPico2Wb.png)
