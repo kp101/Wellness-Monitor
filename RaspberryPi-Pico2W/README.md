@@ -1,4 +1,4 @@
-## Raspberry Pi Pico 2W + BME688 + mmWave
+# Raspberry Pi Pico 2W + mmWave
 
 The following is a "Micropython" implementation using a Raspberry Pi Pico 2W with 2 sensors to update Adafruit IO MQTT in the cloud. 
 An account in Adafruit IO is sufficient but not neccessary. Other MQTT broker will work as well. Tested with Eclipse Mosquitto MQTT broker running locally using port 1883. 
@@ -7,7 +7,7 @@ This along with others in the project for Wellness Monitoring allows me to check
 
 ![RaspberryPi Pico2W](../images/PiPico2W.png)
 
-# Features
+## Features
   1. Adjustable scanning periods,
   2. movement scanning and enviornmental readings,
   3. S.O.S. blinker if errors occurs prior to a soft reset,
@@ -17,7 +17,7 @@ This along with others in the project for Wellness Monitoring allows me to check
   7. Settings can be changed in config.yml.
 
 
-# Hardware dependencies
+## Hardware dependencies
   1. Raspberry Pi Pico 2W, 
   2. HMMD mmWave Sensor refer:https://www.waveshare.com/wiki/HMMD_mmWave_Sensor,
   3. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: [bme688](https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779),
