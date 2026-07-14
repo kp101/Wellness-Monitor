@@ -31,7 +31,7 @@ This is an alternative to the usual python routine, it is more stable...it has l
 4. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
 
 > [!CAUTION]
-> A word on communicating with Adafruit IO's MQTT. Should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
+> A word on communicating with Adafruit IO's MQTT. Leave client_id="" or use UUID to avoid random disconnects using same client_id with multiple clients. (don't ask me how I know.)
 > when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
 > alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
     
