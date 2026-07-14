@@ -1,8 +1,8 @@
 # WELLNESS MONITOR with IOT DEVICES
 
-The goal of this project is to implement a collection of IoT devices around the house for remote monitoring. The targets are those activities of seniors aging in place/living alone or children returning from school. This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts. We assume no pets.
+The goal of this project is to implement a collection of IoT devices around the house for remote monitoring. The targets are those activities of seniors aging in place/living alone or children returning from school. Other use case such as monitoring of empty cottages/basements may be accomplish with minor code changes with alarm triggers in online MQTT brokers. 
 
-The core of the monitoring does not depend on cameras, only movements. The destination of the data is chosen by the implementer. 
+This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts. The core of the monitoring does not depend on cameras, only movements. The destination of the data is chosen by the implementer. 
 
 Additional features like environmental sensors(bme68x, bme690), oled display, audio out, plotting, etc. are available for more advanced implementers.
 
