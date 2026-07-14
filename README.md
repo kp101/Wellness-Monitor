@@ -4,7 +4,7 @@ The goal of this project is to implement a collection of IoT devices around the 
 
 The core of the monitoring does not depend on cameras, only movements. The destination of the data is chosen by the implementer. 
 
-Additional features like environmental sensors(bme68x, bme690), oled display, speakers, plotting, etc. are available for more advanced implementers.
+Additional features like environmental sensors(bme68x, bme690), oled display, audio out, plotting, etc. are available for more advanced implementers.
 
 ## Sample Report:
 
