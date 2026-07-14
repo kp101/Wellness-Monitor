@@ -17,7 +17,7 @@ The goal of this project is to implement a collection of IoT devices around the 
 In each folder, there is a type of IoT device which will be used to collect movements. . It is necessary and sufficient to choose only one type of device. Most have bonus features such as environmental sensor, display, audio out, camera. Some have more features than others. A generic Raspberry Pi is the most flexible but most complicated.
 
 > [!TIP]
-> The most cost efficient is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger and an mqtt online broker for remote monitoring. Start [here](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
+> The most cost efficient is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger and a mqtt online broker for remote monitoring. Start [here](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
 
 The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for extended battery operations with deepsleep mode. e.g. gathering only temperature/pressure/humidity. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. 
 
