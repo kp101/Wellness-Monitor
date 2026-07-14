@@ -16,12 +16,12 @@ Additional features like environmental sensors(bme68x, bme690), oled display, sp
 
 ## Organization
 
-In each folder, there is a type of IoT device which will be used to collect movements. . It is necessary and sufficient to choose only one type of device. Most have bonus features such as environmental sensor, display, audio out, camera. Some have more features than others. A generic Raspberry Pi is the most flexible but most complicated.
+In each folder, there is a type of IoT device which will be used to collect movements. . Only one type of device is needed to begin. [RaspberryPi-Pico2W](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
+
+Additional features such as environmental sensor, display, audio out, camera are for more advaned users. A generic Raspberry Pi (ZeroW,2B,3B,...) is the most flexible but most complicated. Details are in each folder.
 
 > [!TIP]
 > The most cost efficient is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger and a mqtt online broker for remote monitoring. Start [here](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
-
-The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for extended battery operations with deepsleep mode. e.g. gathering only temperature/pressure/humidity. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. 
 
 >[!TIP]
 >Environmental sensors are optional. They can be used to report temperature, pressure, humidity and voc.
