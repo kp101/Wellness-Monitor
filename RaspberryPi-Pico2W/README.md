@@ -65,3 +65,6 @@ alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
   2. open Thonny, create new files and copy contents into each file and save with same name on device.
   3. change parameters in config.yml
   4. save and test.
+
+> [!CAUTION]
+> There is a outstanding but unknown defect causing it to freeze after a few months of operations. Investigation is ongoing.
