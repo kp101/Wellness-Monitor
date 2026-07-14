@@ -19,7 +19,7 @@ This is an alternative to the usual python routine, it is more stable...it has l
 ## Hardware dependencies
 
 1. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: [bme688breakout](https://shop.pimoroni.com/products/bme688-breakout)
-2. a qwiic connect cable to pinout for sensor with qwiic connector,
+2. a cable with female connector for sensor to Pi,
 3. a 5v power adaptor (a used phone charger approx 2A is sufficient.), cable should be as short as possible to avoid brownout.
 4. a Raspberry Pi ZeroW  or Pi Zero2W.
 
