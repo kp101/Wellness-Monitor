@@ -5,7 +5,7 @@ This project is to be used with an online MQTT broker, a Raspberry Pi, a level s
 >This alarm is not commercial grade, It is only for non-critical alerts. Medical emergencies such as heart attacks and stokes should be directed to local emergency services without delay.
 
 ## Purpose
-Pressing a remote button will send a message to a designated mqtt online feed. This online feed will be further directed to a recipient via SMS, email. An external listener maybe able to audibily confirm the message has been received by the online MQTT broker. For futher detail, see listener project. 
+Pressing a remote button will send a message to a designated mqtt online feed. This online feed will automatically trigger a SMS, email to designated receipient(s). An external listener maybe added to audibily confirm the message was received by the online MQTT broker. For futher detail, see listener project. 
 
 This is only part of a remote monitoring scheme. An alternative solution where commercial service is not widely available, too expensive, lacking privacy or unreliable . The only thing this solution depends on is electrical power, internet service and a MQTT broker with message forwarding capabilities.
 
