@@ -41,7 +41,7 @@ These are features not turnon by default and requires additional customizations.
 
 ## Minimal requirements: 
   1. Adafruit IO account (not neccesary but sufficient. You can use other MQTT brokers but a commercial broker has features to trigger alarms and send text/email in defined scenarios),
-  2. one of these microcontrollers: Raspberry Pi Pico 2W, Pimoroni Pico Plus 2W, Adafruit ESP32 Feather v2, Raspberry Pi ZeroW/Zero2W/2B/3B/3B+,
-  3. a mmWave detector (Waveshare mmWave). 
+  2. one of these IoT devices: Raspberry Pi Pico 2W, Pimoroni Pico Plus 2W, Adafruit ESP32 Feather v2, Raspberry Pi ZeroW/Zero2W/2B/3B/3B+,
+  3. a mmWave detector (Waveshare mmWave) for each IoT device. 
 
 
