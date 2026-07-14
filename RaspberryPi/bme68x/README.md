@@ -6,8 +6,8 @@ Adafruit IO MQTT was chosen and tested with this but it may work with other brok
 This is an alternative to the usual python routine, it is more stable...it has less dependencies so less affected by breaking changes. As a bonus, it is much faster and consumes less resources.
 
 >[!NOTE]
-> This project depends on codes from [Bosch Sensortec](https://github.com/boschsensortec/BME68x_SensorAPI)
-> Certain portion of codes are reproduced with modification to work around limitations.
+> This project was derived from codes in [Bosch Sensortec](https://github.com/boschsensortec/BME68x_SensorAPI)
+> Certain portion of codes are reproduced with modification working around limitations.
 
 ## Features
 
