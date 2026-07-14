@@ -19,7 +19,7 @@ This along with others in the project for Wellness Monitoring allows me to check
 
 ## Hardware dependencies
   1. Raspberry Pi Pico 2W, 
-  2. HMMD mmWave Sensor refer:[mmWave](https://www.waveshare.com/wiki/HMMD_mmWave_Sensor),
+  2. HMMD mmWave movement sensor refer:[mmWave](https://www.waveshare.com/wiki/HMMD_mmWave_Sensor),
   3. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: [bme688](https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779),
   4. STEMMA QT/Qwiic JST SH 4-pin Cable with Female Sockets (if BME688 with QWIIC connect was used). Otherwise, female connectors.
   5. a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
@@ -33,14 +33,14 @@ This along with others in the project for Wellness Monitoring allows me to check
   5. robust (a tested copy provided for convenience and consistency),
 
 
-## Attaching mmWave sensor (~50mA):
+## Attaching mmWave Sensor
   1. TX pin 4 on PiPico is attached to RX pin on mmWave sensor,
   2. RX pin 5 on PiPico is attached to TX pin on mmWave sensor,
   3. 3.3v pin on PiPico is attached to 3.3v pin on mmWave sensor,
   4. GND pin on PiPico is attached to GND pin on mmWave sensor.
 
 > [!CAUTION]
-> This sensor consume too much energies to be running on batteries. 
+> This sensor consume approx. 40mA, too much to be running on batteries. 
 
 ## Attaching Bosch's BME688 sensor over I2C without STEMMA QT/QWIIC JST
   1. Attach pin 22 on PiPico to 2-6v pin(RED) on bme688,
@@ -61,10 +61,10 @@ This along with others in the project for Wellness Monitoring allows me to check
 alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
 ## Installation Instructions:
-  1. hold reset and connect usb to computer, wait for drive to show and copy pimoroni firmware listed above to usb drive.
+  1. For brand new Pico2W hold reset and connect usb to computer, wait for drive to show and copy pimoroni firmware listed above to usb drive. It will reset.
   2. open Thonny, create new files and copy contents into each file and save with same name on device.
   3. change parameters in config.yml
   4. save and test.
 
 > [!CAUTION]
-> There is an outstanding but unknown defect causing it to freeze after a few months of operations. Investigation is ongoing.
+> There is an outstanding but unknown defect causing it to freeze after a few months of operations. Unplug/replug to resolve. Investigation is ongoing.
