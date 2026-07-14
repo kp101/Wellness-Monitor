@@ -53,7 +53,7 @@ A remote button is small, light, does not require regular charging, can be carry
 - sudo cp the panicbutton.service file to /etc/systemd/system directory,
 - sudo systemctl enable panicbutton,
 - sudo systemctl start panicbutton.
-3. If available, setup a trigger to send sms/email to your mobile phone. See [adafruitio](https://github.com/kp101/Wellness-Monitor/tree/636922cb02e7a41db3aebd5636ba524562163901/adafruitio) for details. Other provider may provide the same service.
+3. If available, setup a trigger to send sms/email to your mobile phone. See folder [adafruitio](https://github.com/kp101/Wellness-Monitor/tree/636922cb02e7a41db3aebd5636ba524562163901/adafruitio) for details. More details are in Adafruitio. Other provider may provide the same service but different methods.
   
 ## Verify
 - Press the button,
