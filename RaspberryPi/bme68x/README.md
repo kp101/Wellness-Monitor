@@ -60,4 +60,4 @@ This is an alternative to the usual python routine, it is more stable...it has l
 - sudo systemctl start bme68x.
    
 ## Verify
-- login to your mqtt broker account to verify data are posting. By default it is 30 minutes.
+- login to your mqtt broker account to verify data are posting. By default it is 30 minutes intervals.
