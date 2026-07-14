@@ -26,7 +26,7 @@ int main(void) {
       if (i == HIGH) {
          if (!triggered) {
             printf("Alarm Activated %i\n", i );
-            mqtt_publish( TOPIC, DISTRESS_SIG );
+            mqtt_publish( TOPIC, DISTRESS_SIG, strlen(DISTRESS_SIG));
             triggered = true;
          }
          delay(5);
