@@ -39,8 +39,8 @@ This along with others in the project for Wellness Monitoring allows me to check
   3. 3.3v pin on PiPico is attached to 3.3v pin on mmWave sensor,
   4. GND pin on PiPico is attached to GND pin on mmWave sensor.
 
-note: the connection of TX to RX pins. Also, this sensor alone will mean running on batteries is impractical. 
-
+> [!CAUTION]
+> This sensor consume too much energies to be running on batteries. 
 
 ## Attaching Bosch's BME688 sensor over I2C without STEMMA QT/QWIIC JST
   1. Attach pin 22 on PiPico to 2-6v pin(RED) on bme688,
@@ -54,16 +54,14 @@ note: the connection of TX to RX pins. Also, this sensor alone will mean running
 > This sensor also has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy.
 > Check Bosch website for further information.
 
-On communicating with Adafruit IO's MQTT:
+## Communicating with Adafruit IO's MQTT:
   1. SSL=True is needed to use port 8883 for secured connection (there is a version of umqtt.Simple that imports uSSL which doesn't work in this firmware.)
   2. leave client_id="" to avoid collision on multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
   3. when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send number and text directly.
 alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
-Installation Instructions:
+## Installation Instructions:
   1. hold reset and connect usb to computer, wait for drive to show and copy pimoroni firmware listed above to usb drive.
   2. open Thonny, create new files and copy contents into each file and save with same name on device.
   3. change parameters in config.yml
   4. save and test.
-
-This is part of a larger project designed for a customizable wellness remote monitoring. 
