@@ -27,7 +27,7 @@ In each folder, there is a type of IoT device which will be used to collect move
 Additional features such as environmental sensor, display, audio out, camera are for more advaned users. A generic Raspberry Pi (ZeroW,2B,3B,...) is the most flexible but most complicated. Details are in each folder.
 
 > [!TIP]
-> The most cost efficient is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger and a mqtt online broker for remote monitoring. Start [here](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
+> The most cost efficient is the RaspberryPi Pico 2W ~ $10 CAD each, plus mmWave ~ $5 CAD, an old phone charger and a mqtt online broker account for remote monitoring. Start [here](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
 
 ## Advanced Features
 
