@@ -18,7 +18,10 @@ Additional features like environmental sensors(bme68x, bme690), oled display, sp
 
 In each folder, there is a type of IoT device which will be used to collect movements. . Only one type of device is needed to begin...[RaspberryPi-Pico2W](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
 
-The adafruitio folder 
+The [adafruitio](https://github.com/kp101/Wellness-Monitor/tree/d90f61e64aa972bd3db0047025a08c983d82ec8a/adafruitio) folder contain instructions for setting up your online MQTT broker.
+
+The [iot-monitor]() is for monitoring the monitoring devices.
+
 Additional features such as environmental sensor, display, audio out, camera are for more advaned users. A generic Raspberry Pi (ZeroW,2B,3B,...) is the most flexible but most complicated. Details are in each folder.
 
 > [!TIP]
