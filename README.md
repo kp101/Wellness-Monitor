@@ -1,4 +1,4 @@
-# WELLNESS MONITOR with IOT DEVICES
+# WELLNESS MONITOR with IoT DEVICES
 
 The goal of this project is to implement a collection of IoT devices around the house for remote monitoring. The targets are those activities of seniors aging in place/living alone or children returning from school. Other use case such as monitoring of empty cottages/basements may be accomplished with minor changes. 
 
