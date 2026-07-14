@@ -7,7 +7,7 @@ The goal of this project is to implement a collection of IoT devices around the 
 2. No pets.
 
 
-## Sample reported:
+## Sample report:
 
  ![motus](images/adafruitio-motus-20260714.png)
 
