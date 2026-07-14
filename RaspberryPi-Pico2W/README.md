@@ -52,8 +52,8 @@ note: the connection of TX to RX pins. Also, this sensor alone will mean running
 > [!NOTE]
 > We are treating the bme688 as if it was a LED light, will need to pull this pin (22) HIGH to power it. 
 
-The Raspberry Pi-Pico 2W does not have a STEMMA QT/QWIIC connector on the controller but the BME688 has it. 
-We use the STEMMA QT / Qwiic JST SH 4-pin Cable with female connector. The pinout on the connector is:
+For those using BME688 with a STEMMA QT / Qwiic JST connector, the Raspberry Pi-Pico 2W does not have a corresponding socket. A 
+cable with the STEMMA QT / Qwiic JST SH 4-pin Cable to female connectors is needed. The pinout on the connector is:
 -  RED -> 3.3VDC,
 -  BLK -> GND,
 -  BLU -> I2C SDA,
