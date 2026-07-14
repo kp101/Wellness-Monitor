@@ -7,7 +7,7 @@ This project is to be used with an online MQTT broker, a Raspberry Pi, a level s
 ## Purpose
 Pressing a remote button will send a message to a designated mqtt online feed. This online feed will automatically trigger a SMS, email to designated receipient(s). An external listener maybe added to audibily confirm the message was received by the online MQTT broker. For futher detail, see listener project. 
 
-This is only part of a remote monitoring scheme. An alternative solution where commercial service is not widely available, too expensive, lacking privacy or unreliable . The only thing this solution depends on is electrical power, internet service and a MQTT broker with message forwarding capabilities.
+This is a part of a remote monitoring scheme. It's an alternative to commercial service where not available, too expensive, lacking privacy, not customizable or unreliable. The only thing this solution depends on is relaible electrical power, internet service and a MQTT broker with message forwarding capabilities.
 
 Possible candidates: seniors without heart or stoke risks, falling and unable to get up but no fracture risks. In some remote areas, attentive neighours can be put on alert and reach the candidate faster than emergency response teams.
 
