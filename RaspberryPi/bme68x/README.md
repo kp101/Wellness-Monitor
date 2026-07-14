@@ -28,6 +28,11 @@ This is an alternative to the usual python routine, it is more stable...it has l
 >[!NOTE]
 > This project depends on codes from [Bosch Sensortec](https://github.com/boschsensortec/BME68x_SensorAPI)
 > Certain portion of codes are reproduced with modification to work around limitations.
+
+> [!CAUTION]
+> A word on communicating with Adafruit IO's MQTT. Should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
+> when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
+> alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
     
 ## Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA)
 
@@ -44,11 +49,6 @@ This is an alternative to the usual python routine, it is more stable...it has l
 > For bme68x,depending on what else is attached to I2C, there is a secondary address for bme688...0x76,
 > use i2cdetect to check or trouble shoot.
 > This sensor has a heater, it should have a breakin period and a scan period meeting the requirements of Bosch for accuracy. see Bosch doc.
- 
-> [!CAUTION]
-> A word on communicating with Adafruit IO's MQTT. Should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
-> when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
-> alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
 ## Compiling and Installation Instructions
 
