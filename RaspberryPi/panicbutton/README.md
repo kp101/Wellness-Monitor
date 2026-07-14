@@ -1,4 +1,4 @@
-# PANIC BUTTON
+# RASPBERRY PI 2B + PANIC BUTTON
 
 This project is to be used with an online MQTT broker, a Raspberry Pi, a level shifter, a remote button and a remote receiver. 
 >[!CAUTION]
