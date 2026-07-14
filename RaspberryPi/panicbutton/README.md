@@ -27,7 +27,7 @@ A remote button is small, light, does not require regular charging, can be carry
   
 ![levelshifter](images/757-small.jpg)
 
-## Software dependencies:
+## Software dependencies
 
 1. WiringPi library, (see install_wiringpi.txt),
 2. paho-mqtt library. (see install_paho.txt),
@@ -37,7 +37,7 @@ A remote button is small, light, does not require regular charging, can be carry
 > when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
 > alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
-## Attaching Pi to level shifter to RF receiver:
+## Attaching Pi to level shifter to RF receiver
 
 1. Connect a 3.3v pin on Pi to LV on level shifter, 
 2. connect a ground pin on Pi to GND on level shifter,
@@ -46,7 +46,7 @@ A remote button is small, light, does not require regular charging, can be carry
 5. connect ground to RF receiver GND pin,
 6. connect D0 to B1 on level shifter.
   
-## Compiling and Installation Instructions:
+## Compiling and Installation Instructions
 
 1. Minimum customization should be made to panicbutton.h, mqtt.h. Then compile with Makefile, 
 2. Once sucessfully compiled:
@@ -54,7 +54,7 @@ A remote button is small, light, does not require regular charging, can be carry
 - sudo systemctl enable panicbutton,
 - sudo systemctl start panicbutton.
   
-## Verify:
+## Verify
 - Press the button,
 - login to your mqtt broker account to verify data were posted,
 - and if a trigger was added to send sms or email verify the result. The trip should take less than 2 seconds.
