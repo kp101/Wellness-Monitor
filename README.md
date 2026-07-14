@@ -1,14 +1,19 @@
-The goal of this project is to implement a collection of IoT devices around the house for remote monitoring of seniors aging in place or children returning from school. This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts.
+# WELLNESS MONITOR with IOT DEVICES
 
-In each folder, there is a type of IoT device which will be used to collect movements detected, (optional temperature, pressure, humidity and voc via environmental sensor). Only one type of IoT device is necessary for monitoring movements. The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for gathering only temperature/pressure/humidity with a battery. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. The least cost is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger with microusb connector is sufficient.
+## Purpose
+The goal of this project is to implement a collection of IoT devices around the house for remote monitoring of seniors aging in place and living alone or children returning from school. This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts.
 
+## Organization
 
+In each folder, there is a type of IoT device which will be used to collect movements. environmental sensors and optional temperature, pressure, humidity and voc via extra sensors). Only one type of IoT microcontroller is necessary for monitoring movements. The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for extended battery operations with deepsleep mode. e.g. gathering only temperature/pressure/humidity. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. The least cost is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger with microusb connector is sufficient.
 
-The strategy here is the use of MQTT as a central broker for reporting. We are monitoring:
+The strategy here is the use of MQTT as a central broker for monitoring:
   1. the occupants' movements (we assume a senior moving from room to room is doing okay), the report below shows more than one person's movements:
+     
      ![motus](images/adafruitio-motus-20260714.png)
      
   3. Optionally, the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements) the following is a Grafana reporting compiled and extracted from adafruitio:
+     
      ![temperature](images/grafana-environ-20260714.png)
      
   5. It is also possible to publish temperature, pressure, humidity and voc to dedicated feeds and generate graphs in the cloud in order to monitor trends and comfort level remotely (additional mods needed), e.g.
