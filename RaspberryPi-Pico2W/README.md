@@ -1,6 +1,6 @@
 # Raspberry Pi Pico 2W + mmWave
 
-The following is a "Micropython" implementation using a Raspberry Pi Pico 2W with a movement sensor to update Adafruit IO MQTT. 
+The following is a "Micropython" implementation using a Raspberry Pi Pico 2W with a movement sensor to update an oline MQTT broker. 
 
 The one on left is the basic version, the one on the right is the advanced version with additional environmental sensor and an oled display.
 
