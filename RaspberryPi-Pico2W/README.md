@@ -10,8 +10,8 @@ This along with others in the project for Wellness Monitoring allows me to check
 ## Features
   1. Adjustable scanning periods,
   2. movement scanning and enviornmental readings,
-  3. S.O.S. blinker if errors occurs prior to a soft reset,
-  4. exception handling and reset if necessary,
+  3. S.O.S. blinker if errors deteccted. it will do a soft reset subsequently,
+  4. exception handling and reset if unresolved after retries,
   5. daily reboot in case of memory leaks,
   6. secured MQTT connection using 8883 port,
   7. Settings can be changed in config.yml.
