@@ -7,7 +7,7 @@ This along with others in the project for Wellness Monitoring allows me to check
 
 ![RaspberryPi Pico2W](../images/PiPico2W.png)
 
-Features:
+# Features
   1. Adjustable scanning periods,
   2. movement scanning and enviornmental readings,
   3. S.O.S. blinker if errors occurs prior to a soft reset,
@@ -17,11 +17,12 @@ Features:
   7. Settings can be changed in config.yml.
 
 
-Hardware dependencies:
+# Hardware dependencies
   1. Raspberry Pi Pico 2W, 
   2. HMMD mmWave Sensor refer:https://www.waveshare.com/wiki/HMMD_mmWave_Sensor,
-  3. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer:  https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779,
-  4. a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
+  3. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: [bme688](https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779),
+  4. 
+  5. a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
 
 
 Software dependencies:
