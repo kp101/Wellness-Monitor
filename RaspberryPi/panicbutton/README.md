@@ -41,14 +41,14 @@ A remote button is small, light, does not require regular charging, can be carry
 
 1. Connect a 3.3v pin on Pi to LV on level shifter, 
 2. connect a ground pin on Pi to GND on level shifter,
-3. connect a digital pin on Pi to A1,
+3. connect a digital pin on Pi (pin 23) to A1,
 4. provide a 5v to RF receiver +5V pin,
 5. connect ground to RF receiver GND pin,
 6. connect D0 to B1 on level shifter.
   
 ## Compiling and Installation Instructions
 
-1. Minimum customization should be made to panicbutton.h, mqtt.h. Then compile with Makefile, 
+1. Minimum customization should be made to panicbutton.h, mqtt.h and panicbutton.service. Then compile with Makefile, 
 2. Once sucessfully compiled:
 - sudo cp the panicbutton.service file to /etc/systemd/system directory,
 - sudo systemctl enable panicbutton,
