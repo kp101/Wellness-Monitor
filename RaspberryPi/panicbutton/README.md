@@ -61,4 +61,4 @@ A remote button is small, light, does not require regular charging, can be carry
 - login to your mqtt broker account to verify data were posted,
 - and if a trigger was added to send sms or email verify the result. The trip should take less than 5 seconds.
 >[!TIP]
->Periodic testing should be performed to verify all system go and button battery is good.
+>Periodic testing should be performed to verify all system go and button battery is good. Perhaps as a part of regular vists.
