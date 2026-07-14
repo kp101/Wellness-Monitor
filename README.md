@@ -8,7 +8,7 @@ Additional features like environmental sensors(bme68x, bme690), oled display, au
 
 ## Sample Report:
 
- ![motus](images/adafruitio-motus-20260714.png)  ![motus](images/PiPico2W.png)
+ ![motus](images/adafruitio-motus-20260714.png)  
 
 ## Assumptions
 1. we assume a senior moving from room to room in his/her daily activity is relatively healthy.
