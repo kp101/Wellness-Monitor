@@ -1,10 +1,11 @@
-<b>Raspberry Pi Pico 2W + BME688 + mmWave</b>
+## Raspberry Pi Pico 2W + BME688 + mmWave
 
 The following is a "Micropython" implementation using a Raspberry Pi Pico 2W with 2 sensors to update Adafruit IO MQTT in the cloud. 
 An account in Adafruit IO is sufficient but not neccessary. Other MQTT broker will work as well. Tested with Eclipse Mosquitto MQTT broker running locally using port 1883. 
 Adafruit IO is nice because in my district, triggers can be created to send email/text messages to my phone.
 This along with others in the project for Wellness Monitoring allows me to check on comfort and movements of the inhabitants remotely.
 
+![RaspberryPi Pico2W](../images/PiPico2W.png)
 
 Features:
   1. Adjustable scanning periods,
