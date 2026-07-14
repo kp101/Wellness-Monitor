@@ -33,7 +33,7 @@ A remote button is small, light, does not require regular charging, can be carry
 2. paho-mqtt library. (see install_paho.txt),
 
 > [!CAUTION]
-> A word on communicating with Adafruit IO's MQTT. Should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
+> A word on communicating with Adafruit IO's MQTT. Leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
 > when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
 > alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
