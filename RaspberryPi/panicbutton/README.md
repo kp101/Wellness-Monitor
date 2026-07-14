@@ -15,7 +15,7 @@ Possible candidates: seniors without heart or stoke risks, falling and unable to
 A remote button is small, light, does not require regular charging, can be carry around the neck, in the pocket or attached to a belt with a carabiner. No dialing, no fiddling with a phone.
    
 ## Required Hardware
-- A remote button capable of transmitting with a matching receiver capable of receiving signal within a household boundary.
+- A remote button capable of transmitting with a matching receiver capable of receiving signal within a household boundary. This is a Simple RF T4 Receiver - 315MHz Toggle Type.
   
 ![remote](images/1095-small.jpg)
 ![remote](images/1097-small.jpg)
