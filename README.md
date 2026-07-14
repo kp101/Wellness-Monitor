@@ -2,17 +2,17 @@
 
 The goal of this project is to implement a collection of IoT devices around the house for remote monitoring of activities for seniors aging in place/living alone or children returning from school. This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts. We assume no pets.
 
-The core of the monitoring does not depend on cameras, only movements. The destination of the data is chosen by the implementer.
+The core of the monitoring does not depend on cameras, only movements. The destination of the data is chosen by the implementer. 
 
-## Assumptions
-1. we assume a senior moving from room to room in his/her daily activity is relatively healthy.
-2. No pets.
-
+Additional features like environmental sensors(bme68x, bme690), oled display, speakers, plotting, etc. are available for more advanced implementers.
 
 ## Sample report:
 
  ![motus](images/adafruitio-motus-20260714.png)
 
+## Assumptions
+1. we assume a senior moving from room to room in his/her daily activity is relatively healthy.
+2. No pets.
 
 ## Organization
 
