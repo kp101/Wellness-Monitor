@@ -14,3 +14,6 @@ Possible candidates: seniors without heart or stoke risks, falling and unable to
 ## Why a remote button? 
 A remote button is small, light, does not require regular charging, can be carry around the neck, in the pocket or attached to a belt with a carabiner. No dialing, no fiddling with a phone.
    
+## Required Hardware
+- A remote button capable of transmitting with a matching receiver capable of receiving signal within a household boundary.
+- ![remote](images/1095-03.jpg)
