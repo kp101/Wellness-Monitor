@@ -6,7 +6,7 @@ In each folder, there is a type of IoT device which will be used to collect move
 
 The strategy here is the use of MQTT as a central broker for reporting. We are monitoring:
   1. the occupants' movements (we assume a senior moving from room to room is doing okay), the report below shows more than one person's movements:
-     ![motus](images/adafruitio-motus_2026-01-31_13-34-32.png)
+     ![motus](images/adafruitio-motus-20260714.png)
      
   3. Optionally, the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements) the following is a Grafana reporting compiled and extracted from adafruitio:
      ![temperature](images/grafana-environ_2026-01-28_15-36-54.png)
