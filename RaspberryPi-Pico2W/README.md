@@ -26,7 +26,7 @@ This along with others in the project for Wellness Monitoring allows me to check
 
 
 Software dependencies:
-  1. Raspberry Pi Pico 2W compiled by Pimoroni with added libraries. refer: https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1
+  1. Raspberry Pi Pico 2W image compiled by Pimoroni with added libraries. [RaspberryPi Pico 2W v1.26.1](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1)
   2. umqtt.simple (a tested and modified copy provided for convenience and consistency),
   3. network_manager (a tested copy provided for convenience and consistency),
   4. yaml (a tested copy provided for convenience and consistency),
