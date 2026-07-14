@@ -2,7 +2,8 @@
 
 The following is a "Micropython" implementation using a Raspberry Pi Pico 2W with sensor(s) to update Adafruit IO MQTT in the cloud. Adafruit IO is sufficient but not neccessary, other MQTT broker will work as well. 
 
-![RaspberryPi Pico2W](../images/PiPico2W.png)
+![RaspberryPi Pico2W](../images/PiPico2W.png) 
+![RaspberryPi Pico2W Adv](../images/PiPico2bW.png)
 
 ## Features
   1. Adjustable scanning periods,
