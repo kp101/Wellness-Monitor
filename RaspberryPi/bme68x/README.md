@@ -31,7 +31,7 @@ This is an alternative to the usual python routine, it is more stable...it has l
     
 ## Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA):
 
-1. Attach bme688 via Qw/ST to breakout connector. Qwiic I2C connector pinout typically includes four pins arranged as follows: 
+1. Attach bme688 via Qw/ST to breakout connector. STEMMA QT/Qwiic JST SH 4-pin Cable with Premium Female Sockets. pinout typically includes four pins arranged as follows: 
 - Black = GND, 
 - Red = 3.3V, 
 - Blue = SDA, 
