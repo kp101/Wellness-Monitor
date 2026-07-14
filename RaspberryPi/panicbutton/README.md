@@ -16,5 +16,11 @@ A remote button is small, light, does not require regular charging, can be carry
    
 ## Required Hardware
 - A remote button capable of transmitting with a matching receiver capable of receiving signal within a household boundary.
+  
 ![remote](images/1095-small.jpg)
 ![remote](images/1097-small.jpg)
+
+- I used this level shifter to interface with the Pi's 3.3v from the 5v out from the receiver. Other people have suggested using a resistor. This particular level shifter is a bit slower, other faster products are available.
+  
+![remote](images/757-small.jpg)
+
