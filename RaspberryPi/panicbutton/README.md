@@ -40,10 +40,10 @@ A remote button is small, light, does not require regular charging, can be carry
 ## Attaching Pi to level shifter to RF receiver
 
 1. Connect a 3.3v pin on Pi to LV on level shifter, 
-2. connect a ground pin on Pi to GND on level shifter,
+2. connect a ground pin on Pi to GND on the LV side of level shifter,
 3. connect a digital pin on Pi (pin 23) to A1,
 4. provide a 5v to RF receiver +5V pin,
-5. connect ground to RF receiver GND pin,
+5. connect ground to RF receiver GND pin on the HV side of level shifter,
 6. connect D0 to B1 on level shifter.
   
 ## Compiling and Installation Instructions
