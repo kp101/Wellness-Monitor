@@ -42,23 +42,17 @@ This along with others in the project for Wellness Monitoring allows me to check
 note: the connection of TX to RX pins. Also, this sensor alone will mean running on batteries is impractical. 
 
 
-## Attaching Bosch's BME688 sensor over I2C (requires ~15mA):
-  1. Attach pin 22 on PiPico to 2-6v pin on bme688,
-  2. attach pin SDA (pin 2) on PiPico to SDA pin on bme688,
-  3. attach pin SCL (pin 3) on PiPico to SCL pin on bme688,
-  4. attach pin GND on PiPico to GND pin on bme688,
+## Attaching Bosch's BME688 sensor over I2C without STEMMA QT/QWIIC JST
+  1. Attach pin 22 on PiPico to 2-6v pin(RED) on bme688,
+  2. attach pin SDA (pin 2) on PiPico to SDA(BLU) pin on bme688,
+  3. attach pin SCL (pin 3) on PiPico to SCL(YEL) pin on bme688,
+  4. attach pin GND on PiPico to GND pin(BLK) on bme688,
   5. depending on what else is attached to I2C, there is a secondary address for bme688 (see config.yml).
 
 > [!NOTE]
-> We are treating the bme688 as if it was a LED light, will need to pull this pin (22) HIGH to power it. 
-
-For those using BME688 with a STEMMA QT / Qwiic JST connector, the Raspberry Pi-Pico 2W does not have a corresponding socket. A 
-cable with the STEMMA QT / Qwiic JST SH 4-pin Cable to female connectors is needed. The pinout on the connector is:
--  RED -> 3.3VDC,
--  BLK -> GND,
--  BLU -> I2C SDA,
--  YEL -> I2C SCL.
-This sensor has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy. Check Bosch website for further information.
+> This sensor consumes ~15mA. We are treating the bme688 as if it was a LED light by pulling this pin (22) HIGH to power it.
+> This sensor has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy.
+> Check Bosch website for further information.
 
 On communicating with Adafruit IO's MQTT:
   1. SSL=True is needed to use port 8883 for secured connection (there is a version of umqtt.Simple that imports uSSL which doesn't work in this firmware.)
