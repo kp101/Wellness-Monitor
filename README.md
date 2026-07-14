@@ -16,36 +16,27 @@ Additional features like environmental sensors(bme68x, bme690), oled display, sp
 
 ## Organization
 
-In each folder, there is a type of IoT device which will be used to collect movements. . Only one type of device is needed to begin. [RaspberryPi-Pico2W](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
+In each folder, there is a type of IoT device which will be used to collect movements. . Only one type of device is needed to begin...[RaspberryPi-Pico2W](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
 
+The adafruitio folder 
 Additional features such as environmental sensor, display, audio out, camera are for more advaned users. A generic Raspberry Pi (ZeroW,2B,3B,...) is the most flexible but most complicated. Details are in each folder.
 
 > [!TIP]
 > The most cost efficient is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger and a mqtt online broker for remote monitoring. Start [here](https://github.com/kp101/Wellness-Monitor/tree/50d20936e2d2d9d425f359b2aec37112ab954b6e/RaspberryPi-Pico2W).
 
->[!TIP]
->Environmental sensors are optional. They can be used to report temperature, pressure, humidity and voc.
->Displays are optional. They can tell you what the environment is or be used to provide messages for Doorbell for those with hearing impairments.
+## Advanced Features
 
-The strategy here is the use of MQTT as a central broker for monitoring:
-  1. the occupants' movements (we assume a senior moving from room to room is doing okay), the report below shows more than one person's movements:
-     
+These are features not turnon by default and requires additional customizations. See respective project details.
 
-     
-  3. Optionally, the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements) the following is a Grafana reporting compiled and extracted from adafruitio:
-     
-     ![temperature](images/grafana-environ-20260714.png)
-     
-  5. It is also possible to publish temperature, pressure, humidity and voc to dedicated feeds and generate graphs in the cloud in order to monitor trends and comfort level remotely (additional mods needed), e.g.
-     ![temperature](images/adafruitio-temp_2026-01-31_13-28-28.png)
-     
-  7. The folder with Adafruit ESP32 Feather v2 has a publishing and listening feed. This additional listening feed is for alerting the hearing impaired with blinking led if the doorbell message is received (doorbell with camera and motion detection is in a separate folders to come.),
-     
-  9. more to come...
+1. Environmental sensors bme680, bme690 to report temperature, pressure, humidity and voc,
+2. oled display with controller (ssd1306 or ssd1327),
+3. Pi camera,
+4. Raspberry Pi Audio,
+5. RF receiver and RF remote (requires level shifter).
 
-Minimal requirements: 
+## Minimal requirements: 
   1. Adafruit IO account (not neccesary but sufficient. You can use other MQTT brokers but a commercial broker has features to trigger alarms and send text/email in defined scenarios),
-  2. one of these microcontrollers: Raspberry Pi Pico 2W, Pimoroni Pico Plus 2W, Adafruit ESP32 Feather v2,
-  3. a mmWave detector (Waveshare mmWave), bosch BME688 or 690 or 280 (if voc is not needed.),
+  2. one of these microcontrollers: Raspberry Pi Pico 2W, Pimoroni Pico Plus 2W, Adafruit ESP32 Feather v2, Raspberry Pi ZeroW/Zero2W/2B/3B/3B+,
+  3. a mmWave detector (Waveshare mmWave). 
 
-     
+
