@@ -49,4 +49,5 @@ A remote button is small, light, does not require regular charging, can be carry
 ## Compiling and Installation Instructions:
 
 1. Minimum customization should be made to panicbutton.h, mqtt.h. Then compile with Makefile, 
-2. Once sucess
+2. Once sucessfully compiled, sudo cp the panicbutton.service file to /etc/systemd/system directory. sudo systemctl enable panicbutton, sudo systemctl start panicbutton.
+3. Press the button and login to your mqtt broker account to verify data were posted and if a trigger was added to send sms or email verify the result.
