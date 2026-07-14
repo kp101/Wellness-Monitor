@@ -34,8 +34,8 @@ This is an alternative to the usual python routine, it is more stable...it has l
 1. Attach bme688 via Qw/ST to breakout connector. STEMMA QT/Qwiic JST SH 4-pin Cable with Premium Female Sockets. pinout typically includes four pins arranged as follows: 
 - Black = GND, 
 - Red = 3.3V, 
-- Blue = SDA, 
-- Yellow = SCL. 
+- Blue = i2c SDA data, 
+- Yellow = i2c SCL clock. 
 2. Connect Pin 17 to power pin on bme688,
 3. connect pin SDA (i2c 1) on Pico to SDA pin on bme688,
 4. connect pin SCL (i2c 1) on Pico to SCL pin on bme688,
