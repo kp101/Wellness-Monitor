@@ -1,16 +1,31 @@
 # WELLNESS MONITOR with IOT DEVICES
 
-## Purpose
-The goal of this project is to implement a collection of IoT devices around the house for remote monitoring of seniors aging in place and living alone or children returning from school. This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts.
+The goal of this project is to implement a collection of IoT devices around the house for remote monitoring activities of seniors aging in place/living alone or children returning from school. This is a low cost, open source, customizable solution for monitoring activities, alarms and alerts. We assume no pets.
+
+## Assumptions
+
+- No pets
+- a senior moving from room to room in his/her daily activity is relatively healthy.
+
+a reported maybe as below:
+
+ ![motus](images/adafruitio-motus-20260714.png)
+
 
 ## Organization
 
-In each folder, there is a type of IoT device which will be used to collect movements. environmental sensors and optional temperature, pressure, humidity and voc via extra sensors). Only one type of IoT microcontroller is necessary for monitoring movements. The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for extended battery operations with deepsleep mode. e.g. gathering only temperature/pressure/humidity. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. The least cost is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger with microusb connector is sufficient.
+In each folder, there is a type of IoT device which will be used to collect movements. . Only one type of IoT device is sufficient. 
+
+The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for extended battery operations with deepsleep mode. e.g. gathering only temperature/pressure/humidity. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. The least cost is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger with microusb connector is sufficient.
+
+>[!TIP]
+>Environmental sensors are optional. They can be used to report temperature, pressure, humidity and voc.
+>Displays are optional. They can tell you what the environment is or be used to provide messages for Doorbell for those with hearing impairments.
 
 The strategy here is the use of MQTT as a central broker for monitoring:
   1. the occupants' movements (we assume a senior moving from room to room is doing okay), the report below shows more than one person's movements:
      
-     ![motus](images/adafruitio-motus-20260714.png)
+
      
   3. Optionally, the temperature, pressure and humidity of each room including outside (inside will have voc gas measurements) the following is a Grafana reporting compiled and extracted from adafruitio:
      
