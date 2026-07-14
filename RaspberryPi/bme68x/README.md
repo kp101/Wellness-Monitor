@@ -5,6 +5,10 @@ Adafruit IO MQTT was chosen and tested with this but it may work with other brok
 
 This is an alternative to the usual python routine, it is more stable...it has less dependencies so less affected by breaking changes. As a bonus, it is much faster and consumes less resources.
 
+>[!NOTE]
+> This project depends on codes from [Bosch Sensortec](https://github.com/boschsensortec/BME68x_SensorAPI)
+> Certain portion of codes are reproduced with modification to work around limitations.
+
 ## Features
 
 - Adjustable scanning periods,
@@ -25,9 +29,6 @@ This is an alternative to the usual python routine, it is more stable...it has l
 2. paho-mqtt library. (see install_paho.txt),
 3. sudo raspi-config to enable i2c && sudo reboot,
 4. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
->[!NOTE]
-> This project depends on codes from [Bosch Sensortec](https://github.com/boschsensortec/BME68x_SensorAPI)
-> Certain portion of codes are reproduced with modification to work around limitations.
 
 > [!CAUTION]
 > A word on communicating with Adafruit IO's MQTT. Should leave client_id="" to avoid collision with multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
