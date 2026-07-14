@@ -25,7 +25,7 @@ This along with others in the project for Wellness Monitoring allows me to check
   5. a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
 
 
-Software dependencies:
+## Software dependencies:
   1. Raspberry Pi Pico 2W image compiled by Pimoroni with added libraries. [RaspberryPi Pico 2W v1.26.1](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1)
   2. umqtt.simple (a tested and modified copy provided for convenience and consistency),
   3. network_manager (a tested copy provided for convenience and consistency),
@@ -33,7 +33,7 @@ Software dependencies:
   5. robust (a tested copy provided for convenience and consistency),
 
 
-Attaching mmWave sensor (~50mA):
+## Attaching mmWave sensor (~50mA):
   1. TX pin 4 on PiPico is attached to RX pin on mmWave sensor,
   2. RX pin 5 on PiPico is attached to TX pin on mmWave sensor,
   3. 3.3v pin on PiPico is attached to 3.3v pin on mmWave sensor,
@@ -42,22 +42,22 @@ Attaching mmWave sensor (~50mA):
 note: the connection of TX to RX pins. Also, this sensor alone will mean running on batteries is impractical. 
 
 
-Attaching Bosch's BME688 sensor over I2C (requires ~15mA):
+## Attaching Bosch's BME688 sensor over I2C (requires ~15mA):
   1. Attach pin 22 on PiPico to 2-6v pin on bme688,
   2. attach pin SDA (pin 2) on PiPico to SDA pin on bme688,
   3. attach pin SCL (pin 3) on PiPico to SCL pin on bme688,
   4. attach pin GND on PiPico to GND pin on bme688,
   5. depending on what else is attached to I2C, there is a secondary address for bme688 (see config.yml).
 
-Note: 
-We are treating the bme688 as if it was a LED light, will need to pull this pin (22) HIGH to power it. 
-The Raspberry Pi-Pico 2W does not have a STEMMA QT/QWIIC connector on the controller but the BME688 has it. 
-We use the STEMMA QT / Qwiic JST SH 4-pin Cable with female connector. The pinout on the connector is:
-  RED -> 3.3VDC,
-  BLK -> GND,
-  BLU -> I2C SDA,
-  YEL -> I2C SCL.
-This sensor has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy. Check Bosch website for further information.
+> [!TIP]
+> We are treating the bme688 as if it was a LED light, will need to pull this pin (22) HIGH to power it. 
+> The Raspberry Pi-Pico 2W does not have a STEMMA QT/QWIIC connector on the controller but the BME688 has it. 
+> We use the STEMMA QT / Qwiic JST SH 4-pin Cable with female connector. The pinout on the connector is:
+>  RED -> 3.3VDC,
+>  BLK -> GND,
+>  BLU -> I2C SDA,
+>  YEL -> I2C SCL.
+> This sensor has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy. Check Bosch website for further information.
 
 On communicating with Adafruit IO's MQTT:
   1. SSL=True is needed to use port 8883 for secured connection (there is a version of umqtt.Simple that imports uSSL which doesn't work in this firmware.)
