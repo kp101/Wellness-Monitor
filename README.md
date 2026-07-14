@@ -14,9 +14,12 @@ The goal of this project is to implement a collection of IoT devices around the 
 
 ## Organization
 
-In each folder, there is a type of IoT device which will be used to collect movements. . Only one type of IoT device is sufficient. 
+In each folder, there is a type of IoT device which will be used to collect movements. . It is necessary and sufficient to choose only one type of device. Most have bonus features such as environmental sensor, display, audio out, camera. Some have more features than others. A generic Raspberry Pi is the most flexible but most complicated.
 
-The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for extended battery operations with deepsleep mode. e.g. gathering only temperature/pressure/humidity. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. The least cost is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger with microusb connector is sufficient.
+> [!TIP]
+> The most cost efficient is the RaspberryPi Pico 2W ~ $10 CAD, mmWave ~ $5 CAD, plus an old phone charger and an mqtt online broker for remote monitoring. Start here.
+
+The different types of devices have different advantages, e.g. Adafruit esp32 feather s3 is great for extended battery operations with deepsleep mode. e.g. gathering only temperature/pressure/humidity. Others have STEMMA/QT connecting to bme688 easily without soldering. For ease of maintainence, Micropython with a pico 2W is the most simple. 
 
 >[!TIP]
 >Environmental sensors are optional. They can be used to report temperature, pressure, humidity and voc.
