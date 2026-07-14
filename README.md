@@ -2,7 +2,7 @@
 
 The goal of this project is to implement a collection of IoT devices around the house for remote monitoring. The targets are those activities of seniors aging in place/living alone or children returning from school. Other use case such as monitoring of empty cottages/basements may be accomplished with minor changes. 
 
-This is a low cost, open source, customizable solution for monitoring activities with alarms and alerts. The core of the monitoring does not depend on cameras, only movements. The destination of the data is chosen by the implementer. 
+This is a low cost, open source, customizable solution for monitoring activities with alarms and alerts. The core of the monitoring does not depend on cameras, only movements. The destination of the data is chosen by the implementer to ensure privacy. 
 
 Additional features like environmental sensors(bme68x, bme690), oled display, audio out, plotting, etc. are available for more advanced implementers.
 
