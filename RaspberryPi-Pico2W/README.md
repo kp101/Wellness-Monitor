@@ -51,7 +51,7 @@ The one on left is the basic version, the one on the right is the advanced versi
 
 > [!NOTE]
 > This sensor consumes ~15mA. We are treating the bme688 as if it was a LED light by pulling this pin (22) HIGH to power it.
-> This sensor also has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy.
+> This sensor also has a heater. When new, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy.
 > Check Bosch website for further information.
 
 ## Communicating with Adafruit IO's MQTT:
