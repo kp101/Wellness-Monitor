@@ -20,7 +20,7 @@ A remote button is small, light, does not require regular charging, can be carry
 ![remote](images/1095-small.jpg)
 ![remote](images/1097-small.jpg)
 
-- I used this level shifter to interface with the Pi's 3.3v from the 5v out from the receiver. Other people have suggested using a resistor. This particular level shifter is a bit slower, other faster products are available.
+- The following level shifter was used to interface with the Pi's 3.3v to the 5v from the button receiver. Other people have suggested using a resistor. This particular level shifter is a bit slower, other faster products are available.
   
 ![levelshifter](images/757-small.jpg)
 
