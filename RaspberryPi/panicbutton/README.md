@@ -20,6 +20,9 @@ A remote button is small, light, does not require regular charging, can be carry
 ![remote](images/1095-small.jpg)
 ![remote](images/1097-small.jpg)
 
+>[!IMPORTANT]
+>To prevent unreliable response, it is important to make sure sufficient voltage is fed to the receiver and the level shifter.
+
 - The following level shifter was used for interfacing with the Pi's 3.3v pins to the 5v pins from the button receiver. Other solutions are possible. e.g. This particular level shifter is a bit slower, other faster products are available.
   
 ![levelshifter](images/757-small.jpg)
