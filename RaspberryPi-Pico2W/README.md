@@ -49,15 +49,16 @@ note: the connection of TX to RX pins. Also, this sensor alone will mean running
   4. attach pin GND on PiPico to GND pin on bme688,
   5. depending on what else is attached to I2C, there is a secondary address for bme688 (see config.yml).
 
-> [!TIP]
+> [!NOTE]
 > We are treating the bme688 as if it was a LED light, will need to pull this pin (22) HIGH to power it. 
-> The Raspberry Pi-Pico 2W does not have a STEMMA QT/QWIIC connector on the controller but the BME688 has it. 
-> We use the STEMMA QT / Qwiic JST SH 4-pin Cable with female connector. The pinout on the connector is:
->  RED -> 3.3VDC,
->  BLK -> GND,
->  BLU -> I2C SDA,
->  YEL -> I2C SCL.
-> This sensor has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy. Check Bosch website for further information.
+
+The Raspberry Pi-Pico 2W does not have a STEMMA QT/QWIIC connector on the controller but the BME688 has it. 
+We use the STEMMA QT / Qwiic JST SH 4-pin Cable with female connector. The pinout on the connector is:
+-  RED -> 3.3VDC,
+-  BLK -> GND,
+-  BLU -> I2C SDA,
+-  YEL -> I2C SCL.
+This sensor has a heater, it should have a break-in period and a scan period meeting the requirements of Bosch for accuracy. Check Bosch website for further information.
 
 On communicating with Adafruit IO's MQTT:
   1. SSL=True is needed to use port 8883 for secured connection (there is a version of umqtt.Simple that imports uSSL which doesn't work in this firmware.)
