@@ -1,3 +1,6 @@
+##
+## references : https://github.com/eclipse-paho/paho.mqtt.c
+##
 sudo apt update
 ## dependencies
 sudo apt install cmake libssl-dev
