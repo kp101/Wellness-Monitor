@@ -2,7 +2,7 @@
 #define PROXIMITY_H
 
    #define PROXIMITY_CLEAR 0
-   #define BUFFER_LEN 250
+   //#define BUFFER_LEN 250
    #define HEARTBEAT_UPDATE 180
    #define UPDATE_INTERVAL  180
    #define SCAN_INTERVAL    17
