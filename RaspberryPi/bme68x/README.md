@@ -1,9 +1,8 @@
-# RASPBERRY PI ZERO 2W + BME68X
+# RASPBERRY PI + BME68X
 
 This is a implementation of a c program to pull temperature/pressure/humidity/voc from a Bosch BME68x sensor via i2c and report it an external mqtt broker.
-Adafruit IO MQTT was chosen and tested with this but it may work with other brokers. Adafruit IO is nice because in my district, triggers, weather forecast (paid) can be created to send email/text messages to my phone. This along with others in the project for Wellness Monitoring allows me to check on comfort and movements of the inhabitants remotely.
 
-This is an alternative to the usual python routine, it is more stable...it has less dependencies so less affected by breaking changes. As a bonus, it is much faster and consumes less resources.
+![BME680](
 
 >[!NOTE]
 > This project was derived from codes in [Bosch Sensortec](https://github.com/boschsensortec/BME68x_SensorAPI)
