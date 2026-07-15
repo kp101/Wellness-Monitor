@@ -36,7 +36,7 @@ This is a c implementation to pull temperature/pressure/humidity/voc from a Bosc
     
 ## Attaching Bosch's BME688 sensor over I2C
 
-1. Attach bme688 via Qw/ST to breakout connector. STEMMA QT/Qwiic JST SH 4-pin Cable with Female Sockets. pinout typically includes four pins arranged as follows: 
+1. Attaching bme688 to STEMMA QT/Qwiic JST SH 4-pin Cable with Female Sockets. pinout typically includes four pins arranged as follows: 
 - Black = GND, 
 - Red = 3.3V, 
 - Blue = i2c SDA data, 
