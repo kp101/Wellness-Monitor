@@ -25,12 +25,12 @@ This is a c implementation to pull temperature/pressure/humidity/voc from a Bosc
 ## Software dependencies
 
 1. WiringPi library, (see install_wiringpi.txt),
-2. paho-mqtt library. (see install_paho.txt),
+2. paho-mqtt library. (see ![install_paho.txt](clients. (don't ask me how I know.)),
 3. sudo raspi-config to enable i2c && sudo reboot,
 4. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
 
 > [!CAUTION]
-> A word on communicating with Adafruit IO's MQTT. Leave client_id="" or use UUID to avoid random disconnects using same client_id with multiple clients. (don't ask me how I know.)
+> Leave client_id="" or use UUID to avoid random disconnects. Using same client_id with multiple devices is not a good idea.
 > when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
 > alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
     
