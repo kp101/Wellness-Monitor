@@ -34,7 +34,7 @@ int main(void)
 {
     int i = 0;
     int scan_count = 0;
-    char payload[BUFFER_LEN];
+    char payload[PAYLOAD_LEN];
     int range = 0;
     int serial_port = 0;
 
