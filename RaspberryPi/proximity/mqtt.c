@@ -1,4 +1,7 @@
-//example: https://github.com/hivemq-cloud/paho-C-mqtt-client-example/blob/master/main.c
+/*
+ * references: https://github.com/eclipse-paho/paho.mqtt.c
+ *
+ */
 #include <ctype.h>
 #include <time.h>
 #include <stdio.h>
