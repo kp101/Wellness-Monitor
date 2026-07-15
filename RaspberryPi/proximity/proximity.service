@@ -1,0 +1,13 @@
+    [Unit]
+    Description=Proximity Detection Service
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=pi
+    WorkingDirectory=/home/pi/proximity
+    ExecStart=/home/pi/proximity/proximity
+    Restart=on-failure
+
+    [Install]
+    WantedBy=multi-user.target
