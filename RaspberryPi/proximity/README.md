@@ -3,7 +3,7 @@
 
 This is a implementation of a c program to detect movements within a room or hallway and report it an external mqtt broker. This was tested with Pi Zero W/2W, 2B/3B/3B+.
 
-![HMMD_mmWave](../../images/450px-HMMD_mmWave_Sensor.jpg)
+![HMMD_mmWave](../../images/hmmd_mmwave.jpg)
 
 ## Features
 
