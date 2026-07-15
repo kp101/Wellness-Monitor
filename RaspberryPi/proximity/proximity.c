@@ -15,50 +15,45 @@
 #include "toolbox.h"
 
 int scan(int serial_port) {
-   int i = 0;
-   int range = 0;
-   char *p = NULL;
-   time_t time1, time2;
+    int i = 0;
+    int range = 0;
+    time_t time1, time2;
 
-   printf("serial port initialized...\n");
-
-   time(&time1);
-   time(&time2);
-   while(difftime(time2, time1) <= SCAN_INTERVAL){
-      i = get_range(serial_port);
-      //printf("range: %i\n", range);
-      range = range < i ? i : range;
-      usleep(7);
-      time(&time2);
-   }  
-   
-   return range;
+    time(&time1);
+    time(&time2);
+    while(difftime(time2, time1) <= SCAN_INTERVAL){
+       i = get_range(serial_port);
+       range = range < i ? i : range;
+       usleep(7);
+       time(&time2);
+    }  
+    return range;
 }
 
-int main(void) {
-   int i = 0;
-   int scan_count = 0;
-   char payload[512];
-   int range = 0;
-   int serial_port = 0;
+int main(void) 
+{
+    int i = 0;
+    int scan_count = 0;
+    char payload[BUFFER_LEN];
+    int range = 0;
+    int serial_port = 0;
 
-   wiringPiSetupPinType(WPI_PIN_BCM);
-   printf("GPIO setup complete\n");
+    wiringPiSetupPinType(WPI_PIN_BCM);
+    printf("GPIO setup complete\n");
 
-   serial_port = init_mmWave(SERIAL_PORT, BAUD_RATE);
-   if (serial_port < 0)
-      return -1;
-   printf("mmWave setup complete\n");
+    serial_port = init_mmWave(SERIAL_PORT, BAUD_RATE);
+    if (serial_port < 0)
+       return -1;
+    printf("mmWave setup complete\n");
 
-   while(1) {
-      scan_count = (scan_count +1) % HEARTBEAT_UPDATE;
-      range = scan(serial_port);
-      if ( range > 0 || scan_count <= 0 ) {
-         sprintf( payload, msg_template, STATION, range, DEVICE);
-         mqtt_publish( TOPIC, payload);  
-      }
-      sleep(UPDATE_INTERVAL);
-   }
-
-   return 0;
+    while(1) {
+       scan_count = (scan_count +1) % HEARTBEAT_UPDATE;
+       range = scan(serial_port);
+       if ( range > 0 || scan_count <= 0 ) {
+          sprintf( payload, msg_template, STATION, range, DEVICE);
+          mqtt_publish( TOPIC, payload);  
+       }
+       sleep(UPDATE_INTERVAL);
+    }
+    return 0;
 }
