@@ -34,7 +34,7 @@ This is a c implementation to pull temperature/pressure/humidity/voc from a Bosc
 > when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
 > alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
     
-## Attaching Bosch's BME688 sensor over I2C (requires ~3.1 mA)
+## Attaching Bosch's BME688 sensor over I2C
 
 1. Attach bme688 via Qw/ST to breakout connector. STEMMA QT/Qwiic JST SH 4-pin Cable with Female Sockets. pinout typically includes four pins arranged as follows: 
 - Black = GND, 
@@ -44,6 +44,8 @@ This is a c implementation to pull temperature/pressure/humidity/voc from a Bosc
 2. Connect Pin 17 to power pin on bme688,
 3. connect pin SDA (i2c 1) on Pico to SDA pin on bme688,
 4. connect pin SCL (i2c 1) on Pico to SCL pin on bme688,
+
+The power draw on sensor is ~3.1 mA.
   
 > [!TIP]
 > For bme68x,depending on what else is attached to I2C, there is a secondary address for bme688...0x76,
