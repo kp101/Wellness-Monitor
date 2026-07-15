@@ -3,7 +3,7 @@
 
 This is a implementation of a c program to movements with an enclosed space and report it an external mqtt broker.
 
-[HMMD_mmWave](../images/450px-HMMD_mmWave_Sensor.jpg)
+[HMMD_mmWave](../../images/450px-HMMD_mmWave_Sensor.jpg)
 
 ## Features
 
