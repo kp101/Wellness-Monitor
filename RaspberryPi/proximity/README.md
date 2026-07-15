@@ -23,8 +23,9 @@ This is a implementation of a c program to detect movements within a room or hal
 
 1. WiringPi library, (see ![install_wiringpi.txt](https://github.com/kp101/Wellness-Monitor/blob/2660eb2051997cea2dc2bbf46faf4dc6ca7894ae/RaspberryPi/proximity/install_wiringpi.txt)),
 2. paho-mqtt library. (see ![install_paho.txt](https://github.com/kp101/Wellness-Monitor/blob/5a465c4f3a12a67edf41534a5a14831f0ace4f3a/RaspberryPi/proximity/install_paho.txt)),
-3. sudo raspi-config to enable serial port && sudo reboot,
+3. sudo raspi-config to enable serial port,
 4. edit /boot/firmware/config.txt to disable BT. i.e. dtoverlay=disable-bt
+5. sudo reboot
 
 > [!CAUTION]
 > Leave client_id="" or use UUID to avoid random disconnects using same client_id with multiple clients when connecting to MQTT broker. 
