@@ -28,7 +28,7 @@ This is a implementation of a c program to detect movements within a room or hal
 5. sudo reboot
 
 > [!CAUTION]
-> Leave client_id="" or use UUID to avoid random disconnects using same client_id with multiple clients when connecting to MQTT broker. 
+> Leave client_id="" or use UUID to avoid random disconnects. Using same client_id with multiple devices on a MQTT broker is not a good idea. 
 > when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
 > alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
     
