@@ -51,7 +51,7 @@ int main(void)
        range = scan(serial_port);
        if ( range > 0 || scan_count <= 0 ) {
           sprintf( payload, msg_template, STATION, range, DEVICE);
-          mqtt_publish( TOPIC, payload);  
+          mqtt_publish( TOPIC, payload, strlen(payload));  
        }
        sleep(UPDATE_INTERVAL);
     }
