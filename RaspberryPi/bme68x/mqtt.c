@@ -1,4 +1,7 @@
-
+/*
+ * references: https://github.com/eclipse-paho/paho.mqtt.c
+ *
+ */
 #include <ctype.h>
 #include <time.h>
 #include <stdio.h>
@@ -10,11 +13,14 @@
 #include "MQTTClient.h"
 #include "pubsub_opts.h"
 
-int mqtt_publish( char *topic, char *payload, int len ) {
-   int rc = 1;
-   int qos = 1; 
-   int retained = 0;
-   MQTTClient client;
+int mqtt_publish( char *topic, char *payload, int len ) 
+{
+    int rc = 1;
+    int qos = 1; 
+    int retained = 0;
+    int timeout = 100;
+   
+    MQTTClient client;
 
     // server url. i.e. "ssl://name:8883". For adafruitio, the MQTT_UID should be left blank or 
     // provide an uuid. otherwise conflicts with other devices on your account will result in 
@@ -47,11 +53,11 @@ int mqtt_publish( char *topic, char *payload, int len ) {
     int j = MQTTClient_connect(client, &conn_opts);
     //printf("is connected %d \n", j);
 
-   // payload the content of your message, send and forget. non-critical data.
-   MQTTClient_deliveryToken dt;
-   MQTTClient_publish(client, topic, len, payload, qos, retained, &dt);
-   MQTTClient_disconnect(client, timeout);
-   MQTTClient_destroy(&client);
+    // payload the content of your message, send and forget. non-critical data.
+    MQTTClient_deliveryToken dt;
+    MQTTClient_publish(client, topic, len, payload, qos, retained, &dt);
+    MQTTClient_disconnect(client, timeout);
+    MQTTClient_destroy(&client);
 
-   return rc;
+    return rc;
 }
