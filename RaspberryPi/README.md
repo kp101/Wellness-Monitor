@@ -1,6 +1,6 @@
 # Wellness Monitor Services for a Raspberry Pi
 
-![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/59cd149452fa0d1699945a74aaf24244017bde9b/images/P7151850.jpg)
+![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/59cd149452fa0d1699945a74aaf24244017bde9b/images/pizero2w.jpg)
 
 This collection of services are divided into subfolders. Each can be independently implemented. Although there are duplicated modules, the projects are not mutually dependent. 
 
