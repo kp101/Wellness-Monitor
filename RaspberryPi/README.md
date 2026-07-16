@@ -2,9 +2,6 @@
 
 ![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/939f9f752db4c561c6f8b7b60292c3298390b5f6/images/P7151850.jpg)
 
->[!NOTE]
->The above is a Pi Zero 2W in a tupperware. \
->These projects have been tested with Raspberry Pi ZeroW/2W,2B/3B/3B+.
 
 This collection of services for a generic Raspberry Pi are divided into subfolders. Each can be independently implemented. Although there are duplicated modules, the projects are not mutually dependent in the sense of compiling.
 
@@ -14,3 +11,6 @@ e.g. Take a picture, sound an alarm, display data or flash a message like "DOORB
 - ![panicbutton](https://github.com/kp101/Wellness-Monitor/tree/4b4e6bd011d1f751786c2286c66832148589f3ab/RaspberryPi/panicbutton) is alarm trigger. Sending a message to the online MQTT broker when a remote button is pressed;
 - ![proximity](https://github.com/kp101/Wellness-Monitor/tree/120a0db81271f26085dfffee569b2e1cec66d0f6/RaspberryPi/proximity) is a activity sensor. It will send a message to the MQTT broker if someone is present in the room. Yes, it can be fooled by a sleeping person or pets.
 
+>[!NOTE]
+>The picture above is a Pi Zero 2W in a tupperware. \
+>These projects have been tested with Raspberry Pi ZeroW/2W,2B/3B/3B+.
