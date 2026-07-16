@@ -1,5 +1,7 @@
 # Wellness Monitor Services for a Raspberry Pi
 
+![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/fe0deb0a804c6bd0a83097367ca49626af29c414/images/pizero2w.png)
+
 This collection of services are divided into subfolders. Each can be independently implemented. Although there are duplicated modules, the projects are not mutually dependent. 
 
 1. ![bme68x](https://github.com/kp101/Wellness-Monitor/tree/a29afb64b6e6dd7e5c559bf10b444d1349f239b6/RaspberryPi/bme68x) is an enviornmental monitor, it is for collecting temperature/pressure/humidity and voc and post them into an MQTT broker;
