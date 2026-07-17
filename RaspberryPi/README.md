@@ -13,6 +13,6 @@ Using a generic Pi is more expensive, consumes more electricity, generate more h
 ![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/2a2a71ee6abc303993e08c53827d73e5001b86a9/images/pizero2w.png)![pi3b](https://github.com/kp101/Wellness-Monitor/blob/0abb7136cab5d01f436fb22c37747db2cb22d361/images/pi3b.png)
 
 >[!NOTE]
->The left picture is a Pi Zero 2W in a tupperware with an enveironmental sensor, motion sensor and a oled display. \
->The right picture is a Pi 3B in clear enclosure with a motion sensor, a Pi Camera and a DAC hat outputing to a powered speaker. The camera is placed in a non-private area, capable of taking picture remotely and display in an online but private MQTT account. It is for remote assessments. More details in the listener service.
+>- The left picture is a Pi Zero 2W in a tupperware with an enveironmental sensor, motion sensor and a oled display. \
+>- The right picture is a Pi 3B in clear enclosure with a motion sensor, a Pi Camera and a DAC hat outputing to a powered speaker. The camera is placed in a non-private area, capable of taking picture remotely and display in an online but private MQTT account. It is for remote assessments. More details in the listener service.
 .
