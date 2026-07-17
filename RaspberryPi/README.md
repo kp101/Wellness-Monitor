@@ -14,5 +14,5 @@ Using a generic Pi is more expensive, consumes more electricity, generate more h
 
 >[!NOTE]
 >The left picture is a Pi Zero 2W in a tupperware with an enveironmental sensor, motion sensor and a oled display. \
->The right picture is a Pi 3B in clear case with motion sensor, a Pi Camera, DAC hat outputing to a powered speaker.
+>The right picture is a Pi 3B in clear enclosure with motion sensor, a Pi Camera and a DAC hat outputing to a powered speaker.
 .
