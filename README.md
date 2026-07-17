@@ -31,7 +31,7 @@ Additional features such as environmental sensor, display, audio out, camera, pa
 
 ## Advanced Features
 
-These are features not turnon by default and requires additional customizations. See respective project details in subfolders.
+These are features not part of the core function and requires additional customizations. See respective project details in subfolders.
 
 1. Environmental sensors bme680, bme690 to report temperature, pressure, humidity and voc,
 2. oled display with controller (ssd1306 or ssd1327),
@@ -40,7 +40,7 @@ These are features not turnon by default and requires additional customizations.
 5. RF receiver and RF remote (requires level shifter).
 
 ## Minimum Requirements
-  1. Adafruit IO account (not neccesary but sufficient. You can use other MQTT brokers but a commercial broker has features to trigger alarms and send text/email in defined scenarios),
+  1. Adafruit IO account (not neccesary but sufficient. You can use other MQTT brokers but a commercial broker has features to trigger alarms and send text/email),
   2. for each room/hallway, choose one IoT device type: Raspberry Pi Pico 2W, Pimoroni Pico Plus 2W, Adafruit ESP32 Feather v2, Raspberry Pi ZeroW/Zero2W/2B/3B/3B+,
   3. a mmWave detector (Waveshare mmWave) accompanying each of the above IoT devices. 
 
