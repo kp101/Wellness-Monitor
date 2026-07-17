@@ -8,7 +8,7 @@ e.g. Take a picture, sound an alarm, display data or flash a message like "DOORB
 - ![panicbutton](https://github.com/kp101/Wellness-Monitor/tree/4b4e6bd011d1f751786c2286c66832148589f3ab/RaspberryPi/panicbutton) is alarm trigger. Sending a message to the online MQTT broker when a remote button is pressed;
 - ![proximity](https://github.com/kp101/Wellness-Monitor/tree/120a0db81271f26085dfffee569b2e1cec66d0f6/RaspberryPi/proximity) is a activity sensor. It will send a message to the MQTT broker if someone is present in the room. Yes, it can be fooled by a sleeping person or pets.
 
-The one on the left is a PiZero2W with environmental sensor, motion sensor and a display. The one on the right is a Pi3B with motion sensor, Pi Camera and a DAC hat connected to a powered speaker.
+This is a more expensive solution than the Pico/ESP microcontroller solution but is more flexible and powerful especially given the extra v3.3 GPIO pinout. 
 
 ![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/2a2a71ee6abc303993e08c53827d73e5001b86a9/images/pizero2w.png)![pi3b](https://github.com/kp101/Wellness-Monitor/blob/0abb7136cab5d01f436fb22c37747db2cb22d361/images/pi3b.png)
 
