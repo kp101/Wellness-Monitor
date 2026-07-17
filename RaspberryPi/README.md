@@ -8,11 +8,11 @@ e.g. Take a picture, sound an alarm, display data or flash a message like "DOORB
 - ![panicbutton](https://github.com/kp101/Wellness-Monitor/tree/4b4e6bd011d1f751786c2286c66832148589f3ab/RaspberryPi/panicbutton) is alarm trigger. Sending a message to the online MQTT broker when a remote button is pressed;
 - ![proximity](https://github.com/kp101/Wellness-Monitor/tree/120a0db81271f26085dfffee569b2e1cec66d0f6/RaspberryPi/proximity) is a activity sensor. It will send a message to the MQTT broker if someone is present in the room. Yes, it can be fooled by a sleeping person or pets.
 
-Using a generic Pi is more expensive, consumes more electricity, generate more heat than the Pico/ESP microcontroller solution. But the flexible more than compensate. An example of the finished devices is shown below: 
+Using a generic Pi is more expensive, consumes more electricity, generate more heat than the Pico/ESP microcontroller solution. But the flexible more than compensate. Examples of the finished devices are shown below: 
 
 ![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/2a2a71ee6abc303993e08c53827d73e5001b86a9/images/pizero2w.png)![pi3b](https://github.com/kp101/Wellness-Monitor/blob/0abb7136cab5d01f436fb22c37747db2cb22d361/images/pi3b.png)
 
 >[!NOTE]
 >The left picture is a Pi Zero 2W in a tupperware with an enveironmental sensor, motion sensor and a oled display. \
->The right picture is a Pi 3B in clear enclosure with motion sensor, a Pi Camera and a DAC hat outputing to a powered speaker.
+>The right picture is a Pi 3B in clear enclosure with a motion sensor, a Pi Camera and a DAC hat outputing to a powered speaker. The camera is placed in a non-private area, capable of taking picture remotely and display in an online but private MQTT account. It is for remote assessments. More details in the listener service.
 .
