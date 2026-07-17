@@ -1,6 +1,6 @@
 # Wellness Monitor Services for Raspberry Pi
 
-This collection of services for a generic Raspberry Pi are divided into subfolders. Each can be independently implemented. Although there are duplicated modules, the projects are not mutually dependent in the sense of compiling.
+This is a collection of services for a generic Raspberry Pi organized into subfolders. Each can be independently implemented. Although there are duplicated modules, the projects are not mutually dependent in the sense of compiling.
 
 - ![bme68x](https://github.com/kp101/Wellness-Monitor/tree/a29afb64b6e6dd7e5c559bf10b444d1349f239b6/RaspberryPi/bme68x) is an enviornmental monitor, it is for collecting temperature/pressure/humidity and voc and post them into an MQTT broker;
 - ![listener](https://github.com/kp101/Wellness-Monitor/tree/6c04aa0b26d657ff89895f3c0a0416408bf7a29a/RaspberryPi/listener) is subscriber service. It will take action based on the arriving topic/payload. \
