@@ -1,4 +1,6 @@
-# Wellness Monitor Services for a Raspberry Pi
+# Wellness Monitor Services for Raspberry Pi
+
+The one on the left is a PiZero2W with environmental sensor, motion sensor and a display. The one on the right is a Pi3B with motion sensor, Pi Camera and a DAC hat connected to a powered speaker.
 
 ![pizero2w](https://github.com/kp101/Wellness-Monitor/blob/2a2a71ee6abc303993e08c53827d73e5001b86a9/images/pizero2w.png)![pi3b](https://github.com/kp101/Wellness-Monitor/blob/0abb7136cab5d01f436fb22c37747db2cb22d361/images/pi3b.png)
 
