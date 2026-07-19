@@ -1,8 +1,6 @@
 # INSTALLING WiringPi
 
-
-
-[WiringPi](https://github.com/WiringPi/WiringPi/blob/master/documentation/english/functions.md)
+Reference: [WiringPi](https://github.com/WiringPi/WiringPi/blob/master/documentation/english/functions.md)
 
 Fetch the source:
 ```
