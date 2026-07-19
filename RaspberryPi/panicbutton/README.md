@@ -30,7 +30,7 @@ A remote button is small, light, does not require regular charging, can be carry
 ## Software dependencies
 
 1. WiringPi library, (see [install_wiringpi.md](./install_wiringpi.md),
-2. paho-mqtt library. (see [install_paho].md](./install_paho.md),
+2. paho-mqtt library. (see [install_paho.md](./install_paho.md),
 
 > [!CAUTION]
 > A word on communicating with Adafruit IO's MQTT. Leave client_id="" or use UUID to avoid random disconnects using same client_id with multiple clients. (don't ask me how I know.)
