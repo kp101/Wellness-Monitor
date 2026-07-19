@@ -21,6 +21,7 @@ The one on left is the basic version, the one on the right is the advanced versi
   1. Raspberry Pi Pico 2W, 
   2. HMMD mmWave movement sensor refer:[mmWave](https://www.waveshare.com/wiki/HMMD_mmWave_Sensor),
   3. a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.\
+
 Optional advanced features:
   4. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: [bme688](https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779),
   5. STEMMA QT/Qwiic JST SH 4-pin Cable with Female Sockets (if BME688 with QWIIC connect was used). Otherwise, female connectors,
