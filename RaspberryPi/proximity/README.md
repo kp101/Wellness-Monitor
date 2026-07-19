@@ -23,9 +23,18 @@ This is a implementation of a c program to detect movements within a room or hal
 
 1. WiringPi library, See [install_wiringpi.md](./install_wiringpi.md),
 2. paho-mqtt library. See ![install_paho.md](./install_paho.md),
-3. sudo raspi-config to enable serial port,
-4. edit /boot/firmware/config.txt to disable BT. i.e. dtoverlay=disable-bt
-5. sudo reboot
+3. enable serial port:
+```
+sudo raspi-config
+```
+5. edit /boot/firmware/config.txt to disable BT by adding the following:
+```
+dtoverlay=disable-bt
+```
+7. Then reboot:
+```
+sudo reboot
+```
 
 > [!CAUTION]
 > Leave client_id="" or use UUID to avoid random disconnects. Using same client_id with multiple devices on a MQTT broker is not a good idea. 
