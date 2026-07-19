@@ -23,7 +23,7 @@ sudo ldconfig
 ```
 
 > [!NOTE]
-> for synchronous communication: add -l paho-mqtt3c your Makefile\
-> for ssl/tls support: add -l paho-mqtt3cs to your Makefile\
+> for synchronous communication: add -l paho-mqtt3c in your Makefile\
+> for ssl/tls support: add -l paho-mqtt3cs in your Makefile\
 > include the library in your code.\
 > #include "MQTTClient.h 
