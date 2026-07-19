@@ -24,8 +24,8 @@ This is a c implementation to pull temperature/pressure/humidity/voc from a Bosc
 
 ## Software dependencies
 
-1. WiringPi library, (see ![install_wiring.md](RaspberryPi/bme68x/install_paho.md),
-2. paho-mqtt library. (see ![install_paho.md](RaspberryPi/bme68x/install_paho.md)),
+1. WiringPi library, (see ![install_wiring.md](./install_paho.md),
+2. paho-mqtt library. (see ![install_paho.md](./install_paho.md)),
 3. sudo raspi-config to enable i2c && sudo reboot,
 4. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
 
