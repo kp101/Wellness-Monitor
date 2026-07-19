@@ -24,8 +24,8 @@ This is a c implementation to pull temperature/pressure/humidity/voc from a Bosc
 
 ## Software dependencies
 
-1. WiringPi library, (see ![install_wiring.txt](https://github.com/kp101/Wellness-Monitor/blob/24532fdfafd2f4cd5a4d4f1de3082c530b3920a5/RaspberryPi/bme68x/install_wiring.txt)),
-2. paho-mqtt library. (see ![install_paho.txt](https://github.com/kp101/Wellness-Monitor/blob/f88ecb38711fd276735f901dc305e646e6b81991/RaspberryPi/bme68x/install_paho.txt)),
+1. WiringPi library, (see ![install_wiring.txt](https://github.com/kp101/Wellness-Monitor/blob/24532fdfafd2f4cd5a4d4f1de3082c530b3920a5/RaspberryPi/bme68x/install_wiring.md)),
+2. paho-mqtt library. (see ![install_paho.txt](https://github.com/kp101/Wellness-Monitor/blob/f88ecb38711fd276735f901dc305e646e6b81991/RaspberryPi/bme68x/install_paho.md)),
 3. sudo raspi-config to enable i2c && sudo reboot,
 4. sudo apt install i2c-tools -y && sudo i2cdetect -y 1 for troubleshooting or setup confirmation.
 
