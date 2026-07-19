@@ -50,7 +50,7 @@ A remote button is small, light, does not require regular charging, can be carry
 ## Compiling and Installation Instructions
 
 1. Minimum customization should be made to panicbutton.h, mqtt.h and panicbutton.service. Then compile with Makefile, 
-2. Once sucessfully compiled:
+2. Once sucessfully compiled. Setup the service in systemd:
 ```
 sudo cp the panicbutton.service file to /etc/systemd/system directory,
 sudo systemctl enable panicbutton,
