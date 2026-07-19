@@ -1,11 +1,8 @@
 # INSTALLING WiringPi
 
 
-Reference prefix: JIRA-
-Target URL: https://jira.example.com/issue?query=<num>
-Preview: JIRA-123 is converted to https://jira.example.com/issue?query=123
 
-![WiringPi](https://github.com/WiringPi/WiringPi/blob/master/documentation/english/functions.md)
+[WiringPi](https://github.com/WiringPi/WiringPi/blob/master/documentation/english/functions.md)
 
 Fetch the source:
 ```
