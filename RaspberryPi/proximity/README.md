@@ -21,8 +21,8 @@ This is a implementation of a c program to detect movements within a room or hal
 
 ## Software dependencies
 
-1. WiringPi library, (see ![install_wiringpi.txt](https://github.com/kp101/Wellness-Monitor/blob/2660eb2051997cea2dc2bbf46faf4dc6ca7894ae/RaspberryPi/proximity/install_wiringpi.txt)),
-2. paho-mqtt library. (see ![install_paho.txt](https://github.com/kp101/Wellness-Monitor/blob/5a465c4f3a12a67edf41534a5a14831f0ace4f3a/RaspberryPi/proximity/install_paho.txt)),
+1. WiringPi library, see [install_wiringpi.md](./install_wiringpi.md),
+2. paho-mqtt library. (see ![install_paho.md](./install_paho.md),
 3. sudo raspi-config to enable serial port,
 4. edit /boot/firmware/config.txt to disable BT. i.e. dtoverlay=disable-bt
 5. sudo reboot
@@ -46,10 +46,12 @@ This is a implementation of a c program to detect movements within a room or hal
 ## Compiling and Installation Instructions
 
 1. Minimum customization should be made to proximity.h, mqtt.h and bme68x.service. Then compile with Makefile, 
-2. Once sucessfully compiled:
-- sudo cp the proximity.service file to /etc/systemd/system directory.
-- sudo systemctl enable proximity,
-- sudo systemctl start proximity.
+2. Once sucessfully compiled, setup service in systemd:
+```
+sudo cp the proximity.service file to /etc/systemd/system directory.
+sudo systemctl enable proximity,
+sudo systemctl start proximity.
+```
    
 ## Verify
 - login to your mqtt broker account to verify data are posting. By default it is 30 minutes intervals.
