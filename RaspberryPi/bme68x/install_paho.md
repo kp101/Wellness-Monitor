@@ -22,8 +22,8 @@ update loader cache:
 sudo ldconfig
 ```
 
-## Note 
-- for synchronous communication: add -l paho-mqtt3c your Makefile
-- for ssl/tls support: add -l paho-mqtt3cs to your Makefile
-- include the library in your code.
-#include "MQTTClient.h 
+> [!NOTE]
+> for synchronous communication: add -l paho-mqtt3c your Makefile\
+> for ssl/tls support: add -l paho-mqtt3cs to your Makefile\
+> include the library in your code.\
+> #include "MQTTClient.h 
