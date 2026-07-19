@@ -32,10 +32,12 @@ Optional advanced features:
 
 ## Software dependencies:
   1. Raspberry Pi Pico 2W image compiled by Pimoroni with added libraries. [RaspberryPi Pico 2W v1.26.1](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1)
-  2. umqtt.simple (a tested and modified copy provided for convenience and consistency),
-  3. network_manager (a tested copy provided for convenience and consistency),
-  4. yaml (a tested copy provided for convenience and consistency),
-  5. robust (a tested copy provided for convenience and consistency),
+  2. [umqtt.simple.py](./umqtt.simple.py) (a tested and modified copy provided for convenience and consistency),
+  3. [network_manager.py](./network_manager.py) (a tested copy provided for convenience and consistency),
+  4. [yaml.py](./ymal.py) (a tested copy provided for convenience and consistency),
+  5. [robust.py](./robust.py) (a tested copy provided for convenience and consistency),
+  6. [ssd1306.py](./ssd1306.py) controller software for oled display.
+Some of the above are reproduced here for version consistency. 
 
 
 ## Attaching mmWave Sensor
