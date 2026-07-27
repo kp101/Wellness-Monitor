@@ -1,20 +1,20 @@
 # Waveshare mmWave reuires 50mA power. 
 # reference: https://www.waveshare.com/wiki/HMMD_mmWave_Sensor
-#
 # every 3 minutes scan the room.
-scan_interval : 180000
+update_interval : 180000
 # reboot periodically in case of memory leaks. 
 reboot_cycle: 480
 #
-device : "RaspberryPi Pico 2W"
-station : "dinningroom"
+device : "Raspberry Pi Pico 2 W"
+station : "diningroom"
 # mmWave
 tx_pin : 4
 rx_pin : 5
 uart : 1
 baudrate: 115200
 # scan the room for 9 seconds.
-mmwave_scan_period: 9000
+mmwave_scan_duration: 9000
+
 # connections
 wifi:
     ssid : "<SSID>"
