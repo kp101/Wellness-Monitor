@@ -64,12 +64,12 @@ device  = config['device']
 
 tx_pin_number = config['tx_pin']
 rx_pin_number = config['rx_pin']
-uart_number   = config['uart_number']
+uart          = config['uart']
 
 tx_pin = machine.Pin(tx_pin_number)
 rx_pin = machine.Pin(rx_pin_number)
 
-scan_interval = config['mmwave_scan_period']
+scan_duration = config['mmwave_scan_duration']
 reboot_countdown = config['reboot_cycle']
 wifi_retry = config['wifi']['retry']
 
@@ -81,7 +81,7 @@ def read_serial_data(soft_uart):
     start_time = time.ticks_ms()
     distance = 0
     
-    while time.ticks_ms() - start_time < scan_interval :
+    while time.ticks_ms() - start_time < scan_duration :
         try:
             if soft_uart.any():
                 data = soft_uart.readline()
@@ -109,7 +109,7 @@ def read_serial_data(soft_uart):
 def mmwave():
     hex_to_send = "FDFCFBFA0800120000006400000004030201"
     
-    soft_uart = machine.UART(uart_number, baudrate=115200, tx=tx_pin, rx=rx_pin)         
+    soft_uart = machine.UART(uart, baudrate=115200, tx=tx_pin, rx=rx_pin)         
     send_hex_string(soft_uart, hex_to_send)
     print("initialized mmWave.")
     
