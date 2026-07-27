@@ -8,8 +8,8 @@ scan_interval : 180000
 # reboot periodically in case of memory leaks. 
 reboot_cycle: 480
 #
-device : "RaspberryPi Pico 2W/bme688"
-station : "bedroom"
+device : "RaspberryPi Pico 2W"
+station : "dinningroom"
 # mmWave
 tx_pin : 4
 rx_pin : 5
