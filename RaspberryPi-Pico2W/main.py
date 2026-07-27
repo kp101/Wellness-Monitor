@@ -29,8 +29,6 @@ prerequisites: The following requires micropython firmware image uf2 from pimoro
 reference: https://github.com/pimoroni/pimoroni-pico/tree/main/micropython/examples/breakout_bme68x
 tested with:
     https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1
-
-Basic version : 2.1
     
 """
 import time
@@ -59,6 +57,7 @@ mqtt_adr = config['mqtt']['broker']
 mqtt_uid  = config['mqtt']['uid']
 mqtt_pwd  = config['mqtt']['pwd']
 mqtt_topic= config['mqtt']['topic']
+feed_aggregate = config['mqtt']['aggregate']
 
 update_interval = config['update_interval']
 station = config['station']
@@ -182,12 +181,17 @@ def check_sensors(timer):
             time.sleep(0.5)
             
             mqtt_client.connect()
-            payload = {"value": {"range": distance, "dev": device, "station": station }}
-            print(payload)
-            mqtt_client.publish(topic=mqtt_topic, msg=ujson.dumps(payload))
+            if feed_aggregate :
+                payload = {"value": {"range": distance, "dev": device, "station": station }}
+                print(payload)
+                mqtt_client.publish(topic=mqtt_topic, msg=ujson.dumps(payload))
+                
+            else:
+                mqtt_client.publish(topic=mqtt_topic, msg=station)
+
             mqtt_client.disconnect()
         
-    except Exception as e:  # noqa: BLE001
+    except Exception as e:  
         print(e)
   
 try:
