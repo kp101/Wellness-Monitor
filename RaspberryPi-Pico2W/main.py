@@ -29,6 +29,8 @@ prerequisites: The following requires micropython firmware image uf2 from pimoro
 reference: https://github.com/pimoroni/pimoroni-pico/tree/main/micropython/examples/breakout_bme68x
 tested with:
     https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1
+
+Basic version : 2.1
     
 """
 import time
