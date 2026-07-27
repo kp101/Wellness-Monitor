@@ -69,6 +69,7 @@ uart_number   = config['uart_number']
 tx_pin = machine.Pin(tx_pin_number)
 rx_pin = machine.Pin(rx_pin_number)
 
+scan_interval = config['mmwave_scan_period']
 reboot_countdown = config['reboot_cycle']
 wifi_retry = config['wifi']['retry']
 
@@ -80,7 +81,7 @@ def read_serial_data(soft_uart):
     start_time = time.ticks_ms()
     distance = 0
     
-    while time.ticks_ms() - start_time < 9000 :
+    while time.ticks_ms() - start_time < scan_interval :
         try:
             if soft_uart.any():
                 data = soft_uart.readline()
