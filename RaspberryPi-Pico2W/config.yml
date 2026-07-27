@@ -27,3 +27,5 @@ mqtt:
    uid : "ADAFRUIT_AIO_USERNAME"
    pwd : "ADAFRUIT_AIO_KEY"
    topic : "<ADAFRUIT_AIO_USERNAME>/feeds/<ADAFRUIT_AIO_KEY>"
+   aggregate: False
+
