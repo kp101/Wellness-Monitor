@@ -1,7 +1,5 @@
 # Waveshare mmWave reuires 50mA power. 
 # reference: https://www.waveshare.com/wiki/HMMD_mmWave_Sensor
-# Bosche BME688 average power consumption during gas scaning is 3.9 mA
-# reference: https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme688/#technical
 #
 # every 3 minutes scan the room.
 scan_interval : 180000
