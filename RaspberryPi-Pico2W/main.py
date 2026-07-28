@@ -30,7 +30,7 @@ reference: https://micropython.org/download/RPI_PICO/
 tested with:
     https://micropython.org/resources/firmware/RPI_PICO-20260406-v1.28.0.uf2
     
-version: Basic, 2.22
+version: Basic, 2.23
 """
 import time
 from machine import Pin, ADC, UART, Timer, lightsleep
@@ -170,7 +170,7 @@ def check_sensors(timer):
         
         distance = mmwave()
         print("got range:", distance )
-        
+      
         if distance > 0:
             # set up wifi
             network_manager = NetworkManager(wifi_reg, status_handler=status_handler)   
@@ -186,15 +186,22 @@ def check_sensors(timer):
                 payload = {"value": {"range": distance, "dev": device, "station": station }}
                 print(payload)
                 mqtt_client.publish(topic=mqtt_topic, msg=ujson.dumps(payload))
-                
             else:
                 mqtt_client.publish(topic=mqtt_topic, msg=station)
-
             mqtt_client.disconnect()
         
-    except Exception as e:  # noqa: BLE001
+        reboot_countdown = reboot_countdown - 1        
+
+    except Exception as e:  
         print(e)
-  
+        sos(10)
+        time.sleep(3)
+        machine.reset()
+    finally:
+        if reboot_countdown <= 0:
+            time.sleep(10)
+            machine.reset()
+
 try:
     
     #Initialize Timer 
