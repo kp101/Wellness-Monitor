@@ -21,17 +21,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-prerequisites: The following requires micropython firmware image uf2  
+prerequisites: The following requires micropython firmware image uf2 from pimoroni 
+               which included the micopython breakout_bme68x module.
+               This breakout_bme68x is a dependency library used for 
+               environmental readings and it was generously provided by pimoroni.
                
-reference: https://micropython.org/download/RPI_PICO2_W/
+reference: https://github.com/pimoroni/pimoroni-pico/tree/main/micropython/examples/breakout_bme68x
 tested with:
     https://github.com/pimoroni/pimoroni-pico-rp2350/releases/tag/v1.26.1
-    https://micropython.org/resources/firmware/RPI_PICO2_W-20260406-v1.28.0.uf2
     
-version: Basic, 2.21
+version: Basic, 2.22
 """
 import time
-from machine import Pin, ADC, UART, Timer
+from machine import Pin, ADC, UART, Timer, lightsleep
 from robust import MQTTClient
 from network_manager import NetworkManager
 import uasyncio
@@ -190,7 +192,7 @@ def check_sensors(timer):
 
             mqtt_client.disconnect()
         
-    except Exception as e:  
+    except Exception as e:  # noqa: BLE001
         print(e)
   
 try:
@@ -202,7 +204,8 @@ try:
     timer.init(mode=machine.Timer.PERIODIC, period=update_interval, callback=check_sensors)
     
     while True:
-        time.sleep(1)
+        lightsleep(update_interval)
+
 except KeyboardInterrupt:
     timer.deinit()
     print("Timer stopped.")
