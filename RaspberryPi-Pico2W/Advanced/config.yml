@@ -2,42 +2,60 @@
 # reference: https://www.waveshare.com/wiki/HMMD_mmWave_Sensor
 # Bosche BME688 average power consumption during gas scaning is 3.9 mA
 # reference: https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme688/#technical
-#
+# version 2.31
 # every 3 minutes scan the room.
-scan_interval : 180000
-# every x scans, must update with environmental data points to mqtt regardless of detected movements.
-heartbeat_update: 10
-# reboot periodically in case of memory leaks. 
+proximity_check : 180000
+##proximity_check : 60000
+enviro_update: 10
+# reboot in case of memory leaks. 
 reboot_cycle: 480
 # reboot if retries failed.
-wifi_retry: 5
 #
-device : "RaspberryPi Pico 2W/bme688"
-station : "bedroom"
-# mmWave
-tx_pin : 4
-rx_pin : 5
-uart : 1
-baudrate: 115200
-# scan the room for 9 seconds.
-mmwave_scan_period: 9000
-# bme688
+device : "RaspberryPi Pico2W/bme688"
+station : "<STATION>"
+
+mmwave:
+    tx_pin : 4
+    rx_pin : 5
+    uart : 1
+    baudrate: 115200
+    scan_duration: 9000
+    
 # could be 0x76 or 0x77, enter decimal equivalent below. check device scanner printout to debug.
-bme_i2c: 118
-# how long to survey the room. the results are affected by the onboard heater of bme68x sensor.
-bme_scan_period: 15000
-bme_temp_offset: 2.5
-sda: 2 
-scl: 3
-power_pin : 22
+bme:
+    i2c: 1
+    i2c_adr: 118
+    scan_duration: 15000
+    temp_offset: 2.5
+    heater_temp: 149
+    heater_duration: 97
+    sda: 2 
+    scl: 3
+    pwr_pin : 22
+
+oled:
+    i2c: 0
+    i2c_adr: 60
+    width: 128
+    height: 32
+    sda: 16
+    scl: 17
+    pwr_pin: 18
+
 # connections
 wifi:
     ssid : "<SSID>"
     psk  : "<WIFI_PASSWORD>"
     country: "ca"
+    retry: 5
 mqtt:
    broker : "io.adafruit.com"
    port: 8883
    uid : "ADAFRUIT_AIO_USERNAME"
    pwd : "ADAFRUIT_AIO_KEY"
-   topic : "<ADAFRUIT_AIO_USERNAME>/feeds/<ADAFRUIT_AIO_KEY>"
+   topic_motus: "<ADAFRUIT_AIO_USERNAME>/feeds/motus"
+   topic_temp: "<ADAFRUIT_AIO_USERNAME>/feeds/<STATION>-slash-temperature"
+   topic_pres: "<ADAFRUIT_AIO_USERNAME>/feeds/<STATION>-slash-pressure"
+   topic_humd: "<ADAFRUIT_AIO_USERNAME>/feeds/<STATION>-slash-humidity"
+   topic_voc:  "<ADAFRUIT_AIO_USERNAME>/feeds/<STATION>-slash-voc"
+
