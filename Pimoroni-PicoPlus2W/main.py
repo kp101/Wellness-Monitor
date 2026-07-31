@@ -332,7 +332,6 @@ try:
     #devices = i2c.scan()
     #print(devices) 
     bme = BreakoutBME69X(i2c, address=BME_I2C_ADR) 
-    #bme = BreakoutBME69X(i2c)
     bme.configure(filter=FILTER_COEFF_3, standby_time=STANDBY_TIME_1000_MS, os_pressure=OVERSAMPLING_16X, \
                   os_temp=OVERSAMPLING_4X, os_humidity=OVERSAMPLING_2X)
 
