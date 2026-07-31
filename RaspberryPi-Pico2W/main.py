@@ -1,3 +1,4 @@
+#!/micropython
 """
 MIT License
 
