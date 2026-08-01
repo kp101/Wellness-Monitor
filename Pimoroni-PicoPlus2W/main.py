@@ -33,31 +33,24 @@ to estimate indoor air quality as a percentage.
 Last update: July 31, 2026
 version 2.31, Advanced, added oled, clean up codes.
 """
-import time
-from machine import Pin, ADC, UART, Timer, unique_id, lightsleep
-from pimoroni import RGBLED, Button
-#from breakout_bme68x import BreakoutBME68X, STATUS_HEATER_STABLE
-from breakout_bme69x import BreakoutBME69X, STATUS_HEATER_STABLE, \
-     FILTER_COEFF_OFF, FILTER_COEFF_1, FILTER_COEFF_3, FILTER_COEFF_15, FILTER_COEFF_31, FILTER_COEFF_63, FILTER_COEFF_127, \
-     STANDBY_TIME_0_59_MS, STANDBY_TIME_62_5_MS, STANDBY_TIME_125_MS, STANDBY_TIME_500_MS, STANDBY_TIME_1000_MS, STANDBY_TIME_10_MS, STANDBY_TIME_20_MS, \
-     NO_OVERSAMPLING, OVERSAMPLING_1X, OVERSAMPLING_2X, OVERSAMPLING_4X, OVERSAMPLING_8X, OVERSAMPLING_16X 
-from pimoroni_i2c import PimoroniI2C
-from breakout_ltr559 import BreakoutLTR559
-#import simple
 from robust import MQTTClient
 from network_manager import NetworkManager
+import machine
+import time
+from breakout_bme68x import BreakoutBME68X, STATUS_HEATER_STABLE, \
+     FILTER_COEFF_3, STANDBY_TIME_1000_MS, OVERSAMPLING_16X, OVERSAMPLING_2X, OVERSAMPLING_1X, \
+     I2C_ADDRESS_DEFAULT, I2C_ADDRESS_ALT
 import uasyncio
 import utime
 import binascii
 import yaml
-import ujson
 import ssd1306
 
 def load_config(filename=None):
     path = filename or "config.yml"
    
     return yaml.load(path)
-
+    
 config = load_config()
 WIFI_SID = config['wifi']['ssid']
 WIFI_PSK = config['wifi']['psk']
@@ -89,7 +82,7 @@ BME_HEATER_TEMP = config['bme']['heater_temp']
 BME_HEATER_DURATION = config['bme']['heater_duration']
 BME_SDA = config['bme']['sda']
 BME_SCL = config['bme']['scl']
-# BME_POWER_PIN = config['bme']['pwr_pin']
+BME_POWER_PIN = config['bme']['pwr_pin']
 
 MMWAVE_SCAN_DURATION = config['mmwave']['scan_duration']
 MMWAVE_TX = config['mmwave']['tx_pin']
@@ -105,7 +98,7 @@ OLED_SCL = config['oled']['scl']
 OLED_WIDTH = config['oled']['width']
 OLED_HEIGHT = config['oled']['height']
 
-led = machine.Pin('LEDW', machine.Pin.OUT)
+led = machine.Pin('LED', machine.Pin.OUT) # only one led onboard.
 
 scan_count = 0
 net_retry = WIFI_RETRY
@@ -114,7 +107,7 @@ reboot_countdown = REBOOT_CYCLE
 temperature = 0.00
 humidity = 0.00
 gas_resistance = 0.00
-
+   
 def send_hex_string(hex_string):
     global soft_uart
     
@@ -132,9 +125,9 @@ def read_serial_data():
         try:
             if soft_uart.any():
                 data = soft_uart.readline()
-                #print("Received:", data)
                 if data:
                     data = data.decode('ascii')
+                    print("Received:", data)
                     data = data.replace("Range","").strip()
                     data = data.replace("ON","").strip()
                     data = data.replace("N","").strip()
@@ -142,7 +135,7 @@ def read_serial_data():
                         pass
                     if data.isdigit():
                         r = int(data)
-                        #print(f"distance:{r}" )
+                        print(f"distance:{r}" )
 
                     elif data.count('OFF') > 0:
                         r = 0
@@ -155,7 +148,7 @@ def read_serial_data():
             print(f"Error: {e}")
             pass
         finally:
-            utime.sleep_ms(1)
+            utime.sleep_ms(20)
         
     return r
     
@@ -164,13 +157,15 @@ def mmwave():
     
     hex_to_send = "FDFCFBFA0800120000006400000004030201"
     try:
+        soft_uart = machine.UART(MMWAVE_UART, baudrate=MMWAVE_BAUD, bits=8, parity=None, stop=1, tx=machine.Pin(MMWAVE_TX), rx=machine.Pin(MMWAVE_RX))
         send_hex_string(hex_to_send)
         print("initialize mmWave...")
         r = read_serial_data()
     except Exception as e:  
         print(e)
     finally:
-        return r      
+        return r
+    
 def status_handler(mode, status, ip):  # 
     global net_retry
     global oled
@@ -194,7 +189,7 @@ def status_handler(mode, status, ip):  #
     oled.show()    
     time.sleep(1)
     led.value(0)
-    
+
 def sos(repeat):
     global oled
     global led
@@ -223,7 +218,7 @@ def sos(repeat):
             time.sleep_ms(500)
         time.sleep_ms(1500)
     time.sleep(5)
-
+    
 # gather data from sensors. two sensors, mmwave and bme6xx.
 def check_sensors(timer):
     heater = "Unstable"    
@@ -241,6 +236,7 @@ def check_sensors(timer):
 
         distance = mmwave()
         print( f"mmwave:{distance}")
+        #payload = {"value": {"range": distance, "dev": DEVICE, "station": STATION }}
         
         scan_count = (scan_count + 1 ) % ENVIRO_UPDATE
         reboot_countdown = reboot_countdown - 1
@@ -274,22 +270,15 @@ def check_sensors(timer):
             time.sleep(3)
             mqtt_client = MQTTClient(client_id="", user=MQTT_UID, password=MQTT_PWD, server=MQTT_ADR, port=MQTT_PORT, ssl=True)
             mqtt_client.connect()
-            oled.fill(0)            
-            oled.text("mqtt connected.", 0,10)
+            oled.fill(0)
+            oled.text("uploading...", 0,10)
             oled.show()
 
             if distance > 0:
-                mqtt_client.publish(topic=MQTT_TOPIC_MOTUS, msg=STATION)
-                oled.fill(0)            
-                oled.text("proximity uploading...", 0,10)
-                oled.show()
+                mqtt_client.publish(topic=MQTT_TOPIC_MOTUS, msg=STATION)               
                 time.sleep(2)
                 
-            if scan_count == 1:
-                oled.fill(0)
-                oled.text("enviro uploading...", 0,10)
-                oled.show()
-                time.sleep(2)
+            if scan_count == 1:               
                 mqtt_client.publish(topic=MQTT_TOPIC_TEMP, msg="{:.2f}".format(temperature))
                 time.sleep(2)
                 mqtt_client.publish(topic=MQTT_TOPIC_PRES, msg="{:.2f}".format(pressure/1000))
@@ -297,9 +286,7 @@ def check_sensors(timer):
                 mqtt_client.publish(topic=MQTT_TOPIC_HUMD, msg="{:.2f}".format(humidity))
                 time.sleep(2)
                 mqtt_client.publish(topic=MQTT_TOPIC_VOC,  msg="{:.2f}".format(gas_resistance/1000))
-                time.sleep(2)
 
-            time.sleep_ms(5)            
             mqtt_client.disconnect()
             
         if distance > 0:            
@@ -323,18 +310,16 @@ def check_sensors(timer):
             
             
 try:
-    ## set up the Pico W's I2C
-    ## bme breakout connected to GPIO pin for power. bme only consumes a few mA of power-sufficient.
-    ## For Qw/ST (Qwiic/STEMMA QT) connector attaching breakouts
-    PINS_BREAKOUT_GARDEN = {"sda": BME_SDA, "scl": BME_SCL}
-    i2c = PimoroniI2C(**PINS_BREAKOUT_GARDEN)
-    ## uncomment following to scan I2C 0, confirm breakout address in decimal.
-    #devices = i2c.scan()
-    #print(devices) 
-    bme = BreakoutBME69X(i2c, address=BME_I2C_ADR) 
-    bme.configure(filter=FILTER_COEFF_3, standby_time=STANDBY_TIME_1000_MS, os_pressure=OVERSAMPLING_16X, \
-                  os_temp=OVERSAMPLING_4X, os_humidity=OVERSAMPLING_2X)
-
+    # initialize bme68x sensor. requires ~ 15mA, so a power from a GPIO pin should be sufficient.
+    pwr_bme = machine.Pin(BME_POWER_PIN, machine.Pin.OUT)
+    pwr_bme.value(1)
+    time.sleep(2)
+    bme_i2c = machine.I2C(BME_I2C, scl=machine.Pin(BME_SCL), sda=machine.Pin(BME_SDA))
+    #devices = bme_i2c.scan() # for troubleshooting...
+    #print(devices)           # This will print the addresses of connected I2C devices.
+    # bme could be on 0x76 or 0x77 change in config.yml as needed or use I2C_ADDRESS_DEFAULT, I2C_ADDRESS_ALT
+    bme = BreakoutBME68X(bme_i2c, BME_I2C_ADR)
+    bme.configure(FILTER_COEFF_3, STANDBY_TIME_1000_MS, OVERSAMPLING_16X, OVERSAMPLING_2X, OVERSAMPLING_1X)
     ## oled display SSD1306 on I2C
     pwr_oled = machine.Pin(OLED_POWER, machine.Pin.OUT)
     pwr_oled.value(2) 
@@ -343,27 +328,26 @@ try:
     ## devices = oled_i2c.scan()	# for troubleshooting...
     ## print(devices)         # This will print the addresses of connected I2C devices.
     oled = ssd1306.SSD1306_I2C(OLED_WIDTH, OLED_HEIGHT, oled_i2c, addr = OLED_I2C_ADDR)
-    
     # setup serial port.
-    soft_uart = machine.UART(MMWAVE_UART, baudrate=MMWAVE_BAUD, bits=8, parity=None, stop=1, tx=machine.Pin(MMWAVE_TX), rx=machine.Pin(MMWAVE_RX))
+    #soft_uart = machine.UART(MMWAVE_UART, baudrate=MMWAVE_BAUD, bits=8, parity=None, stop=1, tx=machine.Pin(MMWAVE_TX), rx=machine.Pin(MMWAVE_RX))
     #soft_uart = machine.UART(MMWAVE_UART, baudrate=MMWAVE_BAUD, tx=machine.Pin(MMWAVE_TX), rx=machine.Pin(MMWAVE_RX))    
-    
     # set up wifi
     network_manager = NetworkManager(WIFI_REGION, status_handler=status_handler)
-    uasyncio.get_event_loop().run_until_complete(network_manager.client(WIFI_SID, WIFI_PSK))
+    uasyncio.get_event_loop().run_until_complete(network_manager.client(WIFI_SID, WIFI_PSK))   
+    time.sleep(3)
 
     # Initialize Timer 0
     timer = machine.Timer()
     # Set the timer to periodic mode with a period of nx1000 milliseconds and attach the callback function
     timer.init(mode=machine.Timer.PERIODIC, period=PROXIMITY_CHECK, callback=check_sensors)
-    
+
     while True:
         time.sleep(60)
-
+        
 except Exception as e:  
     print(e)
     sos(10)
-    time.sleep(3)
+    time.sleep(11)
     machine.reset()
     
 except KeyboardInterrupt:
@@ -371,3 +355,4 @@ except KeyboardInterrupt:
     print("Timer stopped.")
 finally:
     print("shutting down.")
+
