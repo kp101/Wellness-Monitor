@@ -8,24 +8,16 @@
 #define WIFI_SSID         "<ssid>"
 #define WIFI_PASSWORD     "<password>"
 
-// Only used in local Mosquito broker
-//#define MQTT_HOST         "192.168.1.11"
-//#define MQTT_PORT         1883
-
 // Adafruit IO online broker credentials
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVER_PORT 8883
 #define AIO_USERNAME    "<IO_USERNAME>"
 #define AIO_KEY         "<IO_KEY>"
-#define AIO_FEED        "/feeds/backyard"
+#define AIO_FEED_TEMP   "/feeds/perimeter-slash-temperature"
+#define AIO_FEED_HUMD   "/feeds/perimeter-slash-humidity"
+#define AIO_FEED_PRES   "/feeds/perimeter-slash-pressure"
 #define DEVICE          "Adafruit ESP32-S2 Feather/bme280"
 #define STATION         "backyard"
-#define SENSOR          "sensor1"
-
-// hmmd_mmWave if used.
-#define TX_PIN 39
-#define RX_PIN 38
-#define BAUD_RATE 115200
 
 #define uS_TO_S_FACTOR 1000000  // Conversion factor for microseconds to seconds
 #define SECONDS_SLEEP 1800        // Time ESP32 will go to sleep (in seconds)
