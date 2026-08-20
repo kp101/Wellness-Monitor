@@ -17,15 +17,16 @@ This IoT updates Adafruit IO MQTT in the cloud. It will also work with local mos
 
 ## Software dependencies:
 
-Arduino IDE
+- Arduino IDE
+- On communicating with Adafruit IO's MQTT:
 
-On communicating with Adafruit IO's MQTT:
+> [!TIP]
+> The attaching of rootcert is required for secured connection. See code for detail,
+> alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
-The attaching of rootcert is required for secured connection. See code for detail,
 >[!CAUTION]
 > should leave client_id="" to avoid collision on multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
 > when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
-> alternative to mqtt, it is also possible to use the restful api on Adafruit IO.
 
 ## Installation Instructions:
 
