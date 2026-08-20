@@ -1,6 +1,6 @@
 # Adafruit ESP32 Feather S2 w/bme280
 
-The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor. Currently is is coded for remote monitoring of outdoor conditions with a battery pack. Contrary to popular criticism, this is actually very efficiently little device -- capable of 3 months or more running only on batteries.
+The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor. Currently it is coded for remote monitoring of outdoor conditions with a battery pack. Contrary to popular criticism, this is actually very efficiently little device -- capable of 3-5 months of running only on 2xAAA rechargeable batteries. 
 
 This IoT updates Adafruit IO MQTT in the cloud. It will also work with local mosquitto mqtt. 
 
@@ -26,7 +26,8 @@ This IoT updates Adafruit IO MQTT in the cloud. It will also work with local mos
 
 >[!CAUTION]
 > should leave client_id="" to avoid collision on multiple client with same client_id triggering random disconnects. (don't ask me how I know.)
-> when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text. 
+> when sending JSON to Adafruit IO mqtt, 'value={"xxx":yy}' is needed. Otherwise, send only number and text.
+> Use only lithium Ion batteries if you recharge on device.
 
 ## Installation Instructions:
 
