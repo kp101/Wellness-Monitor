@@ -19,7 +19,7 @@ One additional subscribing feature is for the use of NeoPixel in alerting hearin
 ## Hardware dependencies:
 
 1. Adafruit ESP32 Feather v2 HUZZAH32/8 MB Flash and 2 MB PSRAM/STEMMA QT,
-2. HMMD mmWave Sensor refer:[HMMD_mmWave](https://www.waveshare.com/wiki/HMMD_mmWave_Sensor_,
+2. HMMD mmWave Sensor refer:[HMMD_mmWave](https://www.waveshare.com/wiki/HMMD_mmWave_Sensor_),
 3. BME688 4-in-1 Air Quality Breakout (Gas, Temperature, Pressure, Humidity) refer: [pimoroni](https://shop.pimoroni.com/products/bme688-breakout?variant=39336951709779),
 4. a 5v power adaptor (a used phone charger between 1A-2A is sufficient.), cable should be as short as possible to avoid brownout.
 
