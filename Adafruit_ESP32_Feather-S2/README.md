@@ -1,12 +1,11 @@
 # Adafruit ESP32 Feather S2 w/bme280
 
-The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor. It is coded for remote monitoring of outdoor conditions with a battery pack. Contrary to popular criticism, this is actually very efficiently little device -- capable of 3-5 months of running only on 2xAAA rechargeable batteries. 
+The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor. It is coded for remote monitoring of outdoor conditions with a battery pack. Contrary to popular criticism, this is actually very efficiently little device -- capable of 3-5 months of running only on 2xAAA rechargeable batteries. Parameters can be changed in config.h
 
 ## Features:
 
 1. Adjustable scanning periods,
 2. publishing to an online MQTT broker with a secured 8883 connection,
-4. Settings can be changed in config.h.
 
 ## Hardware dependencies:
 
