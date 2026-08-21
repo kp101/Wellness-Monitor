@@ -1,8 +1,6 @@
 # Adafruit ESP32 Feather S2 w/bme280
 
-The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor. Currently it is coded for remote monitoring of outdoor conditions with a battery pack. Contrary to popular criticism, this is actually very efficiently little device -- capable of 3-5 months of running only on 2xAAA rechargeable batteries. 
-
-This IoT updates Adafruit IO MQTT in the cloud. It will also work with local mosquitto mqtt. 
+The following is a "C/C++" implementation using a Adafruit ESP32 Feather S2 with embedded bme280 sensor. It is coded for remote monitoring of outdoor conditions with a battery pack. Contrary to popular criticism, this is actually very efficiently little device -- capable of 3-5 months of running only on 2xAAA rechargeable batteries. 
 
 ## Features:
 
