@@ -7,7 +7,7 @@ This IoT updates Adafruit IO MQTT in the cloud. It will also work with local mos
 ## Features:
 
 1. Adjustable scanning periods,
-2. publishing to a secured MQTT broker with a secured 8883 connection,
+2. publishing to an online MQTT broker with a secured 8883 connection,
 4. Settings can be changed in config.h.
 
 ## Hardware dependencies:
