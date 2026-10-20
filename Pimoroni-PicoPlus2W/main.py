@@ -342,8 +342,9 @@ try:
     timer.init(mode=machine.Timer.PERIODIC, period=PROXIMITY_CHECK, callback=check_sensors)
 
     while True:
-        time.sleep(60)
-        
+        #time.sleep(60)
+        lightsleep(60)
+         
 except Exception as e:  
     print(e)
     sos(10)
