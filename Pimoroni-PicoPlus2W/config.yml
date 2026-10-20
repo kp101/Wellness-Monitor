@@ -22,7 +22,7 @@ mmwave:
 bme:
     i2c: 1
     i2c_adr: 118
-    scan_duration: 11000
+    scan_duration: 15000
     temp_offset: 2.5
     heater_temp: 149
     heater_duration: 97
